@@ -37,6 +37,10 @@ window/vsync/vsync_mode=0
 
 naming/script_name_casing=2
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/pixpal_tools/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
