@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxkullufptf2a"]
+
+[ext_resource type="PackedScene" uid="uid://c5fmdsym4w1vj" path="res://scenes/virtual/virtual_map.tscn" id="1_hrrr6"]
+[ext_resource type="PackedScene" uid="uid://dggfnl61wg3ud" path="res://_utests_and_debug_instruments/test_scenes/virtual_movement_tests/mock_controller.tscn" id="2_gdmes"]
+[ext_resource type="PackedScene" uid="uid://duqo6j0k20vgv" path="res://scenes/screen.tscn" id="3_bmkmx"]
+
+[node name="VirtualMap" instance=ExtResource("1_hrrr6")]
+
+[node name="MockController" parent="." index="0" instance=ExtResource("2_gdmes")]
+
+[node name="Screen" parent="." index="1" instance=ExtResource("3_bmkmx")]
