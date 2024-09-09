@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyv5g6qq626px"]
+
+[ext_resource type="Script" path="res://scenes/virtual/virtual_player.gd" id="1_84pnk"]
+
+[node name="VirtualPlayer" type="Node"]
+script = ExtResource("1_84pnk")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dggfnl61wg3ud"]
+
+[ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/virtual_movement_tests/mock_controller.gd" id="1_rhymd"]
+
+[node name="MockController" type="Node"]
+script = ExtResource("1_rhymd")
+
+[node name="cooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.75
+one_shot = true
