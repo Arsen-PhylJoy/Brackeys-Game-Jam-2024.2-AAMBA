@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://du6vm3dxivlih"]
+
+[ext_resource type="Script" path="res://addons/fps/addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_q7ga8"]
+[ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/fps/addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_hphuk"]
+[ext_resource type="PackedScene" uid="uid://c38ddo3aijdng" path="res://scenes/player_interactor.tscn" id="3_5ry73"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ux4fr"]
+size = Vector3(1.5, 1.8, 3)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uiaav"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o0xr3"]
+size = Vector3(1, 2, 1)
+
+[node name="Basic FPS Player" type="CharacterBody3D"]
+collision_mask = 2
+script = ExtResource("1_q7ga8")
+
+[node name="Head" parent="." instance=ExtResource("2_hphuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="PlayerInteractor" parent="Head" node_paths=PackedStringArray("player") instance=ExtResource("3_5ry73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0)
+player = NodePath("../..")
+
+[node name="CollisionShape3D" parent="Head/PlayerInteractor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.266, -1)
+shape = SubResource("BoxShape3D_ux4fr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_uiaav")
+
+[node name="InteractablesShape" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_o0xr3")
+
+[editable path="Head/PlayerInteractor"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://mkedfyivr6bv"]
+
+[ext_resource type="Script" path="res://scripts/test_interact.gd" id="1_sjhhj"]
+[ext_resource type="Script" path="res://scripts/interactable.gd" id="2_xv3s4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b6rmv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3f8a3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eq0v0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kygw6"]
+
+[node name="test_interact" type="Node3D"]
+script = ExtResource("1_sjhhj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_b6rmv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_3f8a3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_eq0v0")
+
+[node name="Interactable" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_xv3s4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_kygw6")
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
