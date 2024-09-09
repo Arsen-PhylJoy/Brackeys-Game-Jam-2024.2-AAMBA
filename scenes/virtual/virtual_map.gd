@@ -19,9 +19,9 @@ func _ready() -> void:
 	_init_vmap()
 
 func _connect_signals() -> void:
-	EventBus.player_moved.connect(_on_player_moved)
-	EventBus.player_turned_right.connect(_on_player_turned_right)
-	EventBus.player_turned_left.connect(_on_player_turned_left)
+	(get_tree().get_nodes_in_group("move_forward_interactable")[0] as Interactable).interacted.connect(_on_player_moved)
+	(get_tree().get_nodes_in_group("turn_left_interactable")[0] as Interactable).interacted.connect(_on_player_turned_left)
+	(get_tree().get_nodes_in_group("turn_right_interactable")[0] as Interactable).interacted.connect(_on_player_turned_right)
 
 func _init_vmap() -> void:
 	if(cells.size() == 0):

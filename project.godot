@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="GodotTemplate"
-run/main_scene="res://scenes/test.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
@@ -42,7 +41,14 @@ window/vsync/vsync_mode=0
 naming/script_name_casing=2
 
 [editor_plugins]
-enabled=PackedStringArray("res://addons/csg_toolkit/plugin.cfg", "res://addons/extra_snaps/plugin.cfg", "res://addons/licenses/plugin.cfg", "res://addons/logger/plugin.cfg", "res://addons/pixpal_tools/plugin.cfg", "res://addons/proximity_prompt/plugin.cfg", "res://addons/sound_manager/plugin.cfg","res://addons/fps/addons/Basic FPS Player/plugin.cfg", "res://addons/pixpal_tools/plugin.cfg")
+
+enabled=PackedStringArray("res://addons/csg_toolkit/plugin.cfg", "res://addons/extra_snaps/plugin.cfg", "res://addons/licenses/plugin.cfg", "res://addons/logger/plugin.cfg", "res://addons/pixpal_tools/plugin.cfg", "res://addons/proximity_prompt/plugin.cfg", "res://addons/sound_manager/plugin.cfg", "res://addons/fps/addons/Basic FPS Player/plugin.cfg", "res://addons/pixpal_tools/plugin.cfg")
+
+[global_group]
+
+turn_left_interactable=""
+turn_right_interactable=""
+move_forward_interactable=""
 
 [input]
 
