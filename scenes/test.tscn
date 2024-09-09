@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://caoa7abcr0hio"]
+[gd_scene load_steps=3 format=3 uid="uid://caoa7abcr0hio"]
 
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="1_kkhai"]
+[ext_resource type="PackedScene" uid="uid://mkedfyivr6bv" path="res://scenes/test_interact.tscn" id="2_gy0mr"]
 
 [node name="test" type="Node3D"]
 
@@ -8,9 +9,12 @@
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 5.74695, 3.35444)
 sky_mode = 1
 
-[node name="Basic FPS Player" parent="." instance=ExtResource("1_kkhai")]
-
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
 collision_layer = 2
 size = Vector3(10, 0.5, 10)
+
+[node name="Basic FPS Player" parent="." instance=ExtResource("1_kkhai")]
+
+[node name="test_interact" parent="." instance=ExtResource("2_gy0mr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73137, 0.300331, 3.11434)
