@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dahgl50e1sqj"]
 
-[ext_resource type="Script" path="res://scripts/interactor.gd" id="1_87dle"]
+[ext_resource type="Script" path="res://scenes/interactive/interactor.gd" id="1_87dle"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lqitk"]
 

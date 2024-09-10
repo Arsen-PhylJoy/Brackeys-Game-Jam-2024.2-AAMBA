@@ -1,0 +1,112 @@
+[gd_scene load_steps=14 format=3 uid="uid://di25k7h5pmn1i"]
+
+[ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/turn_left.gd" id="1_dxxue"]
+[ext_resource type="Script" path="res://scenes/interactive/interactable.gd" id="2_p32o5"]
+[ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/turn_right.gd" id="3_kn51q"]
+[ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/move_forward.gd" id="4_wr6ve"]
+[ext_resource type="PackedScene" uid="uid://duqo6j0k20vgv" path="res://scenes/screen.tscn" id="5_6s4tx"]
+[ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="6_eba6o"]
+[ext_resource type="PackedScene" uid="uid://c5fmdsym4w1vj" path="res://scenes/virtual/virtual_map.tscn" id="7_rjfei"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t2yg0"]
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8e76n"]
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yjlv0"]
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5l1jm"]
+height = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_1s05s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mioe7"]
+
+[node name="Game" type="Node3D"]
+
+[node name="TurnLeft" type="Node3D" parent="."]
+transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, -1.824, 1, -1.139)
+script = ExtResource("1_dxxue")
+
+[node name="TurnLeftMesh" type="MeshInstance3D" parent="TurnLeft"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.4, 0)
+mesh = SubResource("CylinderMesh_t2yg0")
+skeleton = NodePath("../../Screen")
+
+[node name="Interactable" type="Area3D" parent="TurnLeft" groups=["turn_left_interactable"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_p32o5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TurnLeft/Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+shape = SubResource("CylinderShape3D_8e76n")
+
+[node name="TurnRight" type="Node3D" parent="."]
+transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, 2.876, 1, -1.139)
+script = ExtResource("3_kn51q")
+
+[node name="TurnRightMesh" type="MeshInstance3D" parent="TurnRight"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, -0.4, 0)
+mesh = SubResource("CylinderMesh_t2yg0")
+skeleton = NodePath("../../Screen")
+
+[node name="Interactable" type="Area3D" parent="TurnRight" groups=["turn_right_interactable"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_p32o5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TurnRight/Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+shape = SubResource("CylinderShape3D_yjlv0")
+
+[node name="MoveForward" type="Node3D" parent="."]
+transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, 0.168, 1, 0.484)
+script = ExtResource("4_wr6ve")
+
+[node name="MoveForwardMesh" type="MeshInstance3D" parent="MoveForward"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.4, 0)
+mesh = SubResource("CylinderMesh_t2yg0")
+skeleton = NodePath("../../Screen")
+
+[node name="Interactable" type="Area3D" parent="MoveForward" groups=["move_forward_interactable"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_p32o5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveForward/Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+shape = SubResource("CylinderShape3D_5l1jm")
+
+[node name="Screen" parent="." instance=ExtResource("5_6s4tx")]
+transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, 0, 1.23344, -1.92814)
+
+[node name="Basic FPS Player" parent="." instance=ExtResource("6_eba6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55672, 1.33433, 1.73117)
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(12.1202, 0, 0, 0, 1, 0, 0, 0, 7.44176, 1.49449, -0.356247, 1.57504)
+mesh = SubResource("BoxMesh_1s05s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_mioe7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.616563, -0.329153, 0.715198, -0.0215926, 0.901001, 0.433279, -0.787009, -0.282587, 0.548417, 0, 0, 0)
+
+[node name="VirtualMap" parent="." instance=ExtResource("7_rjfei")]
+
+[connection signal="focused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_focused"]
+[connection signal="interacted" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_interacted"]
+[connection signal="unfocused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_unfocused"]
+[connection signal="focused" from="TurnRight/Interactable" to="TurnRight" method="_on_interactable_focused"]
+[connection signal="interacted" from="TurnRight/Interactable" to="TurnRight" method="_on_interactable_interacted"]
+[connection signal="unfocused" from="TurnRight/Interactable" to="TurnRight" method="_on_interactable_unfocused"]
+[connection signal="focused" from="MoveForward/Interactable" to="MoveForward" method="_on_interactable_focused"]
+[connection signal="interacted" from="MoveForward/Interactable" to="MoveForward" method="_on_interactable_interacted"]
+[connection signal="unfocused" from="MoveForward/Interactable" to="MoveForward" method="_on_interactable_unfocused"]
