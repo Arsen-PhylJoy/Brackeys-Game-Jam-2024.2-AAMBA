@@ -30,7 +30,7 @@ func _init_vmap() -> void:
 			cells.append(cell_res)
 	print("Player pos: " + str(_player_pos) + " ON CELL: " + "Go to index: " + str((_player_pos.x + _player.player_direction.x)*_columns + (_player_pos.y + _player.player_direction.y))+ " or " + "[" +str((_player_pos.x + _player.player_direction.x)) +","+str(_player_pos.y + _player.player_direction.y)+ "]" + " type: " + str(cells[_player_pos.x*_columns + _player_pos.y].visual.load_path))
 
-func _on_player_moved() -> void:
+func _on_player_moved(interactor: Interactor) -> void:
 	print("MOVING")
 	_player_pos += _player.player_direction
 	print("Player pos: " + str(_player_pos) + " ON CELL: " + "Go to index: " + str((_player_pos.x + _player.player_direction.x)*_columns + (_player_pos.y + _player.player_direction.y))+ " or " + "[" +str((_player_pos.x + _player.player_direction.x)) +","+str(_player_pos.y + _player.player_direction.y)+ "]" + " type: " + str(cells[_player_pos.x*_columns + _player_pos.y].visual.load_path))
@@ -47,7 +47,7 @@ func _on_player_moved() -> void:
 
 
 #Counterclockwise
-func _on_player_turned_right() -> void:
+func _on_player_turned_right(interactor: Interactor) -> void:
 	if(_player.player_direction == Vector2(0,1)):
 		_player.player_direction = Vector2(1,0)
 	elif(_player.player_direction == Vector2(1,0)):
@@ -61,7 +61,7 @@ func _on_player_turned_right() -> void:
 	print("Player pos: " + str(_player_pos) + " ON CELL: " + "Go to index: " + str((_player_pos.x + _player.player_direction.x)*_columns + (_player_pos.y + _player.player_direction.y))+ " or " + "[" +str((_player_pos.x + _player.player_direction.x)) +","+str(_player_pos.y + _player.player_direction.y)+ "]" + " type: " + str(cells[_player_pos.x*_columns + _player_pos.y].visual.load_path))
 
 #Clockwised
-func _on_player_turned_left() -> void:
+func _on_player_turned_left(interactor: Interactor) -> void:
 	if(_player.player_direction == Vector2(0,1)):
 		_player.player_direction = Vector2(0,-1)
 	elif(_player.player_direction == Vector2(0,-1)):

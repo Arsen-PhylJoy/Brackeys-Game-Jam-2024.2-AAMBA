@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="GodotTemplate"
+run/main_scene="res://_utests_and_debug_instruments/test_scenes/test_game_day2/game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
