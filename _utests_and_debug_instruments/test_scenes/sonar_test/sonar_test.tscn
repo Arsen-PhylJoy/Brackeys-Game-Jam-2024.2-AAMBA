@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk86rtt3hdjm8"]
+
+[ext_resource type="PackedScene" uid="uid://tj2a8hn60yt3" path="res://scenes/ui/sonar.tscn" id="1_888lt"]
+[ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/sonar_test/sonar_test.gd" id="1_ehsvf"]
+
+[node name="SonarTest" type="CanvasLayer"]
+script = ExtResource("1_ehsvf")
+
+[node name="Sonar" parent="." instance=ExtResource("1_888lt")]
+unique_name_in_owner = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.142
+anchor_bottom = 0.136
+offset_right = 0.416
+offset_bottom = -0.128006
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="+Radius" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ADD +1 RADIUS (MAX 5)"
+
+[node name="-Radius" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Lower -1 RADIUS (MIN 1)"
