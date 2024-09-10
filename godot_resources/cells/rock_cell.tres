@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Cell" load_steps=2 format=3 uid="uid://bs5vcaiq0wrbg"]
+
+[ext_resource type="Script" path="res://godot_resources/cell.gd" id="1_15uqr"]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "RockCell"
+script = ExtResource("1_15uqr")
+type = 0

@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://tj2a8hn60yt3"]
+
+[ext_resource type="Script" path="res://scenes/ui/sonar.gd" id="1_yv1xi"]
+[ext_resource type="Texture2D" uid="uid://b5xhiclsd4ofn" path="res://assets/ui/sonar_background.png" id="2_cxges"]
+[ext_resource type="Texture2D" uid="uid://ben4mcshs14ua" path="res://assets/ui/player_arrow_rightleftpng.png" id="3_gd6w8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8u3oh"]
+texture = ExtResource("2_cxges")
+
+[node name="Sonar" type="AspectRatioContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yv1xi")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8u3oh")
+
+[node name="GridAspectRatio" type="AspectRatioContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.157
+anchor_right = 0.841
+anchor_bottom = 0.821
+offset_left = 0.287994
+offset_top = 0.264
+offset_right = 0.0319824
+offset_bottom = -0.00799561
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CellsGridContainer" type="GridContainer" parent="Panel/GridAspectRatio"]
+unique_name_in_owner = true
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerArrowTex" type="TextureRect" parent="Panel/GridAspectRatio/CellsGridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_gd6w8")
+expand_mode = 1
+stretch_mode = 5

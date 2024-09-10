@@ -23,3 +23,14 @@ func _update_visual_state() ->void:
 		visual = load("res://_utests_and_debug_instruments/assets/finish.png") as CompressedTexture2D
 	elif(type == cell_type.FREE):
 		visual = load("res://_utests_and_debug_instruments/assets/free.png") as CompressedTexture2D
+
+func _get_name_of_cell() -> String:
+	if(type == cell_type.FREE):
+		return "FREE"
+	elif(type == cell_type.ROCK):
+		return "ROCK"
+	elif(type == cell_type.FINISH):
+		return "FINISH"
+	elif(type == cell_type.ENEMY):
+		return "ENEMY"
+	return "ERROR CELL"

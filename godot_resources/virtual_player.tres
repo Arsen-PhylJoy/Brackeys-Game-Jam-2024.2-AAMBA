@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="VirtualPlayer" load_steps=2 format=3 uid="uid://qk1ab4x4kls8"]
+
+[ext_resource type="Script" path="res://godot_resources/virtual_player.gd" id="1_cvfj4"]
+
+[resource]
+script = ExtResource("1_cvfj4")
+hp = 2

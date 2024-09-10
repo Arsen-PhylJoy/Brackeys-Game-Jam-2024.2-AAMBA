@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp30jmwnmok6n"]
+
+[ext_resource type="Script" path="res://scenes/virtual/virtual_environment.gd" id="1_vo1ee"]
+
+[node name="VirtualMap" type="Node"]
+script = ExtResource("1_vo1ee")
