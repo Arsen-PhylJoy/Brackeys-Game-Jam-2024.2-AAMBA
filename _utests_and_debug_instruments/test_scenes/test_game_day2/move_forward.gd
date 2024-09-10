@@ -12,12 +12,10 @@ func _process(delta: float) -> void:
 
 
 func _on_interactable_focused(interactor: Interactor) -> void:
-	print('focused')
-
+	print("forward - focused")
 
 func _on_interactable_interacted(interactor: Interactor) -> void:
-	print('interacted')
-
+	print("forward - interacted")
 
 func _on_interactable_unfocused(interactor: Interactor) -> void:
-	print('unfocused')
+	print("forward - unfocused")

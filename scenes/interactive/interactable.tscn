@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0q3jksdocy0r"]
 
-[ext_resource type="Script" path="res://scripts/interactable.gd" id="1_mpwdd"]
+[ext_resource type="Script" path="res://scenes/interactive/interactable.gd" id="1_qi6qq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5ph0"]
+resource_local_to_scene = true
+size = Vector3(0.107178, 1, 0.129944)
 
 [node name="Interactable" type="Area3D"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_mpwdd")
+script = ExtResource("1_qi6qq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_v5ph0")

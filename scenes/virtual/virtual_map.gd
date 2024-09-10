@@ -19,9 +19,9 @@ func _ready() -> void:
 	_init_vmap()
 
 func _connect_signals() -> void:
-	EventBus.player_moved.connect(_on_player_moved)
-	EventBus.player_turned_right.connect(_on_player_turned_right)
-	EventBus.player_turned_left.connect(_on_player_turned_left)
+	(get_tree().get_nodes_in_group("move_forward_interactable")[0] as Interactable).interacted.connect(_on_player_moved)
+	(get_tree().get_nodes_in_group("turn_left_interactable")[0] as Interactable).interacted.connect(_on_player_turned_left)
+	(get_tree().get_nodes_in_group("turn_right_interactable")[0] as Interactable).interacted.connect(_on_player_turned_right)
 
 func _init_vmap() -> void:
 	if(cells.size() == 0):
@@ -30,7 +30,7 @@ func _init_vmap() -> void:
 			cells.append(cell_res)
 	print("Player pos: " + str(_player_pos) + " ON CELL: " + "Go to index: " + str((_player_pos.x + _player.player_direction.x)*_columns + (_player_pos.y + _player.player_direction.y))+ " or " + "[" +str((_player_pos.x + _player.player_direction.x)) +","+str(_player_pos.y + _player.player_direction.y)+ "]" + " type: " + str(cells[_player_pos.x*_columns + _player_pos.y].visual.load_path))
 
-func _on_player_moved() -> void:
+func _on_player_moved(interactor: Interactor) -> void:
 	print("MOVING")
 	_player_pos += _player.player_direction
 	print("Player pos: " + str(_player_pos) + " ON CELL: " + "Go to index: " + str((_player_pos.x + _player.player_direction.x)*_columns + (_player_pos.y + _player.player_direction.y))+ " or " + "[" +str((_player_pos.x + _player.player_direction.x)) +","+str(_player_pos.y + _player.player_direction.y)+ "]" + " type: " + str(cells[_player_pos.x*_columns + _player_pos.y].visual.load_path))
@@ -47,7 +47,7 @@ func _on_player_moved() -> void:
 
 
 #Counterclockwise
-func _on_player_turned_right() -> void:
+func _on_player_turned_right(interactor: Interactor) -> void:
 	if(_player.player_direction == Vector2(0,1)):
 		_player.player_direction = Vector2(1,0)
 	elif(_player.player_direction == Vector2(1,0)):
@@ -61,7 +61,7 @@ func _on_player_turned_right() -> void:
 	print("Player pos: " + str(_player_pos) + " ON CELL: " + "Go to index: " + str((_player_pos.x + _player.player_direction.x)*_columns + (_player_pos.y + _player.player_direction.y))+ " or " + "[" +str((_player_pos.x + _player.player_direction.x)) +","+str(_player_pos.y + _player.player_direction.y)+ "]" + " type: " + str(cells[_player_pos.x*_columns + _player_pos.y].visual.load_path))
 
 #Clockwised
-func _on_player_turned_left() -> void:
+func _on_player_turned_left(interactor: Interactor) -> void:
 	if(_player.player_direction == Vector2(0,1)):
 		_player.player_direction = Vector2(0,-1)
 	elif(_player.player_direction == Vector2(0,-1)):
