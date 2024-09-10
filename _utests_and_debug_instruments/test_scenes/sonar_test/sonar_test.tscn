@@ -21,7 +21,7 @@ size_flags_vertical = 3
 [node name="+Radius" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "ADD +1 RADIUS (MAX 3)"
+text = "ADD +1 RADIUS (MAX 5)"
 
 [node name="-Radius" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true

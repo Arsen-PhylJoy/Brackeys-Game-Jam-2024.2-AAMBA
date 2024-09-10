@@ -30,7 +30,6 @@ func _init_venv() -> void:
 	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
 
 func _on_player_moved(interactor: Interactor) -> void:
-	print("MOVING")
 	_player_pos += _player.player_direction
 	if(vmap.get_cell_type_at_position(_player_pos) == Cell.cell_type.ROCK):
 		_player_pos-=_player.player_direction
@@ -39,12 +38,12 @@ func _on_player_moved(interactor: Interactor) -> void:
 		_player_pos-=_player.player_direction
 		_player.hp-=2
 	if(vmap.get_cell_type_at_position(_player_pos) == Cell.cell_type.FINISH):
-		print("WIN")
+		pass
 	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
 	virtual_map_relative_to_player_updated.emit(vmap,_player_pos)
 
 
-#Counterclockwise (y,x)
+#Counterclockwise
 func _on_player_turned_right(interactor: Interactor) -> void:
 	if(_player.player_direction == Vector2.DOWN):
 		_player.player_direction = Vector2.RIGHT
@@ -57,7 +56,7 @@ func _on_player_turned_right(interactor: Interactor) -> void:
 	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
 	player_direction_changed.emit(_player.player_direction)
 
-#Clockwised (y,x)
+#Clockwised
 func _on_player_turned_left(interactor: Interactor) -> void:
 	if(_player.player_direction == Vector2.DOWN):
 		_player.player_direction = Vector2.LEFT
@@ -69,8 +68,3 @@ func _on_player_turned_left(interactor: Interactor) -> void:
 		_player.player_direction = Vector2.DOWN
 	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
 	player_direction_changed.emit(_player.player_direction)
-
-#func _print_debug_info()-> void:
-	#print("Player pos: " + str(_player_pos) + ", Player direction: " + str(_player.player_direction) + ", Player index in array: " + str(_player_pos.x*vmap._columns + _player_pos.y))
-	#print("Inspecting cell to go to: " + str((_player_pos.x + _player.player_direction.x)*vmap._columns + (_player_pos.y + _player.player_direction.y)))
-	#print("Player pos and cell: " + str(_player_pos))

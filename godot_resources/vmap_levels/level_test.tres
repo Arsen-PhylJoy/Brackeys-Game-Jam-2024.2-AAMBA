@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://godot_resources/cell.gd" id="1_wqu5a"]
 [ext_resource type="Script" path="res://godot_resources/virtual_map.gd" id="2_a1rdk"]
-[ext_resource type="Resource" uid="uid://cd1euwi7jdu4u" path="res://godot_resources/cells/finish_cell.tres" id="2_eb50v"]
-[ext_resource type="Resource" uid="uid://bs5vcaiq0wrbg" path="res://godot_resources/cells/rock_cell.tres" id="2_nkx5d"]
-[ext_resource type="Resource" uid="uid://cab1l2v0kgbg2" path="res://godot_resources/cells/free_cell.tres" id="3_fni10"]
-[ext_resource type="Resource" uid="uid://bn0k84pfjmvoi" path="res://godot_resources/cells/enemy_cell.tres" id="4_imc4d"]
+[ext_resource type="Resource" uid="uid://bs5vcaiq0wrbg" path="res://godot_resources/cells/rock_cell.tres" id="2_poecv"]
+[ext_resource type="Resource" uid="uid://cab1l2v0kgbg2" path="res://godot_resources/cells/free_cell.tres" id="3_apf1t"]
+[ext_resource type="Resource" uid="uid://bn0k84pfjmvoi" path="res://godot_resources/cells/enemy_cell.tres" id="4_63mug"]
+[ext_resource type="Resource" uid="uid://cd1euwi7jdu4u" path="res://godot_resources/cells/finish_cell.tres" id="5_gmwlu"]
 
 [resource]
 script = ExtResource("2_a1rdk")
-cells = Array[ExtResource("1_wqu5a")]([ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("3_fni10"), ExtResource("3_fni10"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("4_imc4d"), ExtResource("3_fni10"), ExtResource("3_fni10"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_eb50v"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d"), ExtResource("2_nkx5d")])
+cells = Array[ExtResource("1_wqu5a")]([ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("3_apf1t"), ExtResource("3_apf1t"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("4_63mug"), ExtResource("3_apf1t"), ExtResource("3_apf1t"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("5_gmwlu"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("2_poecv"), ExtResource("2_poecv")])
