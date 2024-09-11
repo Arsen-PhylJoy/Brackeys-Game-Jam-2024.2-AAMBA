@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="VirtualMap" load_steps=3 format=3 uid="uid://cvc7uw7jt26s3"]
+
+[ext_resource type="Script" path="res://godot_resources/cells/cell.gd" id="1_vg874"]
+[ext_resource type="Script" path="res://godot_resources/vmap_levels/virtual_map.gd" id="2_3enws"]
+
+[resource]
+script = ExtResource("2_3enws")
+cells = Array[ExtResource("1_vg874")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])

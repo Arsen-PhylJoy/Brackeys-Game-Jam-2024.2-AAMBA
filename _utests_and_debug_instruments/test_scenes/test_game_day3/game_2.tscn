@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjauw8kwi7b6x"]
+[gd_scene load_steps=21 format=3 uid="uid://cjauw8kwi7b6x"]
 
 [ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/turn_left.gd" id="1_dyc27"]
 [ext_resource type="Script" path="res://scenes/interactive/interactable.gd" id="2_1iofq"]
@@ -8,7 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="6_g1jr6"]
 [ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="7_hm35q"]
 [ext_resource type="PackedScene" uid="uid://tj2a8hn60yt3" path="res://scenes/ui/sonar.tscn" id="8_ugef1"]
-[ext_resource type="Resource" uid="uid://bseaewl7fjnpk" path="res://godot_resources/vmap_levels/level_test.tres" id="9_202ui"]
+[ext_resource type="Script" path="res://godot_resources/cells/cell.gd" id="9_iin0v"]
+[ext_resource type="Resource" uid="uid://bs5vcaiq0wrbg" path="res://godot_resources/cells/rock_cell.tres" id="10_yq56v"]
+[ext_resource type="Resource" uid="uid://cab1l2v0kgbg2" path="res://godot_resources/cells/free_cell.tres" id="11_8x16f"]
+[ext_resource type="Resource" uid="uid://cd1euwi7jdu4u" path="res://godot_resources/cells/finish_cell.tres" id="12_4crhp"]
+[ext_resource type="Script" path="res://godot_resources/vmap_levels/virtual_map.gd" id="13_fkwfv"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_t2yg0"]
 height = 1.0
@@ -25,6 +29,10 @@ height = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_1s05s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mioe7"]
+
+[sub_resource type="Resource" id="Resource_2h7i0"]
+script = ExtResource("13_fkwfv")
+cells = Array[ExtResource("9_iin0v")]([ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("11_8x16f"), ExtResource("11_8x16f"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("11_8x16f"), ExtResource("11_8x16f"), ExtResource("11_8x16f"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("11_8x16f"), ExtResource("11_8x16f"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("11_8x16f"), ExtResource("11_8x16f"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("11_8x16f"), ExtResource("11_8x16f"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("12_4crhp"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v"), ExtResource("10_yq56v")])
 
 [node name="Game" type="Node3D"]
 
@@ -111,7 +119,7 @@ shape = SubResource("BoxShape3D_mioe7")
 transform = Transform3D(0.616563, -0.329153, 0.715198, -0.0215926, 0.901001, 0.433279, -0.787009, -0.282587, 0.548417, 0, 0, 0)
 
 [node name="VirtualMap" parent="." instance=ExtResource("7_hm35q")]
-vmap = ExtResource("9_202ui")
+vmap = SubResource("Resource_2h7i0")
 
 [connection signal="focused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_focused"]
 [connection signal="interacted" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_interacted"]
