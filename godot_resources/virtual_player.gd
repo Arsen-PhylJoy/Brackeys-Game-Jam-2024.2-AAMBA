@@ -11,6 +11,13 @@ var player_direction: Vector2 = Vector2(0,1)
 		if(hp <= 0):
 			player_dead.emit()
 
+@export var air: int = 10:
+	set(value):
+		air = value
+		EventBus.on_air_value_change.emit(air)
+		if(air <= 0):
+			player_dead.emit()
+
 func _init()-> void:
 	_connect_signals()
 	

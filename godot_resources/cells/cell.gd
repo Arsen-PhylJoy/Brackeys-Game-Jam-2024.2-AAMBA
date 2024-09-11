@@ -2,7 +2,7 @@ class_name Cell
 extends Resource
 
 
-enum cell_type{ROCK, ENEMY, FINISH, FREE}
+enum cell_type{ROCK, ENEMY, FINISH, FREE, AIR}
 
 @export var type: cell_type = cell_type.FREE:
 	set(value):
@@ -23,6 +23,8 @@ func _update_visual_state() ->void:
 		visual = load("res://_utests_and_debug_instruments/assets/finish.png") as CompressedTexture2D
 	elif(type == cell_type.FREE):
 		visual = load("res://_utests_and_debug_instruments/assets/free.png") as CompressedTexture2D
+	elif(type == cell_type.AIR):
+		visual = load("res://_utests_and_debug_instruments/assets/air.png") as CompressedTexture2D
 
 func _get_name_of_cell() -> String:
 	if(type == cell_type.FREE):
@@ -33,4 +35,6 @@ func _get_name_of_cell() -> String:
 		return "FINISH"
 	elif(type == cell_type.ENEMY):
 		return "ENEMY"
+	elif(type == cell_type.AIR):
+		return "AIR"
 	return "ERROR CELL"
