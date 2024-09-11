@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="VirtualMap" load_steps=9 format=3 uid="uid://jjitux2t22gi"]
+
+[ext_resource type="Script" path="res://godot_resources/cells/cell.gd" id="1_7cw4v"]
+[ext_resource type="Resource" uid="uid://bs5vcaiq0wrbg" path="res://godot_resources/cells/rock_cell.tres" id="2_1fhgr"]
+[ext_resource type="Resource" uid="uid://cd1euwi7jdu4u" path="res://godot_resources/cells/finish_cell.tres" id="3_hnf88"]
+[ext_resource type="Resource" uid="uid://cab1l2v0kgbg2" path="res://godot_resources/cells/free_cell.tres" id="4_r12jw"]
+[ext_resource type="Resource" uid="uid://bn0k84pfjmvoi" path="res://godot_resources/cells/enemy_cell.tres" id="5_cvik2"]
+[ext_resource type="Resource" uid="uid://dtmkbj4lfu2bg" path="res://godot_resources/cells/air_cell.tres" id="6_5eu3d"]
+[ext_resource type="Resource" uid="uid://cachs76dqgqh5" path="res://godot_resources/cells/destructable.tres" id="7_cxs4h"]
+[ext_resource type="Script" path="res://godot_resources/vmap_levels/virtual_map.gd" id="8_87svy"]
+
+[resource]
+script = ExtResource("8_87svy")
+cells = Array[ExtResource("1_7cw4v")]([ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("3_hnf88"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("4_r12jw"), ExtResource("2_1fhgr"), ExtResource("4_r12jw"), ExtResource("4_r12jw"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("4_r12jw"), ExtResource("2_1fhgr"), ExtResource("4_r12jw"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("5_cvik2"), ExtResource("6_5eu3d"), ExtResource("7_cxs4h"), ExtResource("6_5eu3d"), ExtResource("5_cvik2"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("4_r12jw"), ExtResource("4_r12jw"), ExtResource("2_1fhgr"), ExtResource("4_r12jw"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr"), ExtResource("2_1fhgr")])
+_default_player_direction = Vector2(-1, 0)
+_default_player_spawn = Vector2(5, 2)

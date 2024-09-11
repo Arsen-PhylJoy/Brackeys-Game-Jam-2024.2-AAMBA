@@ -73,7 +73,6 @@ func _on_player_direction_changed(dir: Vector2) -> void:
 		_player_arrow_tex_rect.flip_h = true
 
 func _on_virtual_map_relative_to_player_updated(vmap: VirtualMap, player_pos: Vector2) -> void:
-	vmap._print_debug_map()
 	var player_index: int = vmap.get_index_at_position(player_pos)
 	var sub_array: Array[Cell]
 	var tmp_vmap: VirtualMap = VirtualMap.new()
