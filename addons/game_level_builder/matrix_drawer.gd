@@ -55,6 +55,7 @@ func _connect_signals() -> void:
 	select_left_player_spawn.pressed.connect(_on_select_select_left_player_spawn_color_pressed)
 
 func _create_matrix(dimension: int) -> void:
+	_is_player_cell_filled = false
 	for text_but: TextureButton in _button_texture_pool:
 		text_but.free()
 	_button_texture_pool.clear()
@@ -116,13 +117,14 @@ func load_vmap(vmap: VirtualMap) -> void:
 	_connect_cells()
 
 func _on_cell_pressed() -> void:
+	print(_is_player_cell_filled)
 	var _current_button: TextureButton
 	for i: int in range(_button_texture_pool.size()):
 		if(_button_texture_pool[i].button_pressed == true):
 			_current_button = _button_texture_pool[i]
 			_button_texture_pool[i].button_pressed = false
-			if(_current_button.texture_normal == _texture_up_player_spawn_tex or _current_button.texture_normal == _texture_select_down_player_spawn_tex or _current_button.texture_normal == _texture_select_right_player_spawn_tex or _current_button.texture_normal == _texture_select_left_player_spawn_tex):
-				_is_player_cell_filled = false
+	if(_current_button.texture_normal == _texture_up_player_spawn_tex or _current_button.texture_normal == _texture_select_down_player_spawn_tex or _current_button.texture_normal == _texture_select_right_player_spawn_tex or _current_button.texture_normal == _texture_select_left_player_spawn_tex):
+		_is_player_cell_filled = false
 	if(current_color == color.FREE):
 		_current_button.texture_normal = _texture_free_tex
 	elif(current_color == color.ROCK):
@@ -135,6 +137,8 @@ func _on_cell_pressed() -> void:
 		_current_button.texture_normal = _texture_air_tex
 	elif(current_color == color.DESTRUCTABLE):
 		_current_button.texture_normal = _texture_destructable_tex
+		if(_current_button.texture_normal == _texture_up_player_spawn_tex or _current_button.texture_normal == _texture_select_down_player_spawn_tex or _current_button.texture_normal == _texture_select_right_player_spawn_tex or _current_button.texture_normal == _texture_select_left_player_spawn_tex):
+			_is_player_cell_filled = false
 	elif(current_color == color.PUP and !_is_player_cell_filled):
 		_is_player_cell_filled = true
 		_current_button.texture_normal = _texture_up_player_spawn_tex
