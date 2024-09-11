@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VirtualMap" load_steps=7 format=3 uid="uid://bco1g25fvwfb7"]
+
+[ext_resource type="Script" path="res://godot_resources/cells/cell.gd" id="1_pssgl"]
+[ext_resource type="Resource" uid="uid://bs5vcaiq0wrbg" path="res://godot_resources/cells/rock_cell.tres" id="2_nc8k1"]
+[ext_resource type="Resource" uid="uid://cab1l2v0kgbg2" path="res://godot_resources/cells/free_cell.tres" id="3_rmh4g"]
+[ext_resource type="Resource" uid="uid://bn0k84pfjmvoi" path="res://godot_resources/cells/enemy_cell.tres" id="4_4fjoe"]
+[ext_resource type="Resource" uid="uid://cd1euwi7jdu4u" path="res://godot_resources/cells/finish_cell.tres" id="5_ru3su"]
+[ext_resource type="Script" path="res://godot_resources/vmap_levels/virtual_map.gd" id="6_fgsl0"]
+
+[resource]
+script = ExtResource("6_fgsl0")
+cells = Array[ExtResource("1_pssgl")]([ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("3_rmh4g"), ExtResource("3_rmh4g"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("4_4fjoe"), ExtResource("3_rmh4g"), ExtResource("3_rmh4g"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("5_ru3su"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1"), ExtResource("2_nc8k1")])
