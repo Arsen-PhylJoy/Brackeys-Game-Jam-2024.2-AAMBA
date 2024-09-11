@@ -9,6 +9,9 @@ extends Control
 @onready var _cell_rock: Cell = preload("res://godot_resources/cells/rock_cell.tres")
 @onready var _cell_enemy: Cell = preload("res://godot_resources/cells/enemy_cell.tres")
 @onready var _cell_finish: Cell = preload("res://godot_resources/cells/finish_cell.tres")
+@onready var _cell_air: Cell = preload("res://godot_resources/cells/air_cell.tres")
+@onready var _cell_destructable: Cell = preload("res://godot_resources/cells/destructable.tres")
+
 
 var _textures_array: Array[TextureButton]
 
@@ -37,6 +40,22 @@ func _on_save_level_pressed() -> void:
 			tmp_cell = _cell_enemy
 		elif(_textures_array[i].texture_normal == _matrix_drawer._texture_finish_tex):
 			tmp_cell = _cell_finish
+		elif(_textures_array[i].texture_normal == _matrix_drawer._texture_air_tex):
+			tmp_cell = _cell_air
+		elif(_textures_array[i].texture_normal == _matrix_drawer._texture_destructable_tex):
+			tmp_cell = _cell_destructable
+		else:
+			vmap_saving._default_player_spawn = Vector2(i%(sqrt(_textures_array.size()) as int),i/(sqrt(_textures_array.size()) as int))
+			print("Save location: " + str(i%(sqrt(_textures_array.size()) as int)) + "," +str(i/(sqrt(_textures_array.size()) as int)))
+			tmp_cell = _cell_free
+			if(_textures_array[i].texture_normal == _matrix_drawer._texture_up_player_spawn_tex):
+				vmap_saving._default_player_direction = Vector2(0,-1)
+			elif(_textures_array[i].texture_normal == _matrix_drawer._texture_select_down_player_spawn_tex):
+				vmap_saving._default_player_direction = Vector2(0,1)
+			elif(_textures_array[i].texture_normal == _matrix_drawer._texture_select_right_player_spawn_tex):
+				vmap_saving._default_player_direction = Vector2(1,0)
+			elif(_textures_array[i].texture_normal == _matrix_drawer._texture_select_left_player_spawn_tex):
+				vmap_saving._default_player_direction = Vector2(-1,0)
 		vmap_saving.cells.append(tmp_cell)
 	var time: String = Time.get_time_string_from_system()
 	for ch: int in time.length():

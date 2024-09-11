@@ -81,8 +81,6 @@ func _on_virtual_map_relative_to_player_updated(vmap: VirtualMap, player_pos: Ve
 		if(player_pos.distance_to(vmap.get_position_at_index(i)) < 2 ):
 			sub_array.append(vmap.get_cell_at_position(vmap.get_position_at_index(i)))
 	tmp_vmap.cells = sub_array
-	print("!!!!!!!!!!!!!!!!!!!!!!!!!")
-	tmp_vmap._print_debug_map()
 	for i: int in range(sub_array.size()):
 		if(_textures_pool[i] == _player_arrow_tex_rect):
 			continue

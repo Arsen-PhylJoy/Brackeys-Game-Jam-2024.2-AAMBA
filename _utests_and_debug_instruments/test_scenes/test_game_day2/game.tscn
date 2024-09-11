@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b7s7bwsjlfef2" path="res://_utests_and_debug_instruments/test_scenes/test_game_day3/air_bar.tscn" id="6_3obr3"]
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="6_eba6o"]
 [ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="7_rjfei"]
-[ext_resource type="Resource" uid="uid://bseaewl7fjnpk" path="res://godot_resources/vmap_levels/level_test.tres" id="8_te5cd"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_t2yg0"]
 height = 1.0
@@ -28,6 +27,9 @@ viewport_path = NodePath("Screen/SubViewport")
 [sub_resource type="BoxMesh" id="BoxMesh_1s05s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mioe7"]
+
+[sub_resource type="Resource" id="Resource_1fh6w"]
+metadata/__load_path__ = "res://godot_resources/vmap_levels/level_test.tres"
 
 [node name="Game" type="Node3D"]
 
@@ -119,7 +121,7 @@ shape = SubResource("BoxShape3D_mioe7")
 transform = Transform3D(0.616563, -0.329153, 0.715198, -0.0215926, 0.901001, 0.433279, -0.787009, -0.282587, 0.548417, 0, 0, 0)
 
 [node name="VirtualMap" parent="." instance=ExtResource("7_rjfei")]
-vmap = ExtResource("8_te5cd")
+vmap = SubResource("Resource_1fh6w")
 
 [connection signal="focused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_focused"]
 [connection signal="interacted" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_interacted"]

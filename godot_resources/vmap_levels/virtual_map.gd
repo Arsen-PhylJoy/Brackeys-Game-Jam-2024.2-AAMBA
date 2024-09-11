@@ -3,6 +3,8 @@ extends Resource
 
 ##Only 1-4-9-16-49 and etc sizes
 @export var cells: Array[Cell]
+@export var _default_player_direction: Vector2 = Vector2(0,1)
+@export var _default_player_spawn: Vector2 = Vector2(1,1)
 
 func get_cell_type_at_position(pos: Vector2) -> Cell.cell_type:
 	return cells[pos.x + pos.y*_get_columns()].type
