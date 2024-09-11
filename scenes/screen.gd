@@ -7,7 +7,6 @@ extends Node3D
 func _ready() -> void:
 	_connect_signals()
 
-
 func _connect_signals() -> void:
 	EventBus.on_air_value_change.connect(air_counter)
 	for node: Node in get_tree().current_scene.get_children():

@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc45x6hg3ixjj"]
+[gd_scene load_steps=12 format=3 uid="uid://bc45x6hg3ixjj"]
 
 [ext_resource type="Script" path="res://addons/game_level_builder/matrix_drawer.gd" id="1_851av"]
 [ext_resource type="Texture2D" uid="uid://d0e41cmo7uthk" path="res://_utests_and_debug_instruments/assets/free.png" id="2_l5f3t"]
 [ext_resource type="Texture2D" uid="uid://bvxgfej5png" path="res://_utests_and_debug_instruments/assets/rock.png" id="3_g0uj6"]
 [ext_resource type="Texture2D" uid="uid://ck63jsdbycju1" path="res://_utests_and_debug_instruments/assets/enemy.png" id="4_ufdng"]
 [ext_resource type="Texture2D" uid="uid://cfo0rs46u3g5r" path="res://_utests_and_debug_instruments/assets/finish.png" id="5_2ofpr"]
+[ext_resource type="Texture2D" uid="uid://3p8rc8i0w485" path="res://_utests_and_debug_instruments/assets/air.png" id="6_3hbrw"]
+[ext_resource type="Texture2D" uid="uid://dyxhxoeg4q1fh" path="res://_utests_and_debug_instruments/assets/destructable.png" id="7_o2xqe"]
+[ext_resource type="Texture2D" uid="uid://dibquwhru12pj" path="res://_utests_and_debug_instruments/assets/up.png" id="8_gy7bn"]
+[ext_resource type="Texture2D" uid="uid://jnx2kl4jvox6" path="res://_utests_and_debug_instruments/assets/down.png" id="9_awvll"]
+[ext_resource type="Texture2D" uid="uid://chdcxs41me6mp" path="res://_utests_and_debug_instruments/assets/right.png" id="10_i4wo1"]
+[ext_resource type="Texture2D" uid="uid://c6uvf1260isko" path="res://_utests_and_debug_instruments/assets/left.png" id="11_3g152"]
 
 [node name="MatrixDrawer" type="Control"]
 layout_mode = 3
@@ -31,7 +37,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.5
+size_flags_stretch_ratio = 6.0
 texture_normal = ExtResource("2_l5f3t")
 ignore_texture_size = true
 stretch_mode = 5
@@ -59,6 +65,63 @@ size_flags_vertical = 3
 texture_normal = ExtResource("5_2ofpr")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="SelectAIRColor" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("6_3hbrw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SelectDESTRUCTABLEColor" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("7_o2xqe")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="player_spawns" type="GridContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="SelectUPPlayerSpawn" type="TextureButton" parent="HBoxContainer/VBoxContainer/player_spawns"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("8_gy7bn")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SelectDownPlayerSpawn" type="TextureButton" parent="HBoxContainer/VBoxContainer/player_spawns"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("9_awvll")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SelectRIGHTPlayerSpawn" type="TextureButton" parent="HBoxContainer/VBoxContainer/player_spawns"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("10_i4wo1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SelectLEFTPlayerSpawn" type="TextureButton" parent="HBoxContainer/VBoxContainer/player_spawns"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("11_3g152")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Matrix" type="GridContainer" parent="HBoxContainer"]
 unique_name_in_owner = true

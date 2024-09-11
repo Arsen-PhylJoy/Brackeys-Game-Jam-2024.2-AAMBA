@@ -13,9 +13,10 @@ var max_dim: int = 25
 func _ready() -> void:
 	_connect_signals()
 	max_dim+=1
+	_matrix_d_option_button.clear()
 	for i: int in range(max_dim):
-		_matrix_d_option_button.add_item("Select " + str(i+1) + " dimensions", i)
-		_matrix_d_option_button.set_item_metadata(i, i+1)
+		_matrix_d_option_button.add_item("Select " + str(i+4) + " dimensions", i)
+		_matrix_d_option_button.set_item_metadata(i, i+4 as int)
 	##TODO useless items are not deleted
 
 func _connect_signals() -> void:

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Cell" load_steps=2 format=3 uid="uid://dtmkbj4lfu2bg"]
 
-[ext_resource type="Script" path="res://godot_resources/cell.gd" id="1_eaqwc"]
+[ext_resource type="Script" path="res://godot_resources/cells/cell.gd" id="1_eaqwc"]
 
 [resource]
 resource_local_to_scene = true

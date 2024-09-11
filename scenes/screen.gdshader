@@ -11,4 +11,3 @@ void fragment() {
 	vec4 alb = texture(visual, uv);
 	ALBEDO = vec3(alb.x,alb.y,alb.z);
 }
-

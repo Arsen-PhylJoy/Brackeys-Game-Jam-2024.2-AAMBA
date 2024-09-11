@@ -38,6 +38,10 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.22
 
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "НЕЛЬЗЯ КРАСИТЬ КРАЙНИЕ КЛЕТКИ. ONLY ROCK"
+
 [node name="MatrixDrawer" parent="HBoxContainer" instance=ExtResource("3_oc1rq")]
 unique_name_in_owner = true
 layout_mode = 2

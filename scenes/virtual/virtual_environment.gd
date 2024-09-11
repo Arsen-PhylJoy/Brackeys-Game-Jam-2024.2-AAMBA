@@ -1,10 +1,5 @@
 class_name VirtualEnvironment
 extends Node
-#[RRRRR] 0  1   2   3  4     [0,0][0,1][0,2][0,3][0,4]     F^- start F-FREE R-ROCK W-WIN E-ENEMY
-#[RF^FRR] 5  6   7   8  9    [1,0][1,1][1,2][1,3][1,4]                 
-#[REAFR] 10 11  12  13 14    [2,0][2,1][2,2][2,3][2,4]     A-AIR
-#[RRRFR]  15 16  17  18 19   [3,0][3,1][3,2][3,3][3,4] 
-#[RRRRR]   20 21  22  23 24  [4,0][4,1][4,2][4,3][4,4] 
 
 signal forward_visual_changed(cell: Cell)
 signal player_direction_changed(dir: Vector2)
@@ -28,6 +23,8 @@ func _init_venv() -> void:
 	virtual_map_relative_to_player_updated.emit(vmap,_player_pos)
 	player_direction_changed.emit(_player.player_direction)
 	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
+	_player_pos = vmap._default_player_spawn
+	_player.player_direction = vmap._default_player_direction
 
 func _on_player_moved(interactor: Interactor) -> void:
 	_player_pos += _player.player_direction
