@@ -23,6 +23,7 @@ var player_direction: Vector2 = Vector2(0,1)
 @export var damage_from_rocks: int = 1
 @export var damage_from_destructables: int = 1
 @export var damage_from_enemies: int = 2
+@export var after_burner: int = 2
 
 func _init()-> void:
 	_connect_signals()

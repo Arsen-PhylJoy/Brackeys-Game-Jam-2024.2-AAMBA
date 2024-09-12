@@ -19,11 +19,14 @@ func _connect_signals() -> void:
 	(get_tree().get_nodes_in_group("turn_left_interactable")[0] as Interactable).interacted.connect(_on_player_turned_left)
 	(get_tree().get_nodes_in_group("turn_right_interactable")[0] as Interactable).interacted.connect(_on_player_turned_right)
 	#(get_tree().get_nodes_in_group("torpedo_launched")[0] as Interactable).interacted.connect(_on_torpedo_launched)
+	#(get_tree().get_nodes_in_group("afterburner_used")[0] as Interactable).interacted.connect(_on_afterburner_used)
 
 #Затычка
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("debug_action")):
 		_on_torpedo_launched()
+	if(Input.is_action_just_pressed("debug_action_2")):
+		_on_afterburner_used()
 
 func _init_venv() -> void:
 	_player_pos = vmap._default_player_spawn
@@ -33,6 +36,9 @@ func _init_venv() -> void:
 	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
 
 func _on_player_moved(interactor: Interactor) -> void:
+	_move_player_forward()
+
+func _move_player_forward() -> void:
 	var forward_cell_type: Cell.cell_type = vmap.get_cell_type_at_position(_player_pos + _player.player_direction)
 	if(forward_cell_type == Cell.cell_type.FREE):
 		_player_pos += _player.player_direction
@@ -50,8 +56,9 @@ func _on_player_moved(interactor: Interactor) -> void:
 		pass
 	_player.air-=1
 	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
-	virtual_map_relative_to_player_updated.emit(vmap,_player_pos, _player.player_direction)
-
+	player_direction_changed.emit(_player.player_direction)
+	virtual_map_relative_to_player_updated.emit(vmap, _player_pos, _player.player_direction)
+	print(_player.hp)
 
 #Counterclockwise
 func _on_player_turned_right(interactor: Interactor) -> void:
@@ -86,3 +93,10 @@ func _on_torpedo_launched() -> void:
 		_player.torpedos -= 1
 		vmap.cells[cell_index] = load("res://godot_resources/cells/free_cell.tres")
 	virtual_map_relative_to_player_updated.emit(vmap, _player_pos, _player.player_direction)
+	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
+
+func _on_afterburner_used() -> void:
+	if(_player.after_burner > 0 ):
+		_player.after_burner-=1
+		_move_player_forward()
+		_move_player_forward()

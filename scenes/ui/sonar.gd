@@ -113,8 +113,6 @@ class sonar_grid:
 		for i: int in permutations.size():
 			_cast_ray(permutations[i],player_pos)
 		_clean_map()
-		_debug_print_2()
-		print()
 
 	func _generate_all_paths(_radius: int) -> void:
 		for i: int in range(4):
@@ -132,8 +130,6 @@ class sonar_grid:
 					tmp_path_3.path_arr.append(j)
 					tmp_path_3.path_arr.append(k)
 					permutations.append(tmp_path_3)
-		#for i: int in range(permutations.size()):
-			#print(permutations[i].path_arr)
 
 	func _cast_ray(in_path: Path, origin: Vector2) -> void:
 		var position: Vector2 = origin
@@ -199,7 +195,6 @@ class sonar_grid:
 			else:
 				tmp_cells[i].type = Cell.cell_type._SONAR_OBSCURE
 		tmp_cells[24].type = Cell.cell_type._SONAR_PLAYER
-		_debug_print_3(tmp_cells)
 		return tmp_cells
 
 	func _debug_print() -> void:
