@@ -5,3 +5,6 @@
 [resource]
 script = ExtResource("1_cvfj4")
 hp = 2
+_air_refill_amount = 2
+air = 10
+torpedos = 2
