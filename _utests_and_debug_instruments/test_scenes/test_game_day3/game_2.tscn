@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="7_hm35q"]
 [ext_resource type="PackedScene" uid="uid://b7s7bwsjlfef2" path="res://_utests_and_debug_instruments/test_scenes/test_game_day3/air_bar.tscn" id="7_yejii"]
 [ext_resource type="PackedScene" uid="uid://tj2a8hn60yt3" path="res://scenes/ui/sonar.tscn" id="8_ugef1"]
-[ext_resource type="Resource" uid="uid://jjitux2t22gi" path="res://godot_resources/vmap_levels/level_y.tres" id="11_rasng"]
+[ext_resource type="Resource" uid="uid://bbdwd4b2y0kf0" path="res://godot_resources/vmap_levels/level_long.tres" id="11_5y4ec"]
 [ext_resource type="Resource" uid="uid://qk1ab4x4kls8" path="res://godot_resources/virtual_player.tres" id="18_toh0x"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_t2yg0"]
@@ -135,7 +135,7 @@ shape = SubResource("BoxShape3D_mioe7")
 transform = Transform3D(0.616563, -0.329153, 0.715198, -0.0215926, 0.901001, 0.433279, -0.787009, -0.282587, 0.548417, 0, 0, 0)
 
 [node name="VirtualMap" parent="." instance=ExtResource("7_hm35q")]
-vmap = ExtResource("11_rasng")
+vmap = ExtResource("11_5y4ec")
 _player = ExtResource("18_toh0x")
 
 [connection signal="focused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_focused"]
