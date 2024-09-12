@@ -3,7 +3,7 @@ extends Node
 
 signal forward_visual_changed(cell: Cell)
 signal player_direction_changed(dir: Vector2)
-signal virtual_map_relative_to_player_updated(vmap: VirtualMap, player_pos: Vector2)
+signal virtual_map_relative_to_player_updated(vmap: VirtualMap, player_pos: Vector2, player_dir: Vector2)
 
 @export var vmap: VirtualMap
 @export var _player: VirtualPlayer
@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 func _init_venv() -> void:
 	_player_pos = vmap._default_player_spawn
 	_player.player_direction = vmap._default_player_direction
-	virtual_map_relative_to_player_updated.emit(vmap,_player_pos)
+	virtual_map_relative_to_player_updated.emit(vmap,_player_pos, _player.player_direction)
 	player_direction_changed.emit(_player.player_direction)
 	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
 
@@ -50,7 +50,7 @@ func _on_player_moved(interactor: Interactor) -> void:
 		pass
 	_player.air-=1
 	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
-	virtual_map_relative_to_player_updated.emit(vmap,_player_pos)
+	virtual_map_relative_to_player_updated.emit(vmap,_player_pos, _player.player_direction)
 
 
 #Counterclockwise
@@ -85,4 +85,4 @@ func _on_torpedo_launched() -> void:
 	if((forward_cell.type == Cell.cell_type.ENEMY or forward_cell.type == Cell.cell_type.DESTRUCTABLE) and _player.torpedos != 0):
 		_player.torpedos -= 1
 		vmap.cells[cell_index] = load("res://godot_resources/cells/free_cell.tres")
-	virtual_map_relative_to_player_updated.emit(vmap, _player_pos)
+	virtual_map_relative_to_player_updated.emit(vmap, _player_pos, _player.player_direction)

@@ -30,7 +30,7 @@ func _init_vmap_mapping() -> void:
 
 func _create_map()-> void:
 	for i: int in range(_venv.vmap.cells.size()):
-		(self as GridContainer).columns = _venv.vmap._get_columns()
+		(self as GridContainer).columns = _venv.vmap.get_columns()
 		var tmp_text_rect: TextureRect = TextureRect.new()
 		_texture_pool.append(tmp_text_rect)
 		(self as GridContainer).add_child(tmp_text_rect)
@@ -44,9 +44,9 @@ func _connect_signals() -> void:
 	_venv.virtual_map_relative_to_player_updated.connect(_on_virtual_map_relative_to_player_updated)
 	_venv.player_direction_changed.connect(_on_player_direction_changed)
 
-func _on_virtual_map_relative_to_player_updated(_in_cells: VirtualMap, player_pos: Vector2) -> void:
+func _on_virtual_map_relative_to_player_updated(_in_cells: VirtualMap, player_pos: Vector2, player_dir: Vector2) -> void:
 	for i: int in range(_venv.vmap.cells.size()):
-		if(Vector2(i%_venv.vmap._get_columns(),i/_venv.vmap._get_columns()) == player_pos):
+		if(Vector2(i%_venv.vmap.get_columns(),i/_venv.vmap.get_columns()) == player_pos):
 			_player_cell = _texture_pool[i]
 			_on_player_direction_changed(_venv._player.player_direction)
 		elif(_venv.vmap.cells[i].type == Cell.cell_type.FREE):

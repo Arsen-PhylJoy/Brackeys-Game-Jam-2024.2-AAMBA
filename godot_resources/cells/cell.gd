@@ -2,7 +2,7 @@ class_name Cell
 extends Resource
 
 
-enum cell_type{ROCK, ENEMY, FINISH, FREE, AIR, DESTRUCTABLE}
+enum cell_type{ROCK, ENEMY, FINISH, FREE, AIR, DESTRUCTABLE, _SONAR_OBSCURE,_SONAR_PLAYER}
 
 @export var type: cell_type = cell_type.FREE:
 	set(value):
@@ -41,4 +41,8 @@ func _get_name_of_cell() -> String:
 		return "AIR"
 	elif(type == cell_type.DESTRUCTABLE):
 		return "DESTRUCTABLE"
+	elif(type == cell_type._SONAR_OBSCURE):
+		return "_SONAR_OBSCURE"
+	elif(type == cell_type._SONAR_PLAYER):
+		return "_SONAR_PLAYER"
 	return "ERROR CELL"

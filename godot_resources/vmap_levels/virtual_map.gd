@@ -7,18 +7,18 @@ extends Resource
 @export var _default_player_spawn: Vector2 = Vector2(1,1)
 
 func get_cell_type_at_position(pos: Vector2) -> Cell.cell_type:
-	return cells[pos.x + pos.y*_get_columns()].type
+	return cells[pos.x + pos.y*get_columns()].type
 
 func get_cell_at_position(pos: Vector2) -> Cell:
-	return cells[pos.x + pos.y*_get_columns()]
+	return cells[pos.x + pos.y*get_columns()]
 
 func get_index_at_position(pos: Vector2) -> int:
-	return pos.x + pos.y*_get_columns()
+	return pos.x + pos.y*get_columns()
 
 func get_position_at_index(index: int) -> Vector2:
-	return Vector2(index%_get_columns(), index/_get_columns())
+	return Vector2(index%get_columns(), index/get_columns())
 
-func _get_columns() -> int:
+func get_columns() -> int:
 	return (sqrt(cells.size()) as int)
 
 func _print_debug_map() -> void:
