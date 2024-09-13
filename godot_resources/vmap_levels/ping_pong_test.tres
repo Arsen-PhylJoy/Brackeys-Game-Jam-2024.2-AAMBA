@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="VirtualMap" load_steps=9 format=3 uid="uid://dxgigmlivs6r3"]
+
+[ext_resource type="Script" path="res://godot_resources/cells/cell.gd" id="1_f7772"]
+[ext_resource type="Resource" uid="uid://bs5vcaiq0wrbg" path="res://godot_resources/cells/rock_cell.tres" id="2_1aym3"]
+[ext_resource type="Resource" uid="uid://cab1l2v0kgbg2" path="res://godot_resources/cells/free_cell.tres" id="3_5k2qm"]
+[ext_resource type="Resource" uid="uid://cachs76dqgqh5" path="res://godot_resources/cells/destructable.tres" id="4_ruqrf"]
+[ext_resource type="Resource" uid="uid://bn0k84pfjmvoi" path="res://godot_resources/cells/enemy_cell.tres" id="5_jehux"]
+[ext_resource type="Resource" uid="uid://dtmkbj4lfu2bg" path="res://godot_resources/cells/air_cell.tres" id="6_iqr7d"]
+[ext_resource type="Resource" uid="uid://cd1euwi7jdu4u" path="res://godot_resources/cells/finish_cell.tres" id="7_tinke"]
+[ext_resource type="Script" path="res://godot_resources/vmap_levels/virtual_map.gd" id="8_3lr0f"]
+
+[resource]
+script = ExtResource("8_3lr0f")
+cells = Array[ExtResource("1_f7772")]([ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("4_ruqrf"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("5_jehux"), ExtResource("6_iqr7d"), ExtResource("3_5k2qm"), ExtResource("7_tinke"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("3_5k2qm"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3"), ExtResource("2_1aym3")])
+_default_player_direction = Vector2(0, -1)
+_default_player_spawn = Vector2(4, 6)

@@ -36,4 +36,8 @@ func _print_debug_map() -> void:
 			row +="]"
 			print(row)
 			row = "["
-		
+
+func _print_enemies_debug() -> void:
+	for i: int in range(cells.size()):
+		if(cells[i].type == Cell.cell_type.ENEMY):
+			print(get_position_at_index(i))
