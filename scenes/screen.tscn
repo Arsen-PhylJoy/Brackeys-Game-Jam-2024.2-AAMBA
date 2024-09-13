@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://duqo6j0k20vgv"]
 
 [ext_resource type="Script" path="res://scenes/screen.gd" id="1_g77fm"]
-[ext_resource type="Shader" path="res://scenes/screen.gdshader" id="2_8lswo"]
+[ext_resource type="Shader" path="res://godot_resources/shaders/screen.gdshader" id="2_8lswo"]
 [ext_resource type="Texture2D" uid="uid://ck63jsdbycju1" path="res://_utests_and_debug_instruments/assets/enemy.png" id="3_5jlei"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gw7bp"]
