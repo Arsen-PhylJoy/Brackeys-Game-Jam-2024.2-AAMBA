@@ -10,6 +10,7 @@ enum cell_type{ROCK, ENEMY, FINISH, FREE, AIR, DESTRUCTABLE, _SONAR_OBSCURE,_SON
 		_update_visual_state()
 
 var visual: CompressedTexture2D = load("res://_utests_and_debug_instruments/assets/free.png") as CompressedTexture2D
+var enemy_ai_handler: VirtualEnemy
 
 func _init() -> void:
 	_update_visual_state()
