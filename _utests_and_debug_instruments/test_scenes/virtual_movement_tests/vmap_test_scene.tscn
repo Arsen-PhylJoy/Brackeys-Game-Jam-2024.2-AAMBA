@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="1_hrrr6"]
 [ext_resource type="PackedScene" uid="uid://dggfnl61wg3ud" path="res://_utests_and_debug_instruments/test_scenes/virtual_movement_tests/mock_controller.tscn" id="2_gdmes"]
-[ext_resource type="PackedScene" uid="uid://duqo6j0k20vgv" path="res://scenes/screen.tscn" id="3_bmkmx"]
+[ext_resource type="PackedScene" uid="uid://duqo6j0k20vgv" path="res://scenes/screens_periscope/screen.tscn" id="3_bmkmx"]
 
 [node name="VirtualMap" instance=ExtResource("1_hrrr6")]
 

@@ -17,7 +17,7 @@ func iterate(node: Node) -> void:
 			var material_name: String = mesh.get_surface_material(index).resource_name
 
 			# Material found. Replace with our version
-			if material_name.ends_with('PixPal'):
+			if material_name.ends_with('JAM'):
 				mesh.set_surface_material(index, get_pixpal_material())
 
 	for child in node.get_children():

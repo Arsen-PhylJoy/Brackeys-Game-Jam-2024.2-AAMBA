@@ -1,7 +1,6 @@
 class_name VirtualEnvironment
 extends Node
 
-signal forward_visual_changed(cell: Cell)
 signal player_direction_changed(dir: Vector2)
 signal virtual_map_relative_to_player_updated(vmap: VirtualMap, player_pos: Vector2, player_dir: Vector2)
 
@@ -42,11 +41,12 @@ func _init_venv() -> void:
 	_player.player_direction = vmap._default_player_direction
 	virtual_map_relative_to_player_updated.emit(vmap,_player_pos, _player.player_direction)
 	player_direction_changed.emit(_player.player_direction)
-	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
+	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 
 func _on_player_moved(interactor: Interactor) -> void:
 	_move_player_forward()
 	_move_enemies()
+	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 
 func _move_player_forward() -> void:
 	var forward_cell_type: Cell.cell_type = vmap.get_cell_type_at_position(_player_pos + _player.player_direction)
@@ -65,9 +65,7 @@ func _move_player_forward() -> void:
 		_player_pos += _player.player_direction
 		pass
 	_player.air-=1
-	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
 	player_direction_changed.emit(_player.player_direction)
-	virtual_map_relative_to_player_updated.emit(vmap, _player_pos, _player.player_direction)
 
 func _move_enemies() -> void:
 	var _moved_enemies: Array[VirtualEnemy]
@@ -98,9 +96,8 @@ func _move_enemies() -> void:
 				vmap.cells[i].enemy_ai_handler.change_movement()
 			elif(forward_cell_type == Cell.cell_type.FINISH):
 				vmap.cells[i].enemy_ai_handler.change_movement()
-	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
-	player_direction_changed.emit(_player.player_direction)
 	virtual_map_relative_to_player_updated.emit(vmap, _player_pos, _player.player_direction)
+	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 
 #Counterclockwise
 func _on_player_turned_right(interactor: Interactor) -> void:
@@ -112,8 +109,8 @@ func _on_player_turned_right(interactor: Interactor) -> void:
 		_player.player_direction = Vector2.LEFT
 	elif(_player.player_direction == Vector2.LEFT):
 		_player.player_direction = Vector2.DOWN
-	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
-	player_direction_changed.emit(_player.player_direction)
+	virtual_map_relative_to_player_updated.emit(vmap, _player_pos, _player.player_direction)
+	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 
 #Clockwised
 func _on_player_turned_left(interactor: Interactor) -> void:
@@ -125,8 +122,10 @@ func _on_player_turned_left(interactor: Interactor) -> void:
 		_player.player_direction = Vector2.RIGHT
 	elif(_player.player_direction == Vector2.RIGHT):
 		_player.player_direction = Vector2.DOWN
-	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
+	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 	player_direction_changed.emit(_player.player_direction)
+	virtual_map_relative_to_player_updated.emit(vmap, _player_pos, _player.player_direction)
+	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 
 func _on_torpedo_launched() -> void:
 	var forward_cell: Cell = vmap.get_cell_at_position(_player_pos + _player.player_direction)
@@ -135,7 +134,7 @@ func _on_torpedo_launched() -> void:
 		_player.torpedos -= 1
 		vmap.cells[cell_index] = load("res://godot_resources/cells/free_cell.tres")
 	virtual_map_relative_to_player_updated.emit(vmap, _player_pos, _player.player_direction)
-	forward_visual_changed.emit(vmap.get_cell_at_position(_player_pos+_player.player_direction))
+	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)	
 
 func _on_afterburner_used() -> void:
 	if(_player.after_burner > 0 ):
