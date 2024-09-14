@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cjauw8kwi7b6x"]
+[gd_scene load_steps=25 format=3 uid="uid://cjauw8kwi7b6x"]
 
 [ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/turn_left.gd" id="1_dyc27"]
 [ext_resource type="Script" path="res://scenes/interactive/interactable.gd" id="2_1iofq"]
@@ -8,9 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://duqo6j0k20vgv" path="res://scenes/screen.tscn" id="5_ed5kx"]
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="6_g1jr6"]
 [ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="7_hm35q"]
-[ext_resource type="PackedScene" uid="uid://b7s7bwsjlfef2" path="res://_utests_and_debug_instruments/test_scenes/test_game_day3/air_bar.tscn" id="7_yejii"]
 [ext_resource type="PackedScene" uid="uid://tj2a8hn60yt3" path="res://scenes/ui/sonar.tscn" id="8_ugef1"]
-[ext_resource type="Resource" uid="uid://dfca7l7psjqnr" path="res://godot_resources/vmap_levels/double.tres" id="11_q27mk"]
+[ext_resource type="Resource" uid="uid://jjitux2t22gi" path="res://godot_resources/vmap_levels/level_y.tres" id="11_uaqnr"]
 [ext_resource type="Script" path="res://godot_resources/virtual_enemies/virtual_enemy.gd" id="13_605ts"]
 [ext_resource type="Resource" uid="uid://qk1ab4x4kls8" path="res://godot_resources/virtual_player.tres" id="18_toh0x"]
 
@@ -26,8 +25,19 @@ height = 1.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5l1jm"]
 height = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gfryi"]
-viewport_path = NodePath("Screen/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_1oprw"]
+viewport_path = NodePath("Screen")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lhiy"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_1oprw")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jlxmh"]
+viewport_path = NodePath("Screen")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5dhr"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_jlxmh")
 
 [sub_resource type="BoxMesh" id="BoxMesh_1s05s"]
 
@@ -35,9 +45,15 @@ viewport_path = NodePath("Screen/SubViewport")
 
 [sub_resource type="Resource" id="Resource_end7b"]
 script = ExtResource("13_605ts")
-ai_type = 2
+ai_type = 0
 start_ping_pong_direction = 0
 matrix_movement = 1
+
+[sub_resource type="Resource" id="Resource_25lwf"]
+script = ExtResource("13_605ts")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
 
 [node name="Game" type="Node3D"]
 
@@ -106,24 +122,14 @@ script = ExtResource("2_1iofq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("CylinderShape3D_5l1jm")
 
+[node name="Screen2" parent="." instance=ExtResource("5_ed5kx")]
+transform = Transform3D(5.89253, 0, 0, 0, 5.22716, 0, 0, 0, 1, -2.92983, 5.5239, -6.00753)
+surface_material_override/0 = SubResource("StandardMaterial3D_2lhiy")
+
 [node name="Screen" parent="." instance=ExtResource("5_ed5kx")]
-transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, 0, 1.23344, -1.92814)
-
-[node name="Sprite3D" type="Sprite3D" parent="Screen"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
-texture = SubResource("ViewportTexture_gfryi")
-
-[node name="SubViewport" type="SubViewport" parent="Screen"]
-disable_3d = true
-transparent_bg = true
-size_2d_override = Vector2i(-170, 115)
-
-[node name="AirBar3D" parent="Screen/SubViewport" instance=ExtResource("7_yejii")]
-unique_name_in_owner = true
-offset_left = 240.0
-offset_top = 48.0
-offset_right = 400.0
-offset_bottom = 88.0
+transform = Transform3D(5.37812, 0, 0, 0, 5.80996, 0, 0, 0, 1, 5.1006, 5.41886, -5.6408)
+surface_material_override/0 = SubResource("StandardMaterial3D_f5dhr")
+_is_geometry = true
 
 [node name="Basic FPS Player" parent="." instance=ExtResource("6_g1jr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55672, 1.33433, 1.73117)
@@ -142,9 +148,9 @@ shape = SubResource("BoxShape3D_mioe7")
 transform = Transform3D(0.616563, -0.329153, 0.715198, -0.0215926, 0.901001, 0.433279, -0.787009, -0.282587, 0.548417, 0, 0, 0)
 
 [node name="VirtualMap" parent="." instance=ExtResource("7_hm35q")]
-vmap = ExtResource("11_q27mk")
+vmap = ExtResource("11_uaqnr")
 _player = ExtResource("18_toh0x")
-_virtual_enemies = Array[ExtResource("13_605ts")]([SubResource("Resource_end7b")])
+_virtual_enemies = Array[ExtResource("13_605ts")]([SubResource("Resource_end7b"), SubResource("Resource_25lwf")])
 
 [connection signal="focused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_focused"]
 [connection signal="interacted" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_interacted"]
