@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dr2jigf2cof4v" path="res://scenes/screens_periscope/_periscope_grid.tscn" id="4_ut1mx"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_lu4hq"]
+size = Vector2(0.5, 0.5)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_44avj"]
 viewport_path = NodePath("Screen")

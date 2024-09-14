@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cm8hc0c1tvubx"
+uid="uid://0jhvpt08v3v0"
 path="res://.godot/imported/game_ready.blend-e3358024b2da2faa09e23dc04563518a.scn"
 
 [deps]
@@ -31,14 +31,7 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:boat_right": {
-"generate/physics": true,
-"physics/layer": 2
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

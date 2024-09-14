@@ -8,7 +8,6 @@ var _transition_name:String
 var _level_scene:PackedScene
 var the_level_path: String
 
-
 func _ready() -> void:
 	print(get_tree().current_scene.name)
 	

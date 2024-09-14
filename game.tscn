@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccksbyp0xsrk4"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_qx7vf"]
+[ext_resource type="PackedScene" uid="uid://cod6roj0bv5r6" path="res://assets/blenderMeshes/submarine/game_ready.glb" id="2_iw3vt"]
+[ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="3_f31no"]
+[ext_resource type="PackedScene" uid="uid://dfb3njnkc5abr" path="res://assets/blenderMeshes/display/display.glb" id="4_hddpd"]
+[ext_resource type="PackedScene" uid="uid://cjauw8kwi7b6x" path="res://_utests_and_debug_instruments/test_scenes/test_game_day3/game_2.tscn" id="5_uic0a"]
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_qx7vf")
+
+[node name="Submarine" parent="." instance=ExtResource("2_iw3vt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.430676, 0, -0.443177)
+
+[node name="Basic FPS Player" parent="." instance=ExtResource("3_f31no")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.466176, 18.3056)
+
+[node name="Light" type="Node" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, 8.79808)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, -1.1802)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, -5.03694)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, -9.09487)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 4.08178, -10.1185)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 4.08178, 1.67053)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43856, 4.08178, 7.96696)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 10.8103)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 19.7874)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 26.5765)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 0.983164)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, -6.45891)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, -13.9296)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 2.51383, 19.2392)
+light_color = Color(1, 0.346577, 0.280009, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.184712, 6.56562, 33.8429)
+light_energy = 2.0
+
+[node name="DisplayFirstEvent" parent="." instance=ExtResource("4_hddpd")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 11.4107, -0.765556, 17.7538)
+
+[node name="terminal" parent="DisplayFirstEvent" index="0"]
+transform = Transform3D(-2.38419e-07, 0.00239546, -0.999997, 3.49246e-10, 0.999997, 0.00239546, 1, 3.49246e-10, -2.38419e-07, -11.7581, 2.66617, 1.61941)
+
+[node name="DisplaySecondEvent" parent="." instance=ExtResource("4_hddpd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.16048, 3.56516, -27.8923)
+
+[node name="terminal" parent="DisplaySecondEvent" index="0"]
+transform = Transform3D(-2.38419e-07, 0.00239546, -0.999997, 3.49246e-10, 0.999997, 0.00239546, 1, 3.49246e-10, -2.38419e-07, -11.7581, 2.66617, 1.61941)
+
+[node name="DisplayThirdEvent" parent="." instance=ExtResource("4_hddpd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.16048, -0.98206, 3.79957)
+
+[node name="terminal" parent="DisplayThirdEvent" index="0"]
+transform = Transform3D(-2.38419e-07, 0.00239546, -0.999997, 3.49246e-10, 0.999997, 0.00239546, 1, 3.49246e-10, -2.38419e-07, -11.7581, 2.66617, 1.61941)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Game" parent="." instance=ExtResource("5_uic0a")]
+transform = Transform3D(2.35403e-09, 0, 0.197405, 0, 0.197405, 0, -0.197405, 0, 2.35403e-09, -0.554197, 5.05143, 34.0212)
+
+[editable path="DisplayFirstEvent"]
+[editable path="DisplaySecondEvent"]
+[editable path="DisplayThirdEvent"]
