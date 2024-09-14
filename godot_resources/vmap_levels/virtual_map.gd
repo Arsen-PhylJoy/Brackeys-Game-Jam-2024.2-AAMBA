@@ -90,6 +90,15 @@ func calculate_cell_visual(in_cells: Array[Cell], pos: Vector2, look_direction: 
 func is_out_of_bounds(position: Vector2) -> bool:
 	return position.x < 0 or position.x >= get_columns() or position.y < 0 or position.y >= get_columns()
 
+func get_position_of_nearest_finish(_player_pos: Vector2) -> Vector2:
+	var _closest_dist: float = 100000000.0
+	var _return_pos: Vector2 = Vector2(0,0)
+	for i: int in range(cells.size()):
+		if(cells[i].type == Cell.cell_type.FINISH and _player_pos.distance_to(get_position_at_index(i)) < _closest_dist):
+			_closest_dist = _player_pos.distance_to(get_position_at_index(i))
+			_return_pos = get_position_at_index(i)
+	return _return_pos
+
 func _print_debug_map() -> void:
 	var row: String = "["
 	for i: int in range(cells.size()):
