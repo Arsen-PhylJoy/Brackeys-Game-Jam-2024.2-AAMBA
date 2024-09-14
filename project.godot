@@ -21,7 +21,6 @@ Global="*res://scripts/autoload/global.gd"
 CsgToolkitAutoload="*res://addons/csg_toolkit/scripts/csg_toolkit_config.gd"
 GodotLogger="*res://addons/logger/logger.gd"
 SoundManager="*res://addons/sound_manager/module/SoundManager.tscn"
-TransitionScreen="*res://scenes/ui/loading_screen.tscn"
 LevelManager="*res://scripts/autoload/level_manager.gd"
 Settings="*res://scripts/autoload/settings.gd"
 

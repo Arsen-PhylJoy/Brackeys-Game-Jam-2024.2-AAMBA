@@ -1,12 +1,12 @@
 class_name VirtualEnemy
 extends Resource
 
-enum behaviour_type{PING_PONG, AROUND_MATRIX_1_X_1, AROUND_MATRIX_2_X_2}
+enum behaviour_type{STAY ,PING_PONG, AROUND_MATRIX_1_X_1, AROUND_MATRIX_2_X_2}
 
 enum direction_ping_pong{UP,DOWN,RIGHT,LEFT}
 enum _clock_wise_movement{CLOCKWISE = -1, COUNTERCLOCKWISE = 1}
 
-@export var ai_type: behaviour_type
+@export var ai_type: behaviour_type = behaviour_type.STAY
 
 @export_subgroup("Move Direction Ping Pong")
 @export var start_ping_pong_direction: direction_ping_pong
@@ -33,6 +33,8 @@ func _init() -> void:
 	call_deferred("_reload_matrix_movement")
 
 func get_direction_vector() -> Vector2:
+	if(ai_type == behaviour_type.STAY):
+		return Vector2(0,0)
 	if(ai_type == behaviour_type.PING_PONG):
 		return _ping_ping_direction
 	if(ai_type == behaviour_type.AROUND_MATRIX_1_X_1):

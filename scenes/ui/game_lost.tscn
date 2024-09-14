@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3soxk7wf0tx3"]
+
+[ext_resource type="Shader" path="res://godot_resources/shaders/blur.gdshader" id="1_4w414"]
+[ext_resource type="Script" path="res://scenes/ui/game_lost.gd" id="1_gk4v6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c563m"]
+shader = ExtResource("1_4w414")
+shader_parameter/intensity = 0.18
+shader_parameter/tint_color = Color(1, 0.0117647, 0.254902, 1)
+shader_parameter/tint_amount = 0.509
+
+[node name="GameLost" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_gk4v6")
+
+[node name="blur" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_c563m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -29.0
+offset_right = 53.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="dead" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 226
+text = "You are dead!"
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="restart" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 146
+text = "Restart"

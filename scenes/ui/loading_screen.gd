@@ -31,4 +31,4 @@ func finish_transition() -> void:
 	anim_player.play(ending_animation_name)
 	await anim_player.animation_finished
 	get_tree().paused = false
-	queue_free()
+	bg.hide()

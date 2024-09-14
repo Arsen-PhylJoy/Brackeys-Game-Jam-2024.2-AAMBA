@@ -3,6 +3,7 @@ extends Node
 
 signal player_direction_changed(dir: Vector2)
 signal virtual_map_relative_to_player_updated(vmap: VirtualMap, player_pos: Vector2, player_dir: Vector2)
+signal player_won()
 
 @export var vmap: VirtualMap
 @export var _player: VirtualPlayer
@@ -64,7 +65,7 @@ func _move_player_forward() -> void:
 		_player.hp -= _player.damage_from_destructables
 	elif(forward_cell_type == Cell.cell_type.FINISH):
 		_player_pos += _player.player_direction
-		pass
+		player_won.emit()
 	_player.air-=1
 	player_direction_changed.emit(_player.player_direction)
 

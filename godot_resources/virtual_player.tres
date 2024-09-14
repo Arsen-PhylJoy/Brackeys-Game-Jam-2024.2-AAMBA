@@ -3,8 +3,13 @@
 [ext_resource type="Script" path="res://godot_resources/virtual_player.gd" id="1_cvfj4"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_cvfj4")
 hp = 2
-_air_refill_amount = 2
 air = 10
 torpedos = 2
+air_refill_amount = 2
+damage_from_rocks = 1
+damage_from_destructables = 1
+damage_from_enemies = 2
+after_burner = 2
