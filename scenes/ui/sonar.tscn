@@ -14,7 +14,7 @@ shader_parameter/sweepColor = Color(0.027451, 0.0352941, 0.137255, 1)
 shader_parameter/edgeColor = Color(0.352528, 0.403967, 0.802418, 1)
 shader_parameter/alphaMod = 1.0
 shader_parameter/sonarWidth = -0.17
-shader_parameter/transitionWidth = 0.735
+shader_parameter/transitionWidth = 0.815
 shader_parameter/edgeWidth = 0.385
 
 [node name="Sonar" type="AspectRatioContainer"]

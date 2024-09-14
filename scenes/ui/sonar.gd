@@ -74,12 +74,14 @@ func _on_virtual_map_relative_to_player_updated(vmap: VirtualMap, player_pos: Ve
 	var sonar_cells: Array[Cell] = tmp_son_grid.get_nice_matrix(player_pos)
 	_on_player_direction_changed(player_dir)
 	for i: int in range((_sonar_radius * 2 +1)*(_sonar_radius * 2 +1)):
+		_textures_pool[i].z_index = 0
 		if(sonar_cells[i].type == Cell.cell_type.FREE or sonar_cells[i].type == Cell.cell_type._SONAR_OBSCURE):
 			_textures_pool[i].texture = _free_cell_background_tex
 		elif(sonar_cells[i].type == Cell.cell_type.ROCK):
 			_textures_pool[i].texture = _x_mark_tex
 		elif(sonar_cells[i].type == Cell.cell_type._SONAR_PLAYER):
 			_textures_pool[i].texture = _player_arrow_tex_rect.texture
+			_textures_pool[i].z_index = 3
 			_arrow_texture_index = i
 	_on_player_direction_changed(player_dir)
 
