@@ -85,7 +85,6 @@ func calculate_cell_visual(in_cells: Array[Cell], pos: Vector2, look_direction: 
 			_check_template[i] = Cell.cell_type.ENEMY
 	cells[get_index_at_position(pos)].update_visual_state(_check_template)
 	visual_changed.emit(cells[get_index_at_position(pos)], _check_template)
-	print(_check_template)
 
 func is_out_of_bounds(position: Vector2) -> bool:
 	return position.x < 0 or position.x >= get_columns() or position.y < 0 or position.y >= get_columns()

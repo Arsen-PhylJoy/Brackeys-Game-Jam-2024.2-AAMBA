@@ -1,10 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://tj2a8hn60yt3"]
+[gd_scene load_steps=6 format=3 uid="uid://tj2a8hn60yt3"]
 
 [ext_resource type="Script" path="res://scenes/ui/sonar.gd" id="1_yv1xi"]
 [ext_resource type="Texture2D" uid="uid://b5xhiclsd4ofn" path="res://assets/ui/sonar_background.png" id="2_cxges"]
+[ext_resource type="Shader" path="res://godot_resources/shaders/sonar.gdshader" id="2_w67iy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8u3oh"]
 texture = ExtResource("2_cxges")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_af8fh"]
+shader = ExtResource("2_w67iy")
+shader_parameter/scrollSpeed = 1.5
+shader_parameter/sweepColor = Color(0.027451, 0.0352941, 0.137255, 1)
+shader_parameter/edgeColor = Color(0.352528, 0.403967, 0.802418, 1)
+shader_parameter/alphaMod = 1.0
+shader_parameter/sonarWidth = -0.17
+shader_parameter/transitionWidth = 0.815
+shader_parameter/edgeWidth = 0.385
 
 [node name="Sonar" type="AspectRatioContainer"]
 anchors_preset = 15
@@ -12,6 +23,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_yv1xi")
 
 [node name="Panel" type="Panel" parent="."]
@@ -38,3 +51,7 @@ layout_direction = 1
 layout_mode = 2
 columns = 7
 metadata/_edit_use_anchors_ = true
+
+[node name="sonar_shader" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_af8fh")
+layout_mode = 2
