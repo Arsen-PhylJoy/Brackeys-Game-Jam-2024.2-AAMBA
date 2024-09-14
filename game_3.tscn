@@ -1,22 +1,22 @@
-[gd_scene load_steps=31 format=3 uid="uid://ccksbyp0xsrk4"]
+[gd_scene load_steps=31 format=3 uid="uid://byq4xr05fobc6"]
 
-[ext_resource type="PackedScene" uid="uid://cod6roj0bv5r6" path="res://assets/blenderMeshes/submarine/game_ready.glb" id="2_iw3vt"]
-[ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="3_f31no"]
-[ext_resource type="PackedScene" uid="uid://dfb3njnkc5abr" path="res://assets/blenderMeshes/display/display.glb" id="4_hddpd"]
-[ext_resource type="Script" path="res://scripts/game.gd" id="5_88q2j"]
-[ext_resource type="PackedScene" uid="uid://tj2a8hn60yt3" path="res://scenes/ui/sonar.tscn" id="6_d8w6i"]
-[ext_resource type="PackedScene" uid="uid://dj46rqiyroyn2" path="res://_utests_and_debug_instruments/test_scenes/virtual_movement_tests/vmap_maping.tscn" id="7_ro1c0"]
-[ext_resource type="PackedScene" uid="uid://qbx5cmhsh6nn" path="res://scenes/ui/player_info.tscn" id="8_526b2"]
-[ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/turn_left.gd" id="9_d8ouy"]
-[ext_resource type="Script" path="res://scenes/interactive/interactable.gd" id="10_h2pfm"]
-[ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/turn_right.gd" id="11_76a6x"]
-[ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/move_forward.gd" id="12_u0bxu"]
-[ext_resource type="PackedScene" uid="uid://duqo6j0k20vgv" path="res://scenes/screens_periscope/screen.tscn" id="13_lwimk"]
-[ext_resource type="PackedScene" uid="uid://cll5522o2q2tj" path="res://scenes/peripherals_dynamic_scenes/finish_sound_sonar.tscn" id="14_y8or0"]
-[ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="15_pweb8"]
-[ext_resource type="Resource" uid="uid://jjitux2t22gi" path="res://godot_resources/vmap_levels/level_y.tres" id="16_i8gtw"]
-[ext_resource type="Script" path="res://godot_resources/virtual_player.gd" id="17_d1fft"]
-[ext_resource type="Script" path="res://godot_resources/virtual_enemies/virtual_enemy.gd" id="18_tgtki"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_u06oi"]
+[ext_resource type="PackedScene" uid="uid://cod6roj0bv5r6" path="res://assets/blenderMeshes/submarine/game_ready.glb" id="2_rwhm1"]
+[ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="3_gtoj2"]
+[ext_resource type="PackedScene" uid="uid://dfb3njnkc5abr" path="res://assets/blenderMeshes/display/display.glb" id="4_q7jy6"]
+[ext_resource type="PackedScene" uid="uid://tj2a8hn60yt3" path="res://scenes/ui/sonar.tscn" id="5_ixbvl"]
+[ext_resource type="PackedScene" uid="uid://dj46rqiyroyn2" path="res://_utests_and_debug_instruments/test_scenes/virtual_movement_tests/vmap_maping.tscn" id="6_y2b06"]
+[ext_resource type="PackedScene" uid="uid://qbx5cmhsh6nn" path="res://scenes/ui/player_info.tscn" id="7_rttnv"]
+[ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/turn_left.gd" id="8_2jeib"]
+[ext_resource type="Script" path="res://scenes/interactive/interactable.gd" id="9_bjx65"]
+[ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/turn_right.gd" id="10_5wqmn"]
+[ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/move_forward.gd" id="11_kbn0p"]
+[ext_resource type="PackedScene" uid="uid://duqo6j0k20vgv" path="res://scenes/screens_periscope/screen.tscn" id="12_pynd7"]
+[ext_resource type="PackedScene" uid="uid://cll5522o2q2tj" path="res://scenes/peripherals_dynamic_scenes/finish_sound_sonar.tscn" id="13_3vohr"]
+[ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="14_dkpjl"]
+[ext_resource type="Resource" uid="uid://jjitux2t22gi" path="res://godot_resources/vmap_levels/level_y.tres" id="15_jxyv7"]
+[ext_resource type="Script" path="res://godot_resources/virtual_player.gd" id="16_n1aej"]
+[ext_resource type="Script" path="res://godot_resources/virtual_enemies/virtual_enemy.gd" id="17_fb5hj"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hrpk1"]
 viewport_path = NodePath("CanvasLayer/SubViewport")
@@ -50,9 +50,9 @@ viewport_path = NodePath("Screen")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_jlxmh")
 
-[sub_resource type="Resource" id="Resource_lln01"]
+[sub_resource type="Resource" id="Resource_y8n0t"]
 resource_local_to_scene = true
-script = ExtResource("17_d1fft")
+script = ExtResource("16_n1aej")
 hp = 2
 air = 10
 torpedos = 2
@@ -63,25 +63,25 @@ damage_from_enemies = 2
 after_burner = 2
 
 [sub_resource type="Resource" id="Resource_pbrj0"]
-script = ExtResource("18_tgtki")
+script = ExtResource("17_fb5hj")
 ai_type = 0
 start_ping_pong_direction = 0
 matrix_movement = -1
 
 [sub_resource type="Resource" id="Resource_wjhcs"]
-script = ExtResource("18_tgtki")
+script = ExtResource("17_fb5hj")
 ai_type = 0
 start_ping_pong_direction = 0
 matrix_movement = -1
 
 [node name="Game" type="Node3D"]
-script = ExtResource("5_88q2j")
+script = ExtResource("1_u06oi")
 
-[node name="Submarine" parent="." instance=ExtResource("2_iw3vt")]
+[node name="Submarine" parent="." instance=ExtResource("2_rwhm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.430676, 0, -0.443177)
 
-[node name="Basic FPS Player" parent="." instance=ExtResource("3_f31no")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.966933, 5.18787, 32.3092)
+[node name="Basic FPS Player" parent="." instance=ExtResource("3_gtoj2")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.466176, 18.3056)
 
 [node name="Light" type="Node" parent="."]
 
@@ -159,19 +159,19 @@ light_energy = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.184712, 6.56562, 33.8429)
 light_energy = 2.0
 
-[node name="DisplayFirstEvent" parent="." instance=ExtResource("4_hddpd")]
+[node name="DisplayFirstEvent" parent="." instance=ExtResource("4_q7jy6")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 11.4107, -0.765556, 17.7538)
 
 [node name="terminal" parent="DisplayFirstEvent" index="0"]
 transform = Transform3D(-2.38419e-07, 0.00239546, -0.999997, 3.49246e-10, 0.999997, 0.00239546, 1, 3.49246e-10, -2.38419e-07, -11.7581, 2.66617, 1.61941)
 
-[node name="DisplaySecondEvent" parent="." instance=ExtResource("4_hddpd")]
+[node name="DisplaySecondEvent" parent="." instance=ExtResource("4_q7jy6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.16048, 3.56516, -27.8923)
 
 [node name="terminal" parent="DisplaySecondEvent" index="0"]
 transform = Transform3D(-2.38419e-07, 0.00239546, -0.999997, 3.49246e-10, 0.999997, 0.00239546, 1, 3.49246e-10, -2.38419e-07, -11.7581, 2.66617, 1.61941)
 
-[node name="DisplayThirdEvent" parent="." instance=ExtResource("4_hddpd")]
+[node name="DisplayThirdEvent" parent="." instance=ExtResource("4_q7jy6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.16048, -0.98206, 3.79957)
 
 [node name="terminal" parent="DisplayThirdEvent" index="0"]
@@ -193,9 +193,9 @@ texture = SubResource("ViewportTexture_doo6f")
 disable_3d = true
 transparent_bg = true
 
-[node name="Sonar" parent="CanvasLayer/SubViewport" instance=ExtResource("6_d8w6i")]
+[node name="Sonar" parent="CanvasLayer/SubViewport" instance=ExtResource("5_ixbvl")]
 
-[node name="VmapMaping" parent="CanvasLayer" instance=ExtResource("7_ro1c0")]
+[node name="VmapMaping" parent="CanvasLayer" instance=ExtResource("6_y2b06")]
 
 [node name="SubViewport2" type="SubViewport" parent="CanvasLayer"]
 disable_3d = true
@@ -203,11 +203,11 @@ transparent_bg = true
 size = Vector2i(1075, 610)
 size_2d_override_stretch = true
 
-[node name="PlayerInfo" parent="CanvasLayer/SubViewport2" instance=ExtResource("8_526b2")]
+[node name="PlayerInfo" parent="CanvasLayer/SubViewport2" instance=ExtResource("7_rttnv")]
 
 [node name="TurnLeft" type="Node3D" parent="."]
 transform = Transform3D(0.0801847, 0, 0.180386, 0, 0.197405, 0, -0.180386, 0, 0.0801847, -0.468535, 5.24884, 34.5412)
-script = ExtResource("9_d8ouy")
+script = ExtResource("8_2jeib")
 
 [node name="TurnLeftMesh" type="MeshInstance3D" parent="TurnLeft"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.4, 0)
@@ -217,7 +217,7 @@ skeleton = NodePath("../../Screen")
 [node name="Interactable" type="Area3D" parent="TurnLeft" groups=["turn_left_interactable"]]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("10_h2pfm")
+script = ExtResource("9_bjx65")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TurnLeft/Interactable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
@@ -225,7 +225,7 @@ shape = SubResource("CylinderShape3D_8e76n")
 
 [node name="TurnRight" type="Node3D" parent="."]
 transform = Transform3D(0.0801847, 0, 0.180386, 0, 0.197405, 0, -0.180386, 0, 0.0801847, -0.342704, 5.24884, 33.009)
-script = ExtResource("11_76a6x")
+script = ExtResource("10_5wqmn")
 
 [node name="TurnRightMesh" type="MeshInstance3D" parent="TurnRight"]
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, -0.4, 0)
@@ -235,7 +235,7 @@ skeleton = NodePath("../../Screen")
 [node name="Interactable" type="Area3D" parent="TurnRight" groups=["turn_right_interactable"]]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("10_h2pfm")
+script = ExtResource("9_bjx65")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TurnRight/Interactable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
@@ -243,7 +243,7 @@ shape = SubResource("CylinderShape3D_yjlv0")
 
 [node name="MoveForward" type="Node3D" parent="."]
 transform = Transform3D(0.0801847, 0, 0.180386, 0, 0.197405, 0, -0.180386, 0, 0.0801847, -0.222754, 5.24884, 33.8123)
-script = ExtResource("12_u0bxu")
+script = ExtResource("11_kbn0p")
 
 [node name="MoveForwardMesh" type="MeshInstance3D" parent="MoveForward"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.4, 0)
@@ -253,30 +253,30 @@ skeleton = NodePath("../../Screen")
 [node name="Interactable" type="Area3D" parent="MoveForward" groups=["move_forward_interactable"]]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("10_h2pfm")
+script = ExtResource("9_bjx65")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MoveForward/Interactable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("CylinderShape3D_5l1jm")
 
-[node name="Screen2" parent="." instance=ExtResource("13_lwimk")]
+[node name="Screen2" parent="." instance=ExtResource("12_pynd7")]
 transform = Transform3D(1.38712e-08, 0, 0.197405, 0, 1.03187, 0, -1.16321, 0, 2.35403e-09, -1.74011, 6.14188, 34.5996)
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_2lhiy")
 
-[node name="Screen" parent="." instance=ExtResource("13_lwimk")]
+[node name="Screen" parent="." instance=ExtResource("12_pynd7")]
 transform = Transform3D(1.26603e-08, 0, 0.197405, 0, 1.14692, 0, -1.06167, 0, 2.35403e-09, -1.66772, 6.12114, 33.0143)
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_f5dhr")
 _is_geometry = true
 
-[node name="FinishSoundSonar" parent="." instance=ExtResource("14_y8or0")]
+[node name="FinishSoundSonar" parent="." instance=ExtResource("13_3vohr")]
 transform = Transform3D(2.35403e-09, 0, 0.197405, 0, 0.197405, 0, -0.197405, 0, 2.35403e-09, -1.97229, 5.16775, 33.4346)
 
-[node name="VirtualMap" parent="." instance=ExtResource("15_pweb8")]
-vmap = ExtResource("16_i8gtw")
-_player = SubResource("Resource_lln01")
-_virtual_enemies = Array[ExtResource("18_tgtki")]([SubResource("Resource_pbrj0"), SubResource("Resource_wjhcs")])
+[node name="VirtualMap" parent="." instance=ExtResource("14_dkpjl")]
+vmap = ExtResource("15_jxyv7")
+_player = SubResource("Resource_y8n0t")
+_virtual_enemies = Array[ExtResource("17_fb5hj")]([SubResource("Resource_pbrj0"), SubResource("Resource_wjhcs")])
 
 [connection signal="focused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_focused"]
 [connection signal="interacted" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_interacted"]
