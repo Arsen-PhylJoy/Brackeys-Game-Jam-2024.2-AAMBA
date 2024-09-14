@@ -54,7 +54,8 @@ enabled=PackedStringArray("res://addons/csg_toolkit/plugin.cfg", "res://addons/e
 
 folder_colors={
 "res://_utests_and_debug_instruments/": "purple",
-"res://addons/game_level_builder/": "red"
+"res://addons/game_level_builder/": "red",
+"res://scenes/game_levels/": "green"
 }
 
 [global_group]

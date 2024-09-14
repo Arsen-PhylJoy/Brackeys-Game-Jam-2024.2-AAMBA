@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://8ywphfa4mv2f"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_iv7xi"]
+[ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="2_b3i47"]
+[ext_resource type="Resource" uid="uid://cuq3j5k1pel1s" path="res://godot_resources/vmap_levels/LEVEL_3.tres" id="3_x8csg"]
+[ext_resource type="Script" path="res://godot_resources/virtual_player.gd" id="4_eto4d"]
+[ext_resource type="Script" path="res://godot_resources/virtual_enemies/virtual_enemy.gd" id="5_2rwi6"]
+
+[sub_resource type="Resource" id="Resource_ic6mj"]
+resource_local_to_scene = true
+script = ExtResource("4_eto4d")
+hp = 2
+air = 20
+torpedos = 2
+air_refill_amount = 2
+damage_from_rocks = 1
+damage_from_destructables = 1
+damage_from_enemies = 2
+after_burner = 2
+
+[sub_resource type="Resource" id="Resource_q34n7"]
+script = ExtResource("5_2rwi6")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_ixh8y"]
+script = ExtResource("5_2rwi6")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_hvc78"]
+script = ExtResource("5_2rwi6")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[node name="Level3" type="Node3D"]
+script = ExtResource("1_iv7xi")
+
+[node name="VirtualMap" parent="." instance=ExtResource("2_b3i47")]
+vmap = ExtResource("3_x8csg")
+_player = SubResource("Resource_ic6mj")
+_virtual_enemies = Array[ExtResource("5_2rwi6")]([SubResource("Resource_q34n7"), SubResource("Resource_ixh8y"), SubResource("Resource_hvc78")])

@@ -6,7 +6,7 @@
 resource_local_to_scene = true
 script = ExtResource("1_cvfj4")
 hp = 2
-air = 10
+air = 23
 torpedos = 2
 air_refill_amount = 2
 damage_from_rocks = 1
