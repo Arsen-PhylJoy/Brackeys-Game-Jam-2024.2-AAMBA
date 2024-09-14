@@ -1,23 +1,34 @@
-class_name LoadingScreen 
-extends CanvasLayer
+class_name LoadingScreen extends CanvasLayer
 
-@onready var color_rect: ColorRect = %ColorRect
+signal transition_in_ended
+
 @onready var anim_player: AnimationPlayer = %AnimationPlayer
-
-var starting_animation_name: String
+var starting_animation_name:String
+@onready var bg: TextureRect = %BG
+@onready var color_rect: ColorRect = %ColorRect
 
 func _ready() -> void:
-	color_rect.visible = false
-	anim_player.animation_finished.connect(_on_animation_finished)
+	bg.hide()
 
-func _on_animation_finished(anim_name: String) -> void:
-	if anim_name == "fade_to_black":
-		EventBus.on_transition_ended.emit()
-		anim_player.play("fade_to_normal")
-	elif anim_name == "fade_to_normal":
-		color_rect.visible = false
-
-func transition() -> void:
-	color_rect.visible = true
-	anim_player.play("fade_to_black")
-	pass
+func start_transition(animation_name:String) -> void:
+	bg.show()
+	if !anim_player.has_animation(animation_name):
+		push_warning("'%s' animation does not exist" % animation_name)
+		animation_name = "fade_to_black"
+	starting_animation_name = animation_name
+	anim_player.play(animation_name)
+	await anim_player.animation_finished
+	transition_in_ended.emit()
+	
+# called by SceneManger to play the outro to the transition once the content is loaded
+func finish_transition() -> void:
+	bg.hide()
+	# construct second half of the transitation's animation name
+	var ending_animation_name:String = starting_animation_name.replace("to","from")
+	if !anim_player.has_animation(ending_animation_name):
+		push_warning("'%s' animation does not exist" % ending_animation_name)
+		ending_animation_name = "fade_to_normal"
+	anim_player.play(ending_animation_name)
+	await anim_player.animation_finished
+	get_tree().paused = false
+	queue_free()
