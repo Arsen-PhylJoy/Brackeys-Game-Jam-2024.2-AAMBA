@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://cjauw8kwi7b6x"]
+[gd_scene load_steps=29 format=3 uid="uid://cjauw8kwi7b6x"]
 
 [ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/turn_left.gd" id="1_dyc27"]
 [ext_resource type="Script" path="res://scenes/interactive/interactable.gd" id="2_1iofq"]
 [ext_resource type="PackedScene" uid="uid://dj46rqiyroyn2" path="res://_utests_and_debug_instruments/test_scenes/virtual_movement_tests/vmap_maping.tscn" id="2_uvwyq"]
 [ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/turn_right.gd" id="3_aohqf"]
+[ext_resource type="PackedScene" uid="uid://qbx5cmhsh6nn" path="res://scenes/ui/player_info.tscn" id="3_rv7mh"]
 [ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/move_forward.gd" id="4_mgvgy"]
 [ext_resource type="PackedScene" uid="uid://duqo6j0k20vgv" path="res://scenes/screens_periscope/screen.tscn" id="5_ed5kx"]
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="6_g1jr6"]
@@ -16,6 +17,9 @@
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_whm7e"]
 viewport_path = NodePath("CanvasLayer/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d35x4"]
+viewport_path = NodePath("CanvasLayer/SubViewport2")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_t2yg0"]
 height = 1.0
@@ -65,6 +69,10 @@ matrix_movement = -1
 transform = Transform3D(0.601327, 0, 0.799003, 0, 1, 0, -0.799003, 0, 0.601327, -8.60897, 2.204, -4.04962)
 texture = SubResource("ViewportTexture_whm7e")
 
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.565413, 0, -0.824808, 0, 1, 0, 0.824808, 0, 0.565413, 12.4885, 2.204, -1.11922)
+texture = SubResource("ViewportTexture_d35x4")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer"]
@@ -74,6 +82,14 @@ transparent_bg = true
 [node name="Sonar" parent="CanvasLayer/SubViewport" instance=ExtResource("8_ugef1")]
 
 [node name="VmapMaping" parent="CanvasLayer" instance=ExtResource("2_uvwyq")]
+
+[node name="SubViewport2" type="SubViewport" parent="CanvasLayer"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1075, 610)
+size_2d_override_stretch = true
+
+[node name="PlayerInfo" parent="CanvasLayer/SubViewport2" instance=ExtResource("3_rv7mh")]
 
 [node name="TurnLeft" type="Node3D" parent="."]
 transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, -1.824, 1, -1.139)

@@ -42,6 +42,7 @@ func _init_venv() -> void:
 	virtual_map_relative_to_player_updated.emit(vmap,_player_pos, _player.player_direction)
 	player_direction_changed.emit(_player.player_direction)
 	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
+	_player.data_changed.emit(_player.hp,_player.air,_player.torpedos,_player.after_burner)
 
 func _on_player_moved(interactor: Interactor) -> void:
 	_move_player_forward()
@@ -128,16 +129,24 @@ func _on_player_turned_left(interactor: Interactor) -> void:
 	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 
 func _on_torpedo_launched() -> void:
+	if(_player.torpedos  == 0):
+		return
 	var forward_cell: Cell = vmap.get_cell_at_position(_player_pos + _player.player_direction)
 	var cell_index: int = vmap.get_index_at_position(_player_pos + _player.player_direction)
 	if((forward_cell.type == Cell.cell_type.ENEMY or forward_cell.type == Cell.cell_type.DESTRUCTABLE) and _player.torpedos != 0):
-		_player.torpedos -= 1
 		vmap.cells[cell_index] = load("res://godot_resources/cells/free_cell.tres")
+	_player.torpedos-=1
+	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
+	player_direction_changed.emit(_player.player_direction)
 	virtual_map_relative_to_player_updated.emit(vmap, _player_pos, _player.player_direction)
-	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)	
+	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 
 func _on_afterburner_used() -> void:
 	if(_player.after_burner > 0 ):
 		_player.after_burner-=1
 		_move_player_forward()
 		_move_player_forward()
+	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
+	player_direction_changed.emit(_player.player_direction)
+	virtual_map_relative_to_player_updated.emit(vmap, _player_pos, _player.player_direction)
+	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)

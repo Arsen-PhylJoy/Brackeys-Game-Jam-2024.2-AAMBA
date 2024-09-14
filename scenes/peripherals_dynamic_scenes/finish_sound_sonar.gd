@@ -17,6 +17,4 @@ func _connect_signals() -> void:
 func _on_virtual_map_relative_to_player_updated(vmap: VirtualMap, player_pos: Vector2, player_dir: Vector2) -> void:
 	var _max_distance_from_finish: float = Vector2(0,0).distance_to(Vector2(vmap.get_columns()+1,vmap.get_columns()+1))
 	var _distance_from_finish:float = player_pos.distance_to(vmap.get_position_of_nearest_finish(player_pos))
-	print(str((_max_distance_from_finish - _distance_from_finish)) +"!!!"+ str(_max_distance_from_finish))
 	audio_player.volume_db = lerpf(max_db, min_db,  _max_distance_from_finish/(_max_distance_from_finish - _distance_from_finish))
-	print(audio_player.volume_db)
