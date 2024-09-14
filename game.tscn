@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ccksbyp0xsrk4"]
+[gd_scene load_steps=32 format=3 uid="uid://ccksbyp0xsrk4"]
 
 [ext_resource type="PackedScene" uid="uid://cod6roj0bv5r6" path="res://assets/blenderMeshes/submarine/game_ready.glb" id="2_iw3vt"]
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="3_f31no"]
@@ -50,7 +50,7 @@ viewport_path = NodePath("Screen")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_jlxmh")
 
-[sub_resource type="Resource" id="Resource_lln01"]
+[sub_resource type="Resource" id="Resource_ljph4"]
 resource_local_to_scene = true
 script = ExtResource("17_d1fft")
 hp = 2
@@ -73,6 +73,29 @@ script = ExtResource("18_tgtki")
 ai_type = 0
 start_ping_pong_direction = 0
 matrix_movement = -1
+
+[sub_resource type="Environment" id="Environment_64ch4"]
+background_energy_multiplier = 0.44
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.0
+tonemap_mode = 3
+tonemap_exposure = 1.96
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+sdfgi_y_scale = 0
+glow_enabled = true
+glow_normalized = true
+glow_strength = 0.98
+glow_bloom = 0.43
+glow_blend_mode = 1
+volumetric_fog_enabled = true
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_anisotropy = 0.24
+volumetric_fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_brightness = 1.48
 
 [node name="Game" type="Node3D"]
 script = ExtResource("5_88q2j")
@@ -275,8 +298,11 @@ transform = Transform3D(2.35403e-09, 0, 0.197405, 0, 0.197405, 0, -0.197405, 0, 
 
 [node name="VirtualMap" parent="." instance=ExtResource("15_pweb8")]
 vmap = ExtResource("16_i8gtw")
-_player = SubResource("Resource_lln01")
+_player = SubResource("Resource_ljph4")
 _virtual_enemies = Array[ExtResource("18_tgtki")]([SubResource("Resource_pbrj0"), SubResource("Resource_wjhcs")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_64ch4")
 
 [connection signal="focused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_focused"]
 [connection signal="interacted" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_interacted"]
