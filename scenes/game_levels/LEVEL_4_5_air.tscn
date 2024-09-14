@@ -1,0 +1,87 @@
+[gd_scene load_steps=17 format=3 uid="uid://cob8gtc1gpnh0"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_1v631"]
+[ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="2_n8pgu"]
+[ext_resource type="Resource" uid="uid://bqcxdovmtj7kx" path="res://godot_resources/vmap_levels/LEVEL_AIR.tres" id="3_ka01k"]
+[ext_resource type="Script" path="res://godot_resources/virtual_player.gd" id="4_biurf"]
+[ext_resource type="Script" path="res://godot_resources/virtual_enemies/virtual_enemy.gd" id="5_j32wp"]
+
+[sub_resource type="Resource" id="Resource_lkdef"]
+resource_local_to_scene = true
+script = ExtResource("4_biurf")
+hp = 1
+air = 4
+torpedos = 0
+air_refill_amount = 2
+damage_from_rocks = 1
+damage_from_destructables = 1
+damage_from_enemies = 2
+after_burner = 1
+
+[sub_resource type="Resource" id="Resource_q34n7"]
+script = ExtResource("5_j32wp")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_ixh8y"]
+script = ExtResource("5_j32wp")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_hvc78"]
+script = ExtResource("5_j32wp")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_nqpyx"]
+script = ExtResource("5_j32wp")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_crsq3"]
+script = ExtResource("5_j32wp")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_kmwox"]
+script = ExtResource("5_j32wp")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_rbjhv"]
+script = ExtResource("5_j32wp")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_cefjt"]
+script = ExtResource("5_j32wp")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_d1310"]
+script = ExtResource("5_j32wp")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_ntu3k"]
+script = ExtResource("5_j32wp")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[node name="Level4_5" type="Node3D"]
+script = ExtResource("1_1v631")
+
+[node name="VirtualMap" parent="." instance=ExtResource("2_n8pgu")]
+vmap = ExtResource("3_ka01k")
+_player = SubResource("Resource_lkdef")
+_virtual_enemies = Array[ExtResource("5_j32wp")]([SubResource("Resource_q34n7"), SubResource("Resource_ixh8y"), SubResource("Resource_hvc78"), SubResource("Resource_nqpyx"), SubResource("Resource_crsq3"), SubResource("Resource_kmwox"), SubResource("Resource_rbjhv"), SubResource("Resource_cefjt"), SubResource("Resource_d1310"), SubResource("Resource_ntu3k")])
