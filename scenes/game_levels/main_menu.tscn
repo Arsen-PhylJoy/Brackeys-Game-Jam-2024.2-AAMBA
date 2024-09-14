@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci5jef57ayrjh"]
+[gd_scene load_steps=4 format=3 uid="uid://ci5jef57ayrjh"]
 
 [ext_resource type="Script" path="res://scenes/game_levels/main_menu.gd" id="1_d01wm"]
+[ext_resource type="PackedScene" uid="uid://tkqe18ptm7mv" path="res://scenes/ui/soung_settings.tscn" id="2_pin2y"]
 [ext_resource type="PackedScene" uid="uid://dvisit7uer40p" path="res://scenes/ui/exit.tscn" id="2_qfkcs"]
 
 [node name="MainMenu" type="Node3D"]
@@ -16,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
 layout_mode = 2
@@ -34,13 +36,6 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SoundSettings" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 41
-text = "Sound Settings"
-
 [node name="Control" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 94.755)
 layout_mode = 2
@@ -50,6 +45,14 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
+
+[node name="SoungSettings" parent="." instance=ExtResource("2_pin2y")]
+offset_left = -954.0
+offset_top = 34.0
+offset_right = -954.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
