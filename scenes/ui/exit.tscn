@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvisit7uer40p"]
+
+[ext_resource type="Script" path="res://scenes/ui/exit.gd" id="1_1rr1g"]
+
+[node name="Exit" type="Button"]
+anchors_preset = -1
+anchor_right = 0.159
+anchor_bottom = 0.108
+offset_right = -0.168015
+offset_bottom = 0.0159988
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 46
+text = "Exit"
+script = ExtResource("1_1rr1g")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GodotTemplate"
-run/main_scene="res://_utests_and_debug_instruments/test_scenes/test_game_day2/game.tscn"
+run/main_scene="res://scenes/game_levels/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
@@ -21,6 +21,8 @@ Global="*res://scripts/autoload/global.gd"
 CsgToolkitAutoload="*res://addons/csg_toolkit/scripts/csg_toolkit_config.gd"
 GodotLogger="*res://addons/logger/logger.gd"
 SoundManager="*res://addons/sound_manager/module/SoundManager.tscn"
+LevelManager="*res://scripts/autoload/level_manager.gd"
+Settings="*res://scripts/autoload/settings.gd"
 
 [debug]
 
@@ -33,8 +35,11 @@ gdscript/warnings/return_value_discarded=1
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/subwindows/embed_subwindows=false
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 
 [editor]
