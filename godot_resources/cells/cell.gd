@@ -144,18 +144,11 @@ var _pattern_to_visual: Dictionary = {
 		preload("res://assets/periskop/9.png"),
 		preload("res://assets/periskop/9.jpg")
 	],
+	[cell_type.ROCK,cell_type.ROCK,cell_type.FREE,cell_type.ROCK,cell_type.FREE,cell_type.FREE]: [
+		preload("res://assets/periskop/FRR-FFR_5.png"),
+		preload("res://assets/periskop/FRR-FFR_5.jpg")
+	],
 }
-
-#[0,0],[0,1],[0,2]
-#[1,0],[1,1],[1,2]
-var _monster_position: Array[CompressedTexture2D] = [
-	preload("res://assets/periskop/monsters/YQQQQQ.png") as CompressedTexture2D,
-	preload("res://assets/periskop/monsters/QYQQQQ.png") as CompressedTexture2D,
-	preload("res://assets/periskop/monsters/QQYQQQ.png") as CompressedTexture2D,
-	preload("res://assets/periskop/monsters/QQQYQQ.png") as CompressedTexture2D,
-	preload("res://assets/periskop/monsters/ryba.png") as CompressedTexture2D,
-	preload("res://assets/periskop/monsters/QQQQQY.png") as CompressedTexture2D
-]
 
 func update_visual_state(template: Array[cell_type]) ->void:
 	if(template[4] == Cell.cell_type.ROCK):
