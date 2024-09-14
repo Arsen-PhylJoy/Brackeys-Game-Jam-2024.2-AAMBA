@@ -111,8 +111,3 @@ debug_action_2={
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Environment"
 3d_physics/layer_3="Interactable"
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
