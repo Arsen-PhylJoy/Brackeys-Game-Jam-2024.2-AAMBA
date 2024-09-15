@@ -1,0 +1,57 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dcsshqn6dmfn0"
+path="res://.godot/imported/door+anim.glb-d2cb7c0a8a02ac0cbb9086c9f6d0e7ee.scn"
+
+[deps]
+
+source_file="res://assets/blenderMeshes/doors/door+anim.glb"
+dest_files=["res://.godot/imported/door+anim.glb-d2cb7c0a8a02ac0cbb9086c9f6d0e7ee.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:door1_anim/Skeleton3D": {
+"rest_pose/external_animation_library": null
+},
+"PATH:door1_anim/Skeleton3D/door2_003": {
+"generate/physics": true,
+"physics/layer": 2
+},
+"PATH:door2_anim/Skeleton3D": {
+"rest_pose/external_animation_library": null
+},
+"PATH:door2_anim/Skeleton3D/door1_003": {
+"generate/physics": true,
+"physics/layer": 2
+},
+"PATH:door_rama": {
+"generate/physics": true,
+"physics/layer": 2
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

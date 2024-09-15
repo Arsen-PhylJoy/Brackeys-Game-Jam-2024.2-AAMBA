@@ -47,7 +47,7 @@ viewport_path = NodePath("Screen")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_jlxmh")
 
-[sub_resource type="Resource" id="Resource_ibjjd"]
+[sub_resource type="Resource" id="Resource_k80gp"]
 resource_local_to_scene = true
 script = ExtResource("14_b1vap")
 hp = 2
@@ -74,14 +74,6 @@ matrix_movement = -1
 [node name="Game" type="Node3D"]
 script = ExtResource("1_e38ak")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.601327, 0, 0.799003, 0, 1, 0, -0.799003, 0, 0.601327, -8.60897, 2.204, -4.04962)
-texture = SubResource("ViewportTexture_whm7e")
-
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(0.565413, 0, -0.824808, 0, 1, 0, 0.824808, 0, 0.565413, 12.4885, 2.204, -1.11922)
-texture = SubResource("ViewportTexture_d35x4")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer"]
@@ -99,6 +91,14 @@ size = Vector2i(1075, 610)
 size_2d_override_stretch = true
 
 [node name="PlayerInfo" parent="CanvasLayer/SubViewport2" instance=ExtResource("3_rv7mh")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.601327, 0, 0.799003, 0, 1, 0, -0.799003, 0, 0.601327, -6.47981, 2.204, -4.04962)
+texture = SubResource("ViewportTexture_whm7e")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.565413, 0, -0.824808, 0, 1, 0, 0.824808, 0, 0.565413, 8.0645, 2.50785, -1.11922)
+texture = SubResource("ViewportTexture_d35x4")
 
 [node name="TurnLeft" type="Node3D" parent="."]
 transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, -1.824, 1, -1.139)
@@ -155,11 +155,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("CylinderShape3D_5l1jm")
 
 [node name="Screen2" parent="." instance=ExtResource("5_ed5kx")]
-transform = Transform3D(5.89253, 0, 0, 0, 5.22716, 0, 0, 0, 1, -2.92983, 5.5239, -6.00753)
+transform = Transform3D(5.89253, 0, 0, 0, 5.22716, 0, 0, 0, 1, 2.65541, 2.95154, -3.44881)
 surface_material_override/0 = SubResource("StandardMaterial3D_2lhiy")
 
 [node name="Screen" parent="." instance=ExtResource("5_ed5kx")]
-transform = Transform3D(5.37812, 0, 0, 0, 5.80996, 0, 0, 0, 1, 5.1006, 5.41886, -5.6408)
+transform = Transform3D(5.37812, 0, 0, 0, 5.80996, 0, 0, 0, 1, -1.39425, 2.95154, -3.44881)
 surface_material_override/0 = SubResource("StandardMaterial3D_f5dhr")
 _is_geometry = true
 
@@ -168,7 +168,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.13786, 0.589229, -1.28702)
 
 [node name="VirtualMap" parent="." instance=ExtResource("7_hm35q")]
 vmap = ExtResource("11_uaqnr")
-_player = SubResource("Resource_ibjjd")
+_player = SubResource("Resource_k80gp")
 _virtual_enemies = Array[ExtResource("13_605ts")]([SubResource("Resource_pbrj0"), SubResource("Resource_wjhcs")])
 
 [connection signal="focused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_focused"]
