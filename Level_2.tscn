@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=4 uid="uid://o4egrn7wleqn"]
+[gd_scene load_steps=128 format=4 uid="uid://o4egrn7wleqn"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_7ywwv"]
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="2_s4g0x"]
@@ -155,6 +155,13 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nhee2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_k4xsl"]
+viewport_path = NodePath("Console/sonar/Sonar")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gswp4"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_k4xsl")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1d3ri"]
 viewport_path = NodePath("Console/text_display/PlayerInfo")
@@ -817,6 +824,7 @@ transform = Transform3D(0.999765, 0.00914678, -0.0196774, 0.0198909, -0.0238737,
 material_overlay = SubResource("StandardMaterial3D_i7dq7")
 mesh = SubResource("ArrayMesh_6ygq5")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_gswp4")
 
 [node name="Sonar" type="SubViewport" parent="Console/sonar"]
 disable_3d = true

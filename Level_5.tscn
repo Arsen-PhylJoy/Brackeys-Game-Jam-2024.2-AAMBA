@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=4 uid="uid://b0rfnj7pp31fv"]
+[gd_scene load_steps=128 format=4 uid="uid://b0rfnj7pp31fv"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_oyb5v"]
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="2_0cnfx"]
@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://dgwv30jsx35by" path="res://assets/blenderMeshes/display/display_Pallete_materials.png" id="34_hqdlv"]
 [ext_resource type="PackedScene" uid="uid://d36fu4506k5r0" path="res://scenes/ui/3d_ui/showing_tip_event.tscn" id="35_2tmi8"]
 [ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="36_2c176"]
-[ext_resource type="Resource" uid="uid://bqcxdovmtj7kx" path="res://godot_resources/vmap_levels/LEVEL_AIR.tres" id="37_qjlh8"]
+[ext_resource type="Resource" uid="uid://be1e3ghwmfftp" path="res://godot_resources/vmap_levels/LEVEL_AIRRRR.tres" id="37_ri0x7"]
 [ext_resource type="Script" path="res://godot_resources/virtual_player.gd" id="38_fysx3"]
 [ext_resource type="PackedScene" uid="uid://cl057cmiyo2w1" path="res://scenes/background_sounds_and music.tscn" id="40_qjqf2"]
 [ext_resource type="AudioStream" uid="uid://3t7us201j8t3" path="res://assets/sfx/Ne music/Машинерия 1.mp3" id="41_3cp2a"]
@@ -155,6 +155,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nhee2")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_thrqe"]
+viewport_path = NodePath("Console/sonar/Sonar")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e14k2"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_thrqe")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_1d3ri"]
 viewport_path = NodePath("Console/text_display/PlayerInfo")
 
@@ -195,6 +202,13 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3jlfn")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bocgy"]
+viewport_path = NodePath("Console/text_display/PlayerInfo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tpog"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_bocgy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nn47g"]
 resource_name = "jam"
@@ -810,6 +824,7 @@ transform = Transform3D(0.999765, 0.00914678, -0.0196774, 0.0198909, -0.0238737,
 material_overlay = SubResource("StandardMaterial3D_i7dq7")
 mesh = SubResource("ArrayMesh_6ygq5")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_e14k2")
 
 [node name="Sonar" type="SubViewport" parent="Console/sonar"]
 disable_3d = true
@@ -822,6 +837,7 @@ transform = Transform3D(0.99851, 0, -0.0584742, 0, 1, 0, 0.0545668, 0, 1.07001, 
 material_overlay = SubResource("StandardMaterial3D_6qq2b")
 mesh = SubResource("ArrayMesh_b841w")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4tpog")
 
 [node name="PlayerInfo" type="SubViewport" parent="Console/text_display"]
 disable_3d = true
@@ -1336,7 +1352,7 @@ visible = false
 texture = SubResource("ViewportTexture_v38ud")
 
 [node name="VirtualMap" parent="." groups=["the_most_important_node"] instance=ExtResource("36_2c176")]
-vmap = ExtResource("37_qjlh8")
+vmap = ExtResource("37_ri0x7")
 _player = SubResource("Resource_3naax")
 
 [node name="BackgroundSoundsAndMusic" parent="." instance=ExtResource("40_qjqf2")]

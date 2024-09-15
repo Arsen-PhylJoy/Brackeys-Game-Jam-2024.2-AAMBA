@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=4 uid="uid://c3vb7vj4b7dkg"]
+[gd_scene load_steps=132 format=4 uid="uid://c3vb7vj4b7dkg"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_j4ya0"]
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="2_ohhn6"]
@@ -156,6 +156,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nhee2")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_g1do7"]
+viewport_path = NodePath("Console/sonar/Sonar")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmrte"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_g1do7")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_1d3ri"]
 viewport_path = NodePath("Console/text_display/PlayerInfo")
 
@@ -196,6 +203,13 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3jlfn")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yjcqw"]
+viewport_path = NodePath("Console/text_display/PlayerInfo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmxci"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_yjcqw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nn47g"]
 resource_name = "jam"
@@ -829,6 +843,7 @@ transform = Transform3D(0.999765, 0.00914678, -0.0196774, 0.0198909, -0.0238737,
 material_overlay = SubResource("StandardMaterial3D_i7dq7")
 mesh = SubResource("ArrayMesh_6ygq5")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_nmrte")
 
 [node name="Sonar" type="SubViewport" parent="Console/sonar"]
 disable_3d = true
@@ -841,6 +856,7 @@ transform = Transform3D(0.99851, 0, -0.0584742, 0, 1, 0, 0.0545668, 0, 1.07001, 
 material_overlay = SubResource("StandardMaterial3D_6qq2b")
 mesh = SubResource("ArrayMesh_b841w")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_hmxci")
 
 [node name="PlayerInfo" type="SubViewport" parent="Console/text_display"]
 disable_3d = true
