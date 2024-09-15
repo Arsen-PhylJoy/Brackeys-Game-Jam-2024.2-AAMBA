@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://tkqe18ptm7mv"]
+[gd_scene load_steps=9 format=3 uid="uid://tkqe18ptm7mv"]
 
 [ext_resource type="Theme" uid="uid://c14chjs13dd0j" path="res://scenes/ui/ui.tres" id="1_8jjeg"]
 [ext_resource type="Script" path="res://scenes/ui/soung_settings.gd" id="1_jplsv"]
 [ext_resource type="AudioStream" uid="uid://bsfcv42bhf7ig" path="res://assets/sfx/funny_peep.mp3" id="2_lknbo"]
+[ext_resource type="Shader" path="res://godot_resources/shaders/greyscale.gdshader" id="3_a21cb"]
 [ext_resource type="Texture2D" uid="uid://c1v0ejfnihsv7" path="res://assets/ui/sound_settings/Music.png" id="3_ne7us"]
 [ext_resource type="Texture2D" uid="uid://3xnmt46uw8ay" path="res://assets/ui/sound_settings/Sound.png" id="4_a7ujl"]
+[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/Fonts/whitrabt.ttf" id="4_byofu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7btu"]
+shader = ExtResource("3_a21cb")
+shader_parameter/threshold = 0.745
+shader_parameter/delta = 0.2
 
 [node name="SoungSettings" type="Control"]
 layout_mode = 3
@@ -17,6 +24,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8jjeg")
 script = ExtResource("1_jplsv")
+
+[node name="grey" type="Panel" parent="."]
+z_index = 42
+material = SubResource("ShaderMaterial_j7btu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SoundContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -41,6 +58,8 @@ size_flags_vertical = 4
 [node name="MasterLabel" type="Label" parent="SoundContainer/MasterHBox/MasterVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_byofu")
+theme_override_font_sizes/font_size = 41
 text = "Master"
 
 [node name="MasterHSlider" type="HSlider" parent="SoundContainer/MasterHBox/MasterVBox"]
@@ -58,6 +77,8 @@ layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.12
+theme_override_fonts/font = ExtResource("4_byofu")
+theme_override_font_sizes/font_size = 41
 text = "Music"
 
 [node name="MusicHBox" type="HBoxContainer" parent="SoundContainer/MusicContainer"]
@@ -89,6 +110,8 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_byofu")
+theme_override_font_sizes/font_size = 41
 text = "SFX"
 
 [node name="SFXHBox" type="HBoxContainer" parent="SoundContainer/SFXContainer"]

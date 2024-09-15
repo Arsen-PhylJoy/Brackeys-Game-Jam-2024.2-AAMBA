@@ -1,6 +1,7 @@
 extends Sprite3D
 
 @onready var tip: Label = %Tip
+@onready var freaking_music: AudioStreamPlayer = %FreakingMusic
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,7 +14,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_event_notificated(_in_notif: String) -> void:
+	freaking_music.play()
 	self.show()
 
 func _on_event_done() -> void:
+	freaking_music.stop()
 	self.hide()
