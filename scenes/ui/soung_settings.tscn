@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://tkqe18ptm7mv"]
+[gd_scene load_steps=15 format=3 uid="uid://tkqe18ptm7mv"]
 
 [ext_resource type="Theme" uid="uid://c14chjs13dd0j" path="res://scenes/ui/ui.tres" id="1_8jjeg"]
 [ext_resource type="Script" path="res://scenes/ui/soung_settings.gd" id="1_jplsv"]
@@ -7,19 +7,41 @@
 [ext_resource type="Texture2D" uid="uid://c1v0ejfnihsv7" path="res://assets/ui/sound_settings/Music.png" id="3_ne7us"]
 [ext_resource type="Texture2D" uid="uid://3xnmt46uw8ay" path="res://assets/ui/sound_settings/Sound.png" id="4_a7ujl"]
 [ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/Fonts/whitrabt.ttf" id="4_byofu"]
+[ext_resource type="Texture2D" uid="uid://cnqxtdpj2y72m" path="res://assets/ui/sound_settings/slider_grabber.png" id="5_h2qh0"]
+[ext_resource type="Texture2D" uid="uid://c0y4cufj23iu1" path="res://assets/ui/sound_settings/sound_bar.png" id="6_5dbef"]
+[ext_resource type="Texture2D" uid="uid://dj55h04r7vihn" path="res://assets/ui/sound_settings/sound_bar_filled.png" id="7_oqo2i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j7btu"]
 shader = ExtResource("3_a21cb")
 shader_parameter/threshold = 0.745
 shader_parameter/delta = 0.2
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tn24t"]
+texture = ExtResource("6_5dbef")
+texture_margin_left = 75.0
+texture_margin_top = 50.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rynrt"]
+texture = ExtResource("7_oqo2i")
+texture_margin_left = 55.0
+texture_margin_top = 60.0
+texture_margin_right = 35.0
+texture_margin_bottom = 35.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pfxfo"]
+texture = ExtResource("7_oqo2i")
+texture_margin_left = 70.0
+texture_margin_top = 50.0
+texture_margin_right = 25.0
+texture_margin_bottom = 35.0
+
 [node name="SoungSettings" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -759.0
-offset_bottom = -406.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8jjeg")
@@ -38,26 +60,27 @@ grow_vertical = 2
 [node name="SoundContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.961
-anchor_bottom = 0.94
-offset_right = 13.2789
-offset_bottom = 27.4399
+anchor_right = 0.543
+anchor_bottom = 1.0
+offset_right = 1063.44
+offset_bottom = 1198.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.49483, 0.471908)
 
 [node name="MasterHBox" type="HBoxContainer" parent="SoundContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
 
 [node name="MasterVBox" type="VBoxContainer" parent="SoundContainer/MasterHBox"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="MasterLabel" type="Label" parent="SoundContainer/MasterHBox/MasterVBox"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("4_byofu")
 theme_override_font_sizes/font_size = 41
 text = "Master"
@@ -66,10 +89,15 @@ text = "Master"
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
+theme_override_icons/grabber = ExtResource("5_h2qh0")
+theme_override_icons/grabber_highlight = ExtResource("5_h2qh0")
+theme_override_icons/grabber_disabled = ExtResource("5_h2qh0")
+theme_override_styles/slider = SubResource("StyleBoxTexture_tn24t")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_rynrt")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_pfxfo")
 
 [node name="MusicContainer" type="VBoxContainer" parent="SoundContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="MusicLabel" type="Label" parent="SoundContainer/MusicContainer"]
@@ -83,8 +111,7 @@ text = "Music"
 
 [node name="MusicHBox" type="HBoxContainer" parent="SoundContainer/MusicContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
+size_flags_vertical = 0
 
 [node name="MusicButton" type="TextureButton" parent="SoundContainer/MusicContainer/MusicHBox"]
 unique_name_in_owner = true
@@ -98,11 +125,16 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("5_h2qh0")
+theme_override_icons/grabber_highlight = ExtResource("5_h2qh0")
+theme_override_icons/grabber_disabled = ExtResource("5_h2qh0")
+theme_override_styles/slider = SubResource("StyleBoxTexture_tn24t")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_rynrt")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_pfxfo")
 
 [node name="SFXContainer" type="VBoxContainer" parent="SoundContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
@@ -116,12 +148,12 @@ text = "SFX"
 
 [node name="SFXHBox" type="HBoxContainer" parent="SoundContainer/SFXContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="SFXButton" type="TextureButton" parent="SoundContainer/SFXContainer/SFXHBox"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 texture_normal = ExtResource("4_a7ujl")
 stretch_mode = 5
@@ -130,7 +162,13 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("5_h2qh0")
+theme_override_icons/grabber_highlight = ExtResource("5_h2qh0")
+theme_override_icons/grabber_disabled = ExtResource("5_h2qh0")
+theme_override_styles/slider = SubResource("StyleBoxTexture_tn24t")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_rynrt")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_pfxfo")
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
