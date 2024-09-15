@@ -8,8 +8,8 @@
 size = Vector3(0.061, 0.067, 2.354)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uiaav"]
-margin = 0.1
-radius = 0.1
+margin = 0.12
+radius = 0.2
 height = 1.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o0xr3"]
