@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci5jef57ayrjh"]
+[gd_scene load_steps=5 format=3 uid="uid://ci5jef57ayrjh"]
 
 [ext_resource type="Script" path="res://scenes/game_levels/main_menu.gd" id="1_d01wm"]
 [ext_resource type="PackedScene" uid="uid://tkqe18ptm7mv" path="res://scenes/ui/soung_settings.tscn" id="2_pin2y"]
 [ext_resource type="PackedScene" uid="uid://dvisit7uer40p" path="res://scenes/ui/exit.tscn" id="2_qfkcs"]
+[ext_resource type="AudioStream" uid="uid://i4xr5tsjyr0q" path="res://assets/sfx/Music/mainmenu.mp3" id="4_7lfr6"]
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_d01wm")
@@ -54,3 +55,5 @@ size_flags_vertical = 3
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+stream = ExtResource("4_7lfr6")
+autoplay = true

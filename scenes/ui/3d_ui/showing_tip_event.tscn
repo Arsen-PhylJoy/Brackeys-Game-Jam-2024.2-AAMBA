@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://d36fu4506k5r0"]
+
+[ext_resource type="Script" path="res://scenes/ui/3d_ui/showing_tip_event.gd" id="1_bn0wq"]
+[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/Fonts/whitrabt.ttf" id="2_r74ki"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6qdw8"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnc64"]
+bg_color = Color(0, 0.669314, 0.634903, 1)
+
+[node name="ShowingTipEvent" type="Sprite3D"]
+transform = Transform3D(0.231317, 0, 0, 0, 0.232912, 0, 0, 0, 1, 0, 0, 0)
+texture = SubResource("ViewportTexture_6qdw8")
+script = ExtResource("1_bn0wq")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1920, 1080)
+
+[node name="BG" type="Panel" parent="SubViewport"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xnc64")
+
+[node name="Tip" type="Label" parent="SubViewport/BG"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -891.5
+offset_top = -59.5
+offset_right = 891.5
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_r74ki")
+theme_override_font_sizes/font_size = 156
+text = "Press E to interact!"
