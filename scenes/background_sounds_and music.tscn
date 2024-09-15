@@ -27,6 +27,7 @@ random_amb_interval = 1.0
 [node name="BackCalm" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_bpltm")
+autoplay = true
 bus = &"Music"
 parameters/looping = true
 
@@ -42,5 +43,6 @@ autostart = true
 
 [node name="Water" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_t3ytp")
+autoplay = true
 bus = &"Music"
 parameters/looping = true
