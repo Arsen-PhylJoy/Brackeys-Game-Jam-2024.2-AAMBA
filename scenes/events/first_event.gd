@@ -27,7 +27,7 @@ func _on_screamer_1_body_entered(body: Node) -> void:
 			monster.rotation = Vector3(0, 0, 0)
 			monster.position = Vector3(-0.63, 4.888, 9.235)
 			screamer_1_shown = true
-			EventBus.event_notificated.emit()
+			EventBus.event_notificated.emit("run to O2 supply")
 
 func _on_screamer_2_set() -> void:
 	screamer_2.monitorable = true
@@ -48,4 +48,3 @@ func _on_timer_timeout() -> void:
 
 func _on_animation_finished(anim_name: String) -> void:
 	monster.visible = false
-	#animation_player.play("takeit")

@@ -20,6 +20,8 @@ height = 1.6
 [node name="Basic FPS Player" type="CharacterBody3D"]
 collision_mask = 2
 script = ExtResource("1_q7ga8")
+SPEED = 5.0
+ACCEL = 50.0
 
 [node name="Head" parent="." instance=ExtResource("2_hphuk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
