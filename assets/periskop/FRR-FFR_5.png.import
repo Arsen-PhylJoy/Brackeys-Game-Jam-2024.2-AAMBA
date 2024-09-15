@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/FRR-FFR_5.png-7d5e8508080c6e59a87e25c0599255a
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

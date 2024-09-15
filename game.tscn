@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=4 uid="uid://ccksbyp0xsrk4"]
+[gd_scene load_steps=105 format=4 uid="uid://ccksbyp0xsrk4"]
 
 [ext_resource type="PackedScene" uid="uid://cod6roj0bv5r6" path="res://assets/blenderMeshes/submarine/game_ready.glb" id="2_iw3vt"]
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="3_f31no"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dj46rqiyroyn2" path="res://_utests_and_debug_instruments/test_scenes/virtual_movement_tests/vmap_maping.tscn" id="7_ro1c0"]
 [ext_resource type="PackedScene" uid="uid://qbx5cmhsh6nn" path="res://scenes/ui/player_info.tscn" id="8_526b2"]
 [ext_resource type="Script" path="res://scenes/screens_periscope/screen.gd" id="8_lwav4"]
+[ext_resource type="Shader" path="res://godot_resources/shaders/vhs.gdshader" id="8_oihdq"]
 [ext_resource type="Texture2D" uid="uid://du71bmci856fo" path="res://assets/periskop/1.jpg" id="9_vj28f"]
 [ext_resource type="PackedScene" uid="uid://dr2jigf2cof4v" path="res://scenes/screens_periscope/_periscope_grid.tscn" id="10_l2eni"]
+[ext_resource type="Texture2D" uid="uid://lervsuq6yapo" path="res://assets/periskop/2.png" id="13_3mtbr"]
 [ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="15_pweb8"]
 [ext_resource type="Texture2D" uid="uid://8m8nfesdu36a" path="res://assets/blenderMeshes/console_main_Pallete base.png" id="16_ftmmt"]
 [ext_resource type="Resource" uid="uid://jjitux2t22gi" path="res://godot_resources/vmap_levels/level_y.tres" id="16_i8gtw"]
@@ -26,7 +28,6 @@
 [ext_resource type="Script" path="res://anim_left.gd" id="24_xf0py"]
 [ext_resource type="AudioStream" uid="uid://bj46j57rwturg" path="res://assets/sfx/Ne music/Пуск торпеды.mp3" id="25_3ec8v"]
 [ext_resource type="Script" path="res://anim_right.gd" id="25_a7iqm"]
-[ext_resource type="PackedScene" uid="uid://d0q3jksdocy0r" path="res://scenes/interactive/interactable.tscn" id="27_mwrog"]
 [ext_resource type="AudioStream" uid="uid://482e1dnks1vf" path="res://assets/sfx/Ne music/Кнопка 1.mp3" id="27_wtj3s"]
 [ext_resource type="AudioStream" uid="uid://t1ajwxcap0yp" path="res://assets/sfx/Ne music/Кнопка 2.mp3" id="29_p20r2"]
 [ext_resource type="PackedScene" uid="uid://c4nw553fu5p" path="res://assets/blenderMeshes/reactor/animation_dopil.glb" id="31_5ihcp"]
@@ -40,29 +41,12 @@
 [ext_resource type="Texture2D" uid="uid://dgwv30jsx35by" path="res://assets/blenderMeshes/display/display_Pallete_materials.png" id="38_dr3jj"]
 [ext_resource type="Script" path="res://scenes/interactive/interactable.gd" id="39_tnmrs"]
 
-[sub_resource type="Resource" id="Resource_a66e6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qlw81"]
+viewport_path = NodePath("Console/real/RealScreen")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2fvi"]
 resource_local_to_scene = true
-script = ExtResource("17_d1fft")
-hp = 2
-air = 10
-torpedos = 2
-air_refill_amount = 2
-damage_from_rocks = 1
-damage_from_destructables = 1
-damage_from_enemies = 2
-after_burner = 2
-
-[sub_resource type="Resource" id="Resource_pbrj0"]
-script = ExtResource("18_tgtki")
-ai_type = 0
-start_ping_pong_direction = 0
-matrix_movement = -1
-
-[sub_resource type="Resource" id="Resource_wjhcs"]
-script = ExtResource("18_tgtki")
-ai_type = 0
-start_ping_pong_direction = 0
-matrix_movement = -1
+albedo_texture = SubResource("ViewportTexture_qlw81")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7bqe"]
 
@@ -98,19 +82,43 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_m8efm")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_noql5"]
-viewport_path = NodePath("CanvasLayer/RealScreen")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e6aed"]
+shader = ExtResource("8_oihdq")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.034
+shader_parameter/grille_opacity = 0.063
+shader_parameter/resolution = Vector2(4335, 3535)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.51
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 2.456
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 4.75e-08
+shader_parameter/brightness = 3.28
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.252
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/vignette_opacity = 0.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26ahm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7clo5"]
+viewport_path = NodePath("Console/geo/geo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vbxf"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_noql5")
+albedo_texture = SubResource("ViewportTexture_7clo5")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_egjdy"]
-viewport_path = NodePath("CanvasLayer/GeoScreen")
+[sub_resource type="ViewportTexture" id="ViewportTexture_yb1ch"]
+viewport_path = NodePath("Console/sonar/Sonar")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbdxo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7dq7"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_egjdy")
+albedo_texture = SubResource("ViewportTexture_yb1ch")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8ddk"]
 
@@ -146,12 +154,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nhee2")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bl7cl"]
-viewport_path = NodePath("CanvasLayer/Sonar")
+[sub_resource type="ViewportTexture" id="ViewportTexture_1d3ri"]
+viewport_path = NodePath("Console/text_display/PlayerInfo")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llic5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qq2b"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_bl7cl")
+albedo_texture = SubResource("ViewportTexture_1d3ri")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s20md"]
 
@@ -186,10 +194,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3jlfn")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdusf"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("9_vj28f")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nn47g"]
 resource_name = "jam"
@@ -239,6 +243,22 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l4b2b")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rsmbx"]
+size = Vector3(0.493301, 3.47009, 7.90242)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tkyae"]
+size = Vector3(7.73395, 2.61395, 0.998047)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d3scm"]
+size = Vector3(1.31519, 2.83301, 2.26733)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_redu7"]
+size = Vector3(0.790527, 2.7168, 3.12695)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ip54b"]
+resource_local_to_scene = true
+size = Vector3(1.67581, 3.4408, 1.57215)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qyqmg"]
 resource_local_to_scene = true
 render_priority = 0
@@ -275,6 +295,10 @@ bind_count = 1
 bind/0/name = &"Bone"
 bind/0/bone = -1
 bind/0/pose = Transform3D(2.89918, 0, 0, 0, 2.89918, 0, 0, 0, 2.89918, 3.1558, -20.405, -112.189)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pnjjr"]
+resource_local_to_scene = true
+size = Vector3(3.57855, 0.749146, 4.04041)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8difw"]
 resource_local_to_scene = true
@@ -313,6 +337,10 @@ bind/0/name = &"Bone_2"
 bind/0/bone = -1
 bind/0/pose = Transform3D(3.09023e-07, 4.09314, 0, -4.09314, 3.09023e-07, 0, 0, 0, 4.09314, -29.7077, 18.3981, -152.926)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5y61h"]
+resource_local_to_scene = true
+size = Vector3(0.987571, 1.06494, 2.18754)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gx52q"]
 resource_local_to_scene = true
 render_priority = 0
@@ -350,6 +378,10 @@ bind/0/name = &"Bone_3"
 bind/0/bone = -1
 bind/0/pose = Transform3D(-4.02297, -0.0482199, 0.0514117, -0.0646361, 3.69432, -1.59281, -0.0281157, -1.59339, -3.69453, 1.41821, 36.7596, 151.912)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xlnr2"]
+resource_local_to_scene = true
+size = Vector3(1.55863, 1.31152, 1.56556)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tob5o"]
 resource_local_to_scene = true
 render_priority = 0
@@ -386,6 +418,10 @@ bind_count = 1
 bind/0/name = &"Bone_4"
 bind/0/bone = -1
 bind/0/pose = Transform3D(4.11172, 0, 0, 0, 3.7987, -1.57358, 0, 1.57358, 3.7987, -4.23427, 35.5418, -155.056)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pcidm"]
+resource_local_to_scene = true
+size = Vector3(0.90535, 1.31152, 1.56556)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_etii5"]
 resource_local_to_scene = true
@@ -607,11 +643,35 @@ data = PackedVector3Array(0.240076, 0.155715, 0.0125367, 0.248499, 0.155713, 0.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vcl3u"]
 height = 1.0
 
+[sub_resource type="Resource" id="Resource_2551h"]
+resource_local_to_scene = true
+script = ExtResource("17_d1fft")
+hp = 2
+air = 10
+torpedos = 2
+air_refill_amount = 2
+damage_from_rocks = 1
+damage_from_destructables = 1
+damage_from_enemies = 2
+after_burner = 2
+
+[sub_resource type="Resource" id="Resource_pbrj0"]
+script = ExtResource("18_tgtki")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
+[sub_resource type="Resource" id="Resource_wjhcs"]
+script = ExtResource("18_tgtki")
+ai_type = 0
+start_ping_pong_direction = 0
+matrix_movement = -1
+
 [node name="Game" type="Node3D"]
 script = ExtResource("5_88q2j")
 
 [node name="Basic FPS Player" parent="." instance=ExtResource("3_f31no")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.966933, 5.18787, 27.5028)
+transform = Transform3D(-0.778007, 0, 0.186295, 0, 0.8, 0, -0.186295, 0, -0.778007, 0.535088, 5.18787, 30.4989)
 
 [node name="Light" type="Node" parent="."]
 
@@ -707,103 +767,139 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.160
 [node name="terminal" parent="DisplayThirdEvent" index="0"]
 transform = Transform3D(-2.38419e-07, 0.00239546, -0.999997, 3.49246e-10, 0.999997, 0.00239546, 1, 3.49246e-10, -2.38419e-07, -11.7581, 2.66617, 1.61941)
 
-[node name="Node" type="Node" parent="."]
+[node name="DEBUG" type="CanvasLayer" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="VmapMaping" parent="CanvasLayer" instance=ExtResource("7_ro1c0")]
-
-[node name="Sonar" type="SubViewport" parent="CanvasLayer"]
-disable_3d = true
-transparent_bg = true
-
-[node name="Sonar" parent="CanvasLayer/Sonar" instance=ExtResource("6_d8w6i")]
-
-[node name="PlayerInfo" type="SubViewport" parent="CanvasLayer"]
-disable_3d = true
-transparent_bg = true
-size = Vector2i(612, 797)
-size_2d_override_stretch = true
-
-[node name="PlayerInfo" parent="CanvasLayer/PlayerInfo" instance=ExtResource("8_526b2")]
-offset_right = -512.0
-offset_bottom = -512.0
-rotation = -1.5708
-
-[node name="GeoScreen" type="SubViewport" parent="CanvasLayer"]
-disable_3d = true
-transparent_bg = true
-size_2d_override_stretch = true
-script = ExtResource("8_lwav4")
-
-[node name="Regular" type="TextureRect" parent="CanvasLayer/GeoScreen"]
-unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("9_vj28f")
-
-[node name="GridContainer" parent="CanvasLayer/GeoScreen" instance=ExtResource("10_l2eni")]
-unique_name_in_owner = true
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RealScreen" type="SubViewport" parent="CanvasLayer"]
-disable_3d = true
-transparent_bg = true
-size_2d_override_stretch = true
-script = ExtResource("8_lwav4")
-is_geo = false
-
-[node name="Regular" type="TextureRect" parent="CanvasLayer/RealScreen"]
-offset_right = 40.0
-offset_bottom = 40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("9_vj28f")
-
-[node name="GridContainer" parent="CanvasLayer/RealScreen" instance=ExtResource("10_l2eni")]
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VirtualMap" parent="." instance=ExtResource("15_pweb8")]
-vmap = ExtResource("16_i8gtw")
-_player = SubResource("Resource_a66e6")
-_virtual_enemies = Array[ExtResource("18_tgtki")]([SubResource("Resource_pbrj0"), SubResource("Resource_wjhcs")])
+[node name="VmapMaping" parent="DEBUG" instance=ExtResource("7_ro1c0")]
 
 [node name="Console" type="Node3D" parent="."]
 transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -0.689257, 2.487, 13.9534)
 
 [node name="real" type="MeshInstance3D" parent="Console"]
 transform = Transform3D(0.99959, -0.028637, -4.82166e-09, -6.06381e-09, -4.32888e-08, -1, 0.028637, 0.99959, -4.34446e-08, -0.842496, 8.50521, 39.3627)
+material_overlay = SubResource("StandardMaterial3D_x2fvi")
 mesh = SubResource("ArrayMesh_wk7kn")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_26ahm")
+
+[node name="RealScreen" type="SubViewport" parent="Console/real"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(4713, 3535)
+size_2d_override_stretch = true
+script = ExtResource("8_lwav4")
+is_geo = false
+
+[node name="vhs2" type="Panel" parent="Console/real/RealScreen"]
+z_index = 4
+material = SubResource("ShaderMaterial_e6aed")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Regular" type="TextureRect" parent="Console/real/RealScreen"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("9_vj28f")
+
+[node name="GridContainer" parent="Console/real/RealScreen" instance=ExtResource("10_l2eni")]
+unique_name_in_owner = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="geo" type="MeshInstance3D" parent="Console"]
-transform = Transform3D(0.999148, -0.0412653, -4.82166e-09, -6.61031e-09, -4.32087e-08, -1, 0.0412653, 0.999148, -4.34446e-08, 0.941448, 7.62435, 38.9517)
+transform = Transform3D(0.99959, -0.028637, -4.82166e-09, -6.06381e-09, -4.32888e-08, -1, 0.028637, 0.99959, -4.34446e-08, 0.936141, 7.596, 38.9131)
+material_override = SubResource("StandardMaterial3D_7vbxf")
 mesh = SubResource("ArrayMesh_wk7kn")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_sbdxo")
+
+[node name="geo" type="SubViewport" parent="Console/geo"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1440, 1152)
+size_2d_override_stretch = true
+script = ExtResource("8_lwav4")
+
+[node name="vhs2" type="Panel" parent="Console/geo/geo"]
+z_index = 4
+material = SubResource("ShaderMaterial_e6aed")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Regular" type="TextureRect" parent="Console/geo/geo"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("13_3mtbr")
+
+[node name="GridContainer" parent="Console/geo/geo" instance=ExtResource("10_l2eni")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="sonar" type="MeshInstance3D" parent="Console"]
 transform = Transform3D(0.999765, 0.00914678, -0.0196774, 0.0198909, -0.0238737, 0.999517, 0.0086725, -0.999673, -0.02405, 2.63641, 8.39116, 39.465)
+material_overlay = SubResource("StandardMaterial3D_i7dq7")
 mesh = SubResource("ArrayMesh_6ygq5")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_llic5")
+
+[node name="Sonar" type="SubViewport" parent="Console/sonar"]
+disable_3d = true
+transparent_bg = true
+
+[node name="Sonar" parent="Console/sonar/Sonar" instance=ExtResource("6_d8w6i")]
 
 [node name="text_display" type="MeshInstance3D" parent="Console"]
 transform = Transform3D(0.99851, 0, -0.0584742, 0, 1, 0, 0.0545668, 0, 1.07001, 4.05947, 7.28227, 39.0534)
+material_overlay = SubResource("StandardMaterial3D_6qq2b")
 mesh = SubResource("ArrayMesh_b841w")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_hdusf")
+
+[node name="PlayerInfo" type="SubViewport" parent="Console/text_display"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="PlayerInfo" parent="Console/text_display/PlayerInfo" instance=ExtResource("8_526b2")]
+offset_right = -512.0
+offset_bottom = -512.0
 
 [node name="console_main" type="MeshInstance3D" parent="Console"]
 transform = Transform3D(-3.57628e-07, 6.41082e-08, 1, -6.41082e-08, -1, 6.41082e-08, 1, -6.41082e-08, 3.57628e-07, 0.739441, 5.05754, 39.9212)
 mesh = SubResource("ArrayMesh_vda7t")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("20_fikaq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Console/console_main"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Console/console_main/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 7.81597e-14, 1, -1.6106e-15, 0, 4.1022e-14, 1, 0.0151215, -1.72247, 0.430701)
+shape = SubResource("BoxShape3D_rsmbx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Console/console_main/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 7.81597e-14, 1, -1.6106e-15, 0, 4.1022e-14, 1, -4.08727, -1.47775, 4.36385)
+shape = SubResource("BoxShape3D_tkyae")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Console/console_main/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 7.81597e-14, 1, -1.6106e-15, 0, 4.1022e-14, 1, -1.00877, -2.39426, 0.168959)
+shape = SubResource("BoxShape3D_d3scm")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Console/console_main/StaticBody3D"]
+transform = Transform3D(0.753024, 0, -0.658, 4.44089e-13, 1, 4.76064e-13, 0.658, 4.1022e-14, 0.753024, -0.543564, -1.443, 3.50451)
+shape = SubResource("BoxShape3D_redu7")
 
 [node name="console_interactions" type="Node3D" parent="Console"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152931, 0, 0.540151)
@@ -812,7 +908,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152931, 0, 0.540151)
 transform = Transform3D(0.344925, 0, 0, 0, 0.344925, 0, 0, 0, 0.344925, -1.08851, 7.03819, 38.6969)
 script = ExtResource("21_pdhch")
 
-[node name="Interactable" parent="Console/console_interactions/anim_rocket" instance=ExtResource("27_mwrog")]
+[node name="Interactable" type="Area3D" parent="Console/console_interactions/anim_rocket"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("39_tnmrs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Console/console_interactions/anim_rocket/Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0648961, -0.00897217, 0.367981)
+shape = SubResource("BoxShape3D_ip54b")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Console/console_interactions/anim_rocket"]
 bones/0/name = "Bone"
@@ -836,6 +939,7 @@ bus = &"SFX"
 
 [node name="torpedo_player_launch" type="AudioStreamPlayer3D" parent="Console/console_interactions/anim_rocket"]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.2949, 0)
 stream = ExtResource("25_3ec8v")
 bus = &"SFX"
 
@@ -843,14 +947,21 @@ bus = &"SFX"
 transform = Transform3D(0, -0.244311, 0, 0.244311, 0, 0, 0, 0, 0.244311, 4.49487, 7.25793, 37.3615)
 script = ExtResource("22_eoiuj")
 
-[node name="Interactable" parent="Console/console_interactions/anim_turbo" instance=ExtResource("27_mwrog")]
+[node name="Interactable" type="Area3D" parent="Console/console_interactions/anim_turbo"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("39_tnmrs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Console/console_interactions/anim_turbo/Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115009, -0.125427, -0.113586)
+shape = SubResource("BoxShape3D_pnjjr")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Console/console_interactions/anim_turbo"]
 bones/0/name = "Bone_2"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38902e-06, 2.24287e-06, 1.52588e-05)
 bones/0/enabled = true
-bones/0/position = Vector3(0, 0, 0)
+bones/0/position = Vector3(1.38902e-06, 2.24287e-06, 1.52588e-05)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 
@@ -868,8 +979,15 @@ stream = ExtResource("27_wtj3s")
 transform = Transform3D(-0.248496, -0.00399254, -0.0017367, -0.00297851, 0.228196, -0.098423, 0.00317568, -0.098387, -0.228209, 0.763008, 6.56744, 38.2798)
 script = ExtResource("23_2v1w3")
 
-[node name="Interactable" parent="Console/console_interactions/anim_move" instance=ExtResource("27_mwrog")]
+[node name="Interactable" type="Area3D" parent="Console/console_interactions/anim_move"]
 transform = Transform3D(1, 0, -4.65661e-10, 1.86265e-09, 1, -1.21363e-08, 0, 1.74987e-08, 1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("39_tnmrs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Console/console_interactions/anim_move/Interactable"]
+transform = Transform3D(1, 0, -1.86265e-09, -4.65661e-10, 1, 3.57628e-07, 0, 0, 1, 0.0168481, -0.0324783, 0.651855)
+shape = SubResource("BoxShape3D_5y61h")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Console/console_interactions/anim_move"]
 bones/0/name = "Bone_3"
@@ -877,7 +995,7 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(1, 6.98492e-10, -4.65661e-10, -6.98492e-10, 1, 1.48975e-08, 4.65661e-10, -1.48975e-08, 1, 1.19209e-07, 4.4331e-07, -1.20252e-05)
 bones/0/enabled = true
 bones/0/position = Vector3(1.19209e-07, 4.4331e-07, -1.20252e-05)
-bones/0/rotation = Quaternion(-7.44876e-09, -2.32831e-10, -3.49246e-10, 1)
+bones/0/rotation = Quaternion(-7.44875e-09, -2.32831e-10, -3.49246e-10, 1)
 bones/0/scale = Vector3(1, 1, 1)
 
 [node name="move" type="MeshInstance3D" parent="Console/console_interactions/anim_move/Skeleton3D"]
@@ -894,16 +1012,23 @@ stream = ExtResource("29_p20r2")
 transform = Transform3D(0.243207, 0, 0, 0, 0.224692, 0.0930767, 0, -0.0930767, 0.224692, 1.06139, 6.4461, 38.1479)
 script = ExtResource("24_xf0py")
 
-[node name="Interactable" parent="Console/console_interactions/anim_left" instance=ExtResource("27_mwrog")]
+[node name="Interactable" type="Area3D" parent="Console/console_interactions/anim_left"]
 transform = Transform3D(1, 1.77636e-15, -3.55271e-15, 0, 1, -6.75561e-16, 3.55271e-15, -6.75561e-16, 1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("39_tnmrs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Console/console_interactions/anim_left/Interactable"]
+transform = Transform3D(1, -7.41154e-22, 0, 3.28225e-21, 1, 0, 1.00162e-19, 0, 1, 0.478809, 0.155758, 0.0149231)
+shape = SubResource("BoxShape3D_xlnr2")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Console/console_interactions/anim_left"]
 bones/0/name = "Bone_4"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 9.53674e-06, 1.14441e-05)
 bones/0/enabled = true
-bones/0/position = Vector3(0, -0.136172, 0)
-bones/0/rotation = Quaternion(-1.49012e-08, 0, 0, 1)
+bones/0/position = Vector3(0, 9.53674e-06, 1.14441e-05)
+bones/0/rotation = Quaternion(-1.49011e-08, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 
 [node name="left" type="MeshInstance3D" parent="Console/console_interactions/anim_left/Skeleton3D"]
@@ -920,8 +1045,15 @@ stream = ExtResource("31_ss5j4")
 transform = Transform3D(0.243207, 0, 0, 0, 0.224692, 0.0930767, 0, -0.0930767, 0.224692, 0.401486, 6.4461, 38.1479)
 script = ExtResource("25_a7iqm")
 
-[node name="Interactable" parent="Console/console_interactions/anim_right" instance=ExtResource("27_mwrog")]
+[node name="Interactable" type="Area3D" parent="Console/console_interactions/anim_right"]
 transform = Transform3D(1, 1.77636e-15, -3.55271e-15, 0, 1, -6.75561e-16, 3.55271e-15, -6.75561e-16, 1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("39_tnmrs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Console/console_interactions/anim_right/Interactable"]
+transform = Transform3D(1, -7.41154e-22, 0, 2.5411e-21, 1, 0, 3.98105e-20, 0, 1, 0.178183, 1.14441e-05, 0.0626831)
+shape = SubResource("BoxShape3D_pcidm")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Console/console_interactions/anim_right"]
 bones/0/name = "Bone_5"
@@ -929,7 +1061,7 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -2.38419e-07, 9.53674e-06, 1.14441e-05)
 bones/0/enabled = true
 bones/0/position = Vector3(-2.38419e-07, 9.53674e-06, 1.14441e-05)
-bones/0/rotation = Quaternion(-1.49012e-08, 0, 0, 1)
+bones/0/rotation = Quaternion(-1.49011e-08, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 
 [node name="right" type="MeshInstance3D" parent="Console/console_interactions/anim_right/Skeleton3D"]
@@ -1167,6 +1299,11 @@ script = ExtResource("39_tnmrs")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Events/DisplayFirstEvent/Interactable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("CylinderShape3D_vcl3u")
+
+[node name="VirtualMap" parent="." groups=["the_most_important_node"] instance=ExtResource("15_pweb8")]
+vmap = ExtResource("16_i8gtw")
+_player = SubResource("Resource_2551h")
+_virtual_enemies = Array[ExtResource("18_tgtki")]([SubResource("Resource_pbrj0"), SubResource("Resource_wjhcs")])
 
 [connection signal="focused" from="Console/console_interactions/anim_rocket/Interactable" to="Console/console_interactions/anim_rocket" method="_on_interactable_focused"]
 [connection signal="interacted" from="Console/console_interactions/anim_rocket/Interactable" to="Console/console_interactions/anim_rocket" method="_on_interactable_interacted"]

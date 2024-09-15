@@ -36,7 +36,7 @@ height = 1.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5l1jm"]
 height = 1.0
 
-[sub_resource type="Resource" id="Resource_n4sjp"]
+[sub_resource type="Resource" id="Resource_alsq5"]
 resource_local_to_scene = true
 script = ExtResource("16_n1aej")
 hp = 2
@@ -254,7 +254,7 @@ transform = Transform3D(2.35403e-09, 0, 0.197405, 0, 0.197405, 0, -0.197405, 0, 
 
 [node name="VirtualMap" parent="." instance=ExtResource("14_dkpjl")]
 vmap = ExtResource("15_jxyv7")
-_player = SubResource("Resource_n4sjp")
+_player = SubResource("Resource_alsq5")
 _virtual_enemies = Array[ExtResource("17_fb5hj")]([SubResource("Resource_pbrj0"), SubResource("Resource_wjhcs")])
 
 [connection signal="focused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_focused"]

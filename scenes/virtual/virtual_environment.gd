@@ -140,6 +140,7 @@ func _on_afterburner_used() -> void:
 	if(_player.after_burner > 0 ):
 		_player.after_burner-=1
 		_move_player_forward()
+		_player.air+=1
 		_move_player_forward()
 	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 	player_direction_changed.emit(_player.player_direction)

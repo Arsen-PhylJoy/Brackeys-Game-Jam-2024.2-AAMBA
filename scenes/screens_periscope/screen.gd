@@ -11,9 +11,7 @@ func _ready() -> void:
 	_connect_signals()
 
 func _connect_signals() -> void:
-	for node: Node in get_tree().current_scene.get_children():
-		if(node is VirtualEnvironment):
-			(node as VirtualEnvironment).vmap.visual_changed.connect(_on_visual_changed)
+	(get_tree().get_nodes_in_group("the_most_important_node")[0] as VirtualEnvironment).vmap.visual_changed.connect(_on_visual_changed)
 
 func _on_visual_changed(in_cell: Cell, template: Array[Cell.cell_type]) -> void:
 	if(is_geo):

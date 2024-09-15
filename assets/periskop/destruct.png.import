@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/destruct.png-0c9218656a5f4707211c6176e72b8ca2
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
