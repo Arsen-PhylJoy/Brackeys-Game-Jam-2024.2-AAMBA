@@ -1,33 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://duqo6j0k20vgv"]
+[gd_scene load_steps=4 format=3 uid="uid://duqo6j0k20vgv"]
 
-[ext_resource type="Script" path="res://scenes/screens_periscope/screen_mesh.gd" id="1_7pu8o"]
 [ext_resource type="Script" path="res://scenes/screens_periscope/screen.gd" id="1_g77fm"]
 [ext_resource type="Texture2D" uid="uid://du71bmci856fo" path="res://assets/periskop/1.jpg" id="2_g6v61"]
 [ext_resource type="PackedScene" uid="uid://dr2jigf2cof4v" path="res://scenes/screens_periscope/_periscope_grid.tscn" id="4_ut1mx"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_lu4hq"]
-size = Vector2(0.5, 0.5)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_44avj"]
-viewport_path = NodePath("Screen")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8s15"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_44avj")
-
-[node name="MeshInstance3D" type="MeshInstance3D"]
-mesh = SubResource("QuadMesh_lu4hq")
-surface_material_override/0 = SubResource("StandardMaterial3D_r8s15")
-script = ExtResource("1_7pu8o")
-
-[node name="Screen" type="SubViewport" parent="."]
-unique_name_in_owner = true
+[node name="Screen" type="SubViewport"]
 disable_3d = true
 transparent_bg = true
 size_2d_override_stretch = true
 script = ExtResource("1_g77fm")
 
-[node name="Regular" type="TextureRect" parent="Screen"]
+[node name="Regular" type="TextureRect" parent="."]
 unique_name_in_owner = true
 offset_right = 40.0
 offset_bottom = 40.0
@@ -35,7 +18,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_g6v61")
 
-[node name="GridContainer" parent="Screen" instance=ExtResource("4_ut1mx")]
+[node name="GridContainer" parent="." instance=ExtResource("4_ut1mx")]
 unique_name_in_owner = true
 size_flags_horizontal = 3
 size_flags_vertical = 3

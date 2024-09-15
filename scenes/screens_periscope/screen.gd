@@ -16,7 +16,7 @@ func _connect_signals() -> void:
 			(node as VirtualEnvironment).vmap.visual_changed.connect(_on_visual_changed)
 
 func _on_visual_changed(in_cell: Cell, template: Array[Cell.cell_type]) -> void:
-	if(!is_geo):
+	if(is_geo):
 		self.size = Vector2(4713,3535)
 		regular.texture = in_cell.visual
 		grid_container._update_grid(template)

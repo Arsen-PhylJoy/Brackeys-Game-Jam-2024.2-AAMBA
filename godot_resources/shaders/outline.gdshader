@@ -12,6 +12,8 @@ render_mode unshaded;
 
 // Might create an outline at the edge of the viewport
 
+uniform bool is_turn_off = true;
+
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
 uniform sampler2D NORMAL_TEXTURE : hint_normal_roughness_texture, filter_linear_mipmap;
@@ -92,21 +94,27 @@ float edge_value_depth(sampler2D depth_tex, vec2 uv, vec2 pixel_size, mat3 sobel
 
 
 void fragment() {
-	float has_outline = 0.0;
-	vec2 pixel_size = vec2(1.0) / VIEWPORT_SIZE;
-	ALBEDO = texture(SCREEN_TEXTURE, SCREEN_UV).xyz;
-	//ALBEDO = vec3(get_depth(DEPTH_TEXTURE, SCREEN_UV, INV_PROJECTION_MATRIX));
-	if (edge_value_normal(NORMAL_TEXTURE, SCREEN_UV, pixel_size, sobel_x) + edge_value_normal(NORMAL_TEXTURE, SCREEN_UV, pixel_size, sobel_y) > normal_threshold){
-		ALBEDO = outline_color;
-		has_outline += 1.0;
+	if(!is_turn_off){
+		float has_outline = 0.0;
+		vec2 pixel_size = vec2(1.0) / VIEWPORT_SIZE;
+		ALBEDO = texture(SCREEN_TEXTURE, SCREEN_UV).xyz;
+		//ALBEDO = vec3(get_depth(DEPTH_TEXTURE, SCREEN_UV, INV_PROJECTION_MATRIX));
+		if (edge_value_normal(NORMAL_TEXTURE, SCREEN_UV, pixel_size, sobel_x) + edge_value_normal(NORMAL_TEXTURE, SCREEN_UV, pixel_size, sobel_y) > normal_threshold){
+			ALBEDO = outline_color;
+			has_outline += 1.0;
+		}
+		vec3 normal = texture(NORMAL_TEXTURE, SCREEN_UV).rgb;
+		float angle = 1.0 - dot(normalize(normal-vec3(0.5)),  vec3(0.0,0.0,1.0));
+		if (edge_value_depth(DEPTH_TEXTURE, SCREEN_UV, pixel_size, sobel_x, INV_PROJECTION_MATRIX) + edge_value_depth(DEPTH_TEXTURE, SCREEN_UV, pixel_size, sobel_y, INV_PROJECTION_MATRIX) > depth_threshold + angle * depth_artifact_correction_coef){
+			ALBEDO = outline_color;
+			has_outline += 1.0;
+		}
+		if (has_outline < 0.1){
+			ALPHA = 0.0;
+		}
 	}
-	vec3 normal = texture(NORMAL_TEXTURE, SCREEN_UV).rgb;
-	float angle = 1.0 - dot(normalize(normal-vec3(0.5)),  vec3(0.0,0.0,1.0));
-	if (edge_value_depth(DEPTH_TEXTURE, SCREEN_UV, pixel_size, sobel_x, INV_PROJECTION_MATRIX) + edge_value_depth(DEPTH_TEXTURE, SCREEN_UV, pixel_size, sobel_y, INV_PROJECTION_MATRIX) > depth_threshold + angle * depth_artifact_correction_coef){
-		ALBEDO = outline_color;
-		has_outline += 1.0;
+	else{
+		ALBEDO = texture(SCREEN_TEXTURE, SCREEN_UV).xyz;
 	}
-	if (has_outline < 0.1){
-		ALPHA = 0.0;
-	}
+	
 }

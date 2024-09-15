@@ -63,6 +63,8 @@ folder_colors={
 turn_left_interactable=""
 turn_right_interactable=""
 move_forward_interactable=""
+torpedo_launch_interactable=""
+afterburner_interactable=""
 
 [input]
 

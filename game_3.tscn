@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://byq4xr05fobc6"]
+[gd_scene load_steps=27 format=3 uid="uid://byq4xr05fobc6"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_u06oi"]
 [ext_resource type="PackedScene" uid="uid://cod6roj0bv5r6" path="res://assets/blenderMeshes/submarine/game_ready.glb" id="2_rwhm1"]
@@ -36,21 +36,7 @@ height = 1.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5l1jm"]
 height = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1oprw"]
-viewport_path = NodePath("Screen")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lhiy"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_1oprw")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_jlxmh"]
-viewport_path = NodePath("Screen")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5dhr"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_jlxmh")
-
-[sub_resource type="Resource" id="Resource_y8n0t"]
+[sub_resource type="Resource" id="Resource_n4sjp"]
 resource_local_to_scene = true
 script = ExtResource("16_n1aej")
 hp = 2
@@ -260,22 +246,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("CylinderShape3D_5l1jm")
 
 [node name="Screen2" parent="." instance=ExtResource("12_pynd7")]
-transform = Transform3D(1.38712e-08, 0, 0.197405, 0, 1.03187, 0, -1.16321, 0, 2.35403e-09, -1.74011, 6.14188, 34.5996)
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_2lhiy")
 
 [node name="Screen" parent="." instance=ExtResource("12_pynd7")]
-transform = Transform3D(1.26603e-08, 0, 0.197405, 0, 1.14692, 0, -1.06167, 0, 2.35403e-09, -1.66772, 6.12114, 33.0143)
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_f5dhr")
-_is_geometry = true
 
 [node name="FinishSoundSonar" parent="." instance=ExtResource("13_3vohr")]
 transform = Transform3D(2.35403e-09, 0, 0.197405, 0, 0.197405, 0, -0.197405, 0, 2.35403e-09, -1.97229, 5.16775, 33.4346)
 
 [node name="VirtualMap" parent="." instance=ExtResource("14_dkpjl")]
 vmap = ExtResource("15_jxyv7")
-_player = SubResource("Resource_y8n0t")
+_player = SubResource("Resource_n4sjp")
 _virtual_enemies = Array[ExtResource("17_fb5hj")]([SubResource("Resource_pbrj0"), SubResource("Resource_wjhcs")])
 
 [connection signal="focused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_focused"]

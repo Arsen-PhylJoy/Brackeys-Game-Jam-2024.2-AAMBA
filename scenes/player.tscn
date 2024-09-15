@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c38ddo3aijdng" path="res://scenes/player_interactor.tscn" id="3_5ry73"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ux4fr"]
-size = Vector3(1.5, 1.8, 3)
+size = Vector3(0.136, 0.152, 2.424)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uiaav"]
 
@@ -24,7 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0)
 player = NodePath("../..")
 
 [node name="CollisionShape3D" parent="Head/PlayerInteractor" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.266, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00617453, 1.79836, -0.711914)
 shape = SubResource("BoxShape3D_ux4fr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

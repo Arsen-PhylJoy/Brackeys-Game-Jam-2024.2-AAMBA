@@ -16,18 +16,12 @@ func _ready() -> void:
 	_init_venv()
 
 func _connect_signals() -> void:
-	(get_tree().get_nodes_in_group("move_forward_interactable")[0] as Interactable).interacted.connect(_on_player_moved)
-	(get_tree().get_nodes_in_group("turn_left_interactable")[0] as Interactable).interacted.connect(_on_player_turned_left)
-	(get_tree().get_nodes_in_group("turn_right_interactable")[0] as Interactable).interacted.connect(_on_player_turned_right)
-	#(get_tree().get_nodes_in_group("torpedo_launch_interactable)[0] as Interactable).interacted.connect(_on_torpedo_launched)
-	#(get_tree().get_nodes_in_group("afterburner_interactable")[0] as Interactable).interacted.connect(_on_afterburner_used)
+	(get_tree().get_nodes_in_group("move_forward_interactable")[0] as MoveButton).for_system_emitted.connect(_on_player_moved)
+	(get_tree().get_nodes_in_group("turn_left_interactable")[0] as LeftButton).for_system_emitted.connect(_on_player_turned_left)
+	(get_tree().get_nodes_in_group("turn_right_interactable")[0] as RightButton).for_system_emitted.connect(_on_player_turned_right)
+	(get_tree().get_nodes_in_group("torpedo_launch_interactable")[0] as RocketButton).for_system_emitted.connect(_on_torpedo_launched)
+	(get_tree().get_nodes_in_group("afterburner_interactable")[0] as TurboButton).for_system_emitted.connect(_on_afterburner_used)
 
-#Затычка
-func _process(delta: float) -> void:
-	if(Input.is_action_just_pressed("debug_action")):
-		_on_torpedo_launched()
-	if(Input.is_action_just_pressed("debug_action_2")):
-		_on_afterburner_used()
 
 func _init_venv() -> void:
 	var j: int = 0
@@ -45,7 +39,7 @@ func _init_venv() -> void:
 	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 	_player.data_changed.emit(_player.hp,_player.air,_player.torpedos,_player.after_burner)
 
-func _on_player_moved(interactor: Interactor) -> void:
+func _on_player_moved() -> void:
 	_move_player_forward()
 	_move_enemies()
 	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
@@ -102,7 +96,7 @@ func _move_enemies() -> void:
 	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 
 #Counterclockwise
-func _on_player_turned_right(interactor: Interactor) -> void:
+func _on_player_turned_right() -> void:
 	if(_player.player_direction == Vector2.DOWN):
 		_player.player_direction = Vector2.RIGHT
 	elif(_player.player_direction == Vector2.RIGHT):
@@ -115,7 +109,7 @@ func _on_player_turned_right(interactor: Interactor) -> void:
 	vmap.calculate_cell_visual(vmap.cells,_player_pos,_player.player_direction)
 
 #Clockwised
-func _on_player_turned_left(interactor: Interactor) -> void:
+func _on_player_turned_left() -> void:
 	if(_player.player_direction == Vector2.DOWN):
 		_player.player_direction = Vector2.LEFT
 	elif(_player.player_direction == Vector2.LEFT):
