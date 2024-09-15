@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://qbx5cmhsh6nn"]
+[gd_scene load_steps=6 format=3 uid="uid://qbx5cmhsh6nn"]
 
 [ext_resource type="Script" path="res://scenes/ui/player_info.gd" id="1_0se3y"]
 [ext_resource type="Shader" path="res://godot_resources/shaders/vhs.gdshader" id="2_cn4o4"]
+[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/Fonts/whitrabt.ttf" id="3_0ee80"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tralq"]
 resource_local_to_scene = true
@@ -59,7 +60,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m6kbq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Notif" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -757.5
+offset_top = -59.5
+offset_right = 757.5
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_0ee80")
+theme_override_font_sizes/font_size = 156
+text = "Go to Reactor!!!"
+
+[node name="Info" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.105729
@@ -68,9 +89,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
-[node name="HPLabel" type="Label" parent="VBoxContainer"]
+[node name="HPLabel" type="Label" parent="Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 7
@@ -78,7 +98,7 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 96
 text = "sdsdsdsdsdsdsdsdsd"
 
-[node name="AirLabel" type="Label" parent="VBoxContainer"]
+[node name="AirLabel" type="Label" parent="Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 7
@@ -86,7 +106,7 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 96
 text = "sdsdsdsdsdsdsdsdsd"
 
-[node name="TorpedosLabel" type="Label" parent="VBoxContainer"]
+[node name="TorpedosLabel" type="Label" parent="Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 7
@@ -94,7 +114,7 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 96
 text = "sdsdsdsdsdsdsdsdsd"
 
-[node name="AfterburnerLabel" type="Label" parent="VBoxContainer"]
+[node name="AfterburnerLabel" type="Label" parent="Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 7
