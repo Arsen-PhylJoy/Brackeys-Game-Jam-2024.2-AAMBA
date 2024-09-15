@@ -58,6 +58,10 @@ folder_colors={
 "res://scenes/game_levels/": "green"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 turn_left_interactable=""
