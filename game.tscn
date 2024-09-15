@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=4 uid="uid://ccksbyp0xsrk4"]
+[gd_scene load_steps=128 format=4 uid="uid://ccksbyp0xsrk4"]
 
 [ext_resource type="PackedScene" uid="uid://cod6roj0bv5r6" path="res://assets/blenderMeshes/submarine/game_ready.glb" id="2_iw3vt"]
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="3_f31no"]
@@ -39,6 +39,7 @@
 [ext_resource type="Script" path="res://scenes/events/first_event_display.gd" id="35_orner"]
 [ext_resource type="Texture2D" uid="uid://b81pd01617x55" path="res://assets/blenderMeshes/display/display_Pallete_base (1).png" id="36_5r7ib"]
 [ext_resource type="Texture2D" uid="uid://dm1eruciu3gqm" path="res://assets/blenderMeshes/display/display_Pallete_emission.png" id="37_chhk5"]
+[ext_resource type="PackedScene" uid="uid://d36fu4506k5r0" path="res://scenes/ui/3d_ui/showing_tip_event.tscn" id="38_8gsgs"]
 [ext_resource type="Texture2D" uid="uid://dgwv30jsx35by" path="res://assets/blenderMeshes/display/display_Pallete_materials.png" id="38_dr3jj"]
 [ext_resource type="Script" path="res://scenes/interactive/interactable.gd" id="39_tnmrs"]
 
@@ -617,6 +618,9 @@ size = Vector3(1.67133, 0.20166, 2.08435)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cie4q"]
 size = Vector3(2.03526, 0.344391, 1.6958)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0mf1"]
+size = Vector3(2.69006, 2.15894, 0.208862)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_q1h4m"]
 size = Vector3(1.61951, 0.821259, 1.69189)
 
@@ -695,7 +699,16 @@ data = PackedVector3Array(0.240076, 0.155715, 0.0125367, 0.248499, 0.155713, 0.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vcl3u"]
 height = 1.0
 
-[sub_resource type="Resource" id="Resource_788cc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_42n03"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v38ud"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_h1tvs"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Resource" id="Resource_6rroq"]
 resource_local_to_scene = true
 script = ExtResource("17_d1fft")
 hp = 2
@@ -1269,15 +1282,15 @@ transform = Transform3D(1, 0, 0, 0, 0.811961, -0.583711, 0, 0.583711, 0.811961, 
 shape = SubResource("BoxShape3D_828lu")
 
 [node name="CollisionShape3D19" type="CollisionShape3D" parent="Submarine2/FuckingStairs"]
-transform = Transform3D(1, 0, 0, 0, 0.811961, -0.583711, 0, 0.583711, 0.811961, -1.72542, 3.60417, -7.98511)
+transform = Transform3D(1, 0, 0, 0, 0.811961, -0.583711, 0, 0.583711, 0.811961, -1.72542, 3.62402, -7.98511)
 shape = SubResource("BoxShape3D_odk0p")
 
 [node name="CollisionShape3D20" type="CollisionShape3D" parent="Submarine2/FuckingStairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75136, 4.76847, -9.70499)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75136, 4.77051, -9.71079)
 shape = SubResource("BoxShape3D_sjgpk")
 
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="Submarine2/FuckingStairs"]
-transform = Transform3D(1, 0, 0, 0, 0.999998, -0.00216419, 0, 0.00216419, 0.999998, -1.74687, 2.33614, -1.88923)
+transform = Transform3D(1, 0, 0, 0, 0.999998, -0.00216419, 0, 0.00216419, 0.999998, -1.74687, 2.33614, -1.90425)
 shape = SubResource("BoxShape3D_1rlvr")
 
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="Submarine2/FuckingStairs"]
@@ -1285,8 +1298,12 @@ transform = Transform3D(1, 0, 0, 0, 0.999998, -0.00216419, 0, 0.00216419, 0.9999
 shape = SubResource("BoxShape3D_0jm71")
 
 [node name="CollisionShape3D14" type="CollisionShape3D" parent="Submarine2/FuckingStairs"]
-transform = Transform3D(0.827365, 0.561663, -0.00121555, -0.561665, 0.827363, -0.00179057, -5.63699e-12, 0.00216419, 0.999998, -0.231437, 0.053583, 2.09734)
+transform = Transform3D(0.827365, 0.561663, -0.00121555, -0.561665, 0.827363, -0.00179057, -5.63699e-12, 0.00216419, 0.999998, -0.231437, 0.021636, 2.09734)
 shape = SubResource("BoxShape3D_cie4q")
+
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="Submarine2/FuckingStairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18997, 0.666517, 3.01457)
+shape = SubResource("BoxShape3D_r0mf1")
 
 [node name="CollisionShape3D15" type="CollisionShape3D" parent="Submarine2/FuckingStairs"]
 transform = Transform3D(0.8301, -0.557613, 0.00120678, 0.557615, 0.830098, -0.00179649, 9.54528e-11, 0.00216419, 0.999998, 1.28828, -0.0660847, -8.31732)
@@ -1297,7 +1314,7 @@ transform = Transform3D(1, 0, 0, 0, 0.80999, 0.586443, 0, -0.586443, 0.80999, 2.
 shape = SubResource("BoxShape3D_1ivv2")
 
 [node name="CollisionShape3D18" type="CollisionShape3D" parent="Submarine2/FuckingStairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60549, 2.1395, -4.59988)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60549, 2.1395, -4.58477)
 shape = SubResource("BoxShape3D_hsdnh")
 
 [node name="CollisionShape3D16" type="CollisionShape3D" parent="Submarine2/FuckingStairs"]
@@ -1424,9 +1441,21 @@ script = ExtResource("39_tnmrs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("CylinderShape3D_vcl3u")
 
+[node name="ShowingTipEvent_1" parent="Events" instance=ExtResource("38_8gsgs")]
+transform = Transform3D(-0.0174378, 2.87806e-05, -0.0687087, 0, 0.024, 0.000174533, 0.0164901, 3.04347e-05, -0.0726574, 1.8645, 1.91579, 10.4916)
+texture = SubResource("ViewportTexture_42n03")
+
+[node name="ShowingTipEvent_2" parent="Events" instance=ExtResource("38_8gsgs")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.1, -0.539453, 6.23407, -15.9988)
+texture = SubResource("ViewportTexture_v38ud")
+
+[node name="ShowingTipEvent_3" parent="Events" instance=ExtResource("38_8gsgs")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.1, -0.543049, 1.68545, 15.6854)
+texture = SubResource("ViewportTexture_h1tvs")
+
 [node name="VirtualMap" parent="." groups=["the_most_important_node"] instance=ExtResource("15_pweb8")]
 vmap = ExtResource("16_i8gtw")
-_player = SubResource("Resource_788cc")
+_player = SubResource("Resource_6rroq")
 _virtual_enemies = Array[ExtResource("18_tgtki")]([SubResource("Resource_pbrj0"), SubResource("Resource_wjhcs")])
 
 [connection signal="focused" from="Console/console_interactions/anim_rocket/Interactable" to="Console/console_interactions/anim_rocket" method="_on_interactable_focused"]

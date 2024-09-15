@@ -1,9 +1,5 @@
 extends Node3D
 
-signal screamer_2_set()
-
-@onready var interactable: Interactable = %Interactable
-
 func _ready() -> void:
 	pass
 
@@ -14,7 +10,7 @@ func _on_interactable_focused(interactor: Interactor) -> void:
 	pass
 
 func _on_interactable_interacted(interactor: Interactor) -> void:
-	pass
+	EventBus.screamer_2_set.emit()
 
 func _on_interactable_unfocused(interactor: Interactor) -> void:
 	pass

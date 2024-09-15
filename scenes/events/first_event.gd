@@ -5,6 +5,7 @@ extends Node
 @onready var animation_player: AnimationPlayer = $Monster/AnimationPlayer
 @onready var screamer_1: Area3D = %Screamer1
 @onready var screamer_2: Area3D = %Screamer2
+@onready var display_first_event: Node3D = $DisplayFirstEvent
 
 var screamer_1_shown: bool = false
 var screamer_2_shown: bool = false
@@ -13,6 +14,7 @@ func _ready() -> void:
 	monster.visible = false
 	screamer_1.body_entered.connect(_on_screamer_1_body_entered)
 	screamer_2.body_entered.connect(_on_screamer_2_body_entered)
+	EventBus.screamer_2_set.connect(_on_screamer_2_set)
 	timer.timeout.connect(_on_timer_timeout)
 	animation_player.animation_finished.connect(_on_animation_finished)
 
@@ -25,6 +27,7 @@ func _on_screamer_1_body_entered(body: Node) -> void:
 			monster.rotation = Vector3(0, 0, 0)
 			monster.position = Vector3(-0.63, 4.888, 9.235)
 			screamer_1_shown = true
+			EventBus.event_notificated.emit()
 
 func _on_screamer_2_set() -> void:
 	screamer_2.monitorable = true

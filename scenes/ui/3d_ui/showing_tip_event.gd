@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_event_notificated(_in_notif: String) -> void:
+	tip.text = str("go to" + _in_notif)
 	freaking_music.play()
 	self.show()
 
