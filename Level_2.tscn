@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=4 uid="uid://o4egrn7wleqn"]
+[gd_scene load_steps=130 format=4 uid="uid://o4egrn7wleqn"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_7ywwv"]
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="2_s4g0x"]
@@ -203,6 +203,13 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3jlfn")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m3s30"]
+viewport_path = NodePath("Console/text_display/PlayerInfo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svdyf"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_m3s30")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nn47g"]
 resource_name = "jam"
@@ -712,7 +719,7 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_v38ud"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="Resource" id="Resource_vncwk"]
+[sub_resource type="Resource" id="Resource_4kxfr"]
 resource_local_to_scene = true
 script = ExtResource("38_qkpu1")
 hp = 2
@@ -837,6 +844,7 @@ transform = Transform3D(0.99851, 0, -0.0584742, 0, 1, 0, 0.0545668, 0, 1.07001, 
 material_overlay = SubResource("StandardMaterial3D_6qq2b")
 mesh = SubResource("ArrayMesh_b841w")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_svdyf")
 
 [node name="PlayerInfo" type="SubViewport" parent="Console/text_display"]
 disable_3d = true
@@ -1352,7 +1360,7 @@ texture = SubResource("ViewportTexture_v38ud")
 
 [node name="VirtualMap" parent="." groups=["the_most_important_node"] instance=ExtResource("36_xsnwp")]
 vmap = ExtResource("37_rel1e")
-_player = SubResource("Resource_vncwk")
+_player = SubResource("Resource_4kxfr")
 _virtual_enemies = Array[ExtResource("39_quuct")]([SubResource("Resource_f5p8q")])
 
 [node name="BackgroundSoundsAndMusic" parent="." instance=ExtResource("40_bdm00")]

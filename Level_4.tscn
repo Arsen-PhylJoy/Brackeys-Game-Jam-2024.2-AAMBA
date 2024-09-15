@@ -719,12 +719,12 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_v38ud"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="Resource" id="Resource_s8yjb"]
+[sub_resource type="Resource" id="Resource_0f2sr"]
 resource_local_to_scene = true
 script = ExtResource("38_pf71g")
 hp = 2
 air = 69
-torpedos = 2
+torpedos = 4
 air_refill_amount = 2
 damage_from_rocks = 1
 damage_from_destructables = 1
@@ -1414,7 +1414,7 @@ texture = SubResource("ViewportTexture_v38ud")
 
 [node name="VirtualMap" parent="." groups=["the_most_important_node"] instance=ExtResource("36_f0kng")]
 vmap = ExtResource("37_75xol")
-_player = SubResource("Resource_s8yjb")
+_player = SubResource("Resource_0f2sr")
 _virtual_enemies = Array[ExtResource("39_ci6wa")]([SubResource("Resource_ygvkh"), SubResource("Resource_2858o"), SubResource("Resource_ijl1m"), SubResource("Resource_e785s"), SubResource("Resource_g57tu"), SubResource("Resource_2puux"), SubResource("Resource_muqdd"), SubResource("Resource_36qrf"), SubResource("Resource_pm4s8"), SubResource("Resource_koudw")])
 
 [node name="BackgroundSoundsAndMusic" parent="." instance=ExtResource("40_bmuek")]
