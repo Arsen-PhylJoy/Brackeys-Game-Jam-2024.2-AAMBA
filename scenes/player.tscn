@@ -5,16 +5,23 @@
 [ext_resource type="PackedScene" uid="uid://c38ddo3aijdng" path="res://scenes/player_interactor.tscn" id="3_5ry73"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ux4fr"]
-size = Vector3(1.5, 1.8, 3)
+size = Vector3(0.061, 0.067, 2.354)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uiaav"]
+margin = 0.12
+radius = 0.1
+height = 1.6
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_o0xr3"]
-size = Vector3(1, 2, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h5len"]
+margin = 0.012
+radius = 0.1
+height = 1.6
 
 [node name="Basic FPS Player" type="CharacterBody3D"]
 collision_mask = 2
 script = ExtResource("1_q7ga8")
+SPEED = 5.0
+ACCEL = 50.0
 
 [node name="Head" parent="." instance=ExtResource("2_hphuk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
@@ -24,7 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0)
 player = NodePath("../..")
 
 [node name="CollisionShape3D" parent="Head/PlayerInteractor" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.266, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00617453, 1.79836, -1.10882)
 shape = SubResource("BoxShape3D_ux4fr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -34,6 +41,6 @@ shape = SubResource("CapsuleShape3D_uiaav")
 [node name="InteractablesShape" type="CollisionShape3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_o0xr3")
+shape = SubResource("CapsuleShape3D_h5len")
 
 [editable path="Head/PlayerInteractor"]

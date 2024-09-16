@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://chn260auyeqjw" path="res://assets/sfx/funny_peep_looped.mp3" id="2_k8uka"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_053fb"]
+height = 1.0
 
 [node name="FinishSoundSonar" type="Node3D"]
 script = ExtResource("1_4xkv7")

@@ -58,11 +58,18 @@ folder_colors={
 "res://scenes/game_levels/": "green"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 turn_left_interactable=""
 turn_right_interactable=""
 move_forward_interactable=""
+torpedo_launch_interactable=""
+afterburner_interactable=""
+the_most_important_node=""
 
 [input]
 

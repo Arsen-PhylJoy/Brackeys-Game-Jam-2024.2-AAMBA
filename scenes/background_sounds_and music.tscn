@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://cl057cmiyo2w1"]
+
+[ext_resource type="Script" path="res://scenes/background_sounds_and_music.gd" id="1_vlsxk"]
+[ext_resource type="AudioStream" uid="uid://dfx30g030j1nw" path="res://assets/sfx/Music/Fon.mp3" id="2_bpltm"]
+[ext_resource type="AudioStream" uid="uid://p6arwlsixakh" path="res://assets/sfx/Ne music/Amb 6.mp3" id="3_qcelu"]
+[ext_resource type="AudioStream" uid="uid://1bgxcqkoq2jp" path="res://assets/sfx/Ne music/Amb 5 .mp3" id="4_56hjv"]
+[ext_resource type="AudioStream" uid="uid://cscvqcsmggtgc" path="res://assets/sfx/Ne music/Amb 4 .mp3" id="5_wkyfn"]
+[ext_resource type="AudioStream" uid="uid://bk33gnjdjtv" path="res://assets/sfx/Ne music/Amb 3 .mp3" id="6_v3enx"]
+[ext_resource type="AudioStream" uid="uid://csb5t7u321ddb" path="res://assets/sfx/Ne music/amb 2.mp3" id="7_56e04"]
+[ext_resource type="AudioStream" uid="uid://b1fqlmrq4fkux" path="res://assets/sfx/Ne music/Amb 1.mp3" id="8_u8xky"]
+[ext_resource type="AudioStream" uid="uid://w5y14h7ec8qn" path="res://assets/sfx/Ne music/Шум воды.mp3" id="9_t3ytp"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v0c6m"]
+playback_mode = 1
+streams_count = 6
+stream_0/stream = ExtResource("3_qcelu")
+stream_1/stream = ExtResource("4_56hjv")
+stream_2/stream = ExtResource("5_wkyfn")
+stream_3/stream = ExtResource("6_v3enx")
+stream_4/stream = ExtResource("7_56e04")
+stream_5/stream = ExtResource("8_u8xky")
+
+[node name="BackgroundSoundsAndMusic" type="Node"]
+script = ExtResource("1_vlsxk")
+random_amb_interval = 1.0
+
+[node name="BackCalm" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_bpltm")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="Ambients" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_v0c6m")
+bus = &"SFX"
+
+[node name="AmbTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+autostart = true
+
+[node name="Water" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_t3ytp")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

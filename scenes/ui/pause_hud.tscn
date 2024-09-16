@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3i7kv4x8dcnt"]
+[gd_scene load_steps=8 format=3 uid="uid://c3i7kv4x8dcnt"]
 
 [ext_resource type="Script" path="res://scenes/ui/pause_hud.gd" id="1_t60hw"]
 [ext_resource type="Shader" path="res://godot_resources/shaders/blur.gdshader" id="2_0hpwj"]
 [ext_resource type="PackedScene" uid="uid://tkqe18ptm7mv" path="res://scenes/ui/soung_settings.tscn" id="2_o014p"]
+[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/Fonts/whitrabt.ttf" id="4_c4mgl"]
 
 [sub_resource type="Gradient" id="Gradient_egtlk"]
 
@@ -43,18 +44,19 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-size_flags_stretch_ratio = 5.42
+size_flags_stretch_ratio = 1.66
 
 [node name="SoungSettings" parent="HBoxContainer" instance=ExtResource("2_o014p")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+size_flags_stretch_ratio = 1.35
 
 [node name="Control" type="Control" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-size_flags_stretch_ratio = 7.25
+size_flags_stretch_ratio = 6.9
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -65,6 +67,7 @@ size_flags_vertical = 4
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_c4mgl")
 theme_override_font_sizes/font_size = 131
 text = "Continue"
 
@@ -78,6 +81,7 @@ size_flags_stretch_ratio = 2.15
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_c4mgl")
 theme_override_font_sizes/font_size = 131
 text = "Exit"
 

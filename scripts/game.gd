@@ -21,3 +21,7 @@ func _on_player_won() -> void:
 		Global.index_current_level = 0
 		LevelManager.load_level(Global.levels[Global.index_current_level])
 	LevelManager.load_level(Global.levels[Global.index_current_level])
+
+
+func _on_interactable_unfocused(interactor: Interactor) -> void:
+	pass # Replace with function body.

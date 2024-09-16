@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhwt4ytwhp60l"]
 
-[ext_resource type="PackedScene" uid="uid://cm8hc0c1tvubx" path="res://assets/game_ready.blend" id="1_p360p"]
+[ext_resource type="PackedScene" uid="uid://0jhvpt08v3v0" path="res://assets/junk/game_ready.blend" id="1_p360p"]
 [ext_resource type="Material" uid="uid://d2sac0o84lqtd" path="res://addons/pixpal_tools/Imphenzia/PixPal/Materials/M_ImphenziaPixPal.tres" id="2_swx4k"]
 
 [node name="game_ready" instance=ExtResource("1_p360p")]

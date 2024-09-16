@@ -1,13 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci5jef57ayrjh"]
+[gd_scene load_steps=8 format=3 uid="uid://ci5jef57ayrjh"]
 
 [ext_resource type="Script" path="res://scenes/game_levels/main_menu.gd" id="1_d01wm"]
-[ext_resource type="PackedScene" uid="uid://tkqe18ptm7mv" path="res://scenes/ui/soung_settings.tscn" id="2_pin2y"]
+[ext_resource type="Shader" path="res://godot_resources/shaders/vhs.gdshader" id="2_ej7p1"]
 [ext_resource type="PackedScene" uid="uid://dvisit7uer40p" path="res://scenes/ui/exit.tscn" id="2_qfkcs"]
+[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/Fonts/whitrabt.ttf" id="3_eqfsx"]
+[ext_resource type="AudioStream" uid="uid://i4xr5tsjyr0q" path="res://assets/sfx/Music/mainmenu.mp3" id="4_7lfr6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayt2q"]
+bg_color = Color(0.847059, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sctse"]
+shader = ExtResource("2_ej7p1")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 1.0
+shader_parameter/scanlines_width = 0.12
+shader_parameter/grille_opacity = 0.204
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.22
+shader_parameter/aberration = 1.0
+shader_parameter/brightness = 1.97
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 5.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 1.0
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_d01wm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BG" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ayt2q")
+
+[node name="VHS" type="Panel" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_sctse")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -28,6 +73,7 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_eqfsx")
 theme_override_font_sizes/font_size = 127
 text = "Play"
 
@@ -44,13 +90,11 @@ size_flags_vertical = 3
 [node name="Exit" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("2_qfkcs")]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_eqfsx")
 theme_override_font_sizes/font_size = 36
-
-[node name="SoungSettings" parent="." instance=ExtResource("2_pin2y")]
-offset_right = -1150.0
-offset_bottom = -501.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+stream = ExtResource("4_7lfr6")
+autoplay = true
+parameters/looping = true

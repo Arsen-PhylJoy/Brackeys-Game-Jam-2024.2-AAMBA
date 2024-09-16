@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cjauw8kwi7b6x"]
+[gd_scene load_steps=28 format=3 uid="uid://cjauw8kwi7b6x"]
 
 [ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/turn_left.gd" id="1_dyc27"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_e38ak"]
@@ -8,14 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://qbx5cmhsh6nn" path="res://scenes/ui/player_info.tscn" id="3_rv7mh"]
 [ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/move_forward.gd" id="4_mgvgy"]
 [ext_resource type="PackedScene" uid="uid://duqo6j0k20vgv" path="res://scenes/screens_periscope/screen.tscn" id="5_ed5kx"]
-[ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="6_g1jr6"]
 [ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="7_hm35q"]
 [ext_resource type="PackedScene" uid="uid://tj2a8hn60yt3" path="res://scenes/ui/sonar.tscn" id="8_ugef1"]
 [ext_resource type="Resource" uid="uid://jjitux2t22gi" path="res://godot_resources/vmap_levels/level_y.tres" id="11_uaqnr"]
 [ext_resource type="Script" path="res://godot_resources/virtual_enemies/virtual_enemy.gd" id="13_605ts"]
 [ext_resource type="PackedScene" uid="uid://cll5522o2q2tj" path="res://scenes/peripherals_dynamic_scenes/finish_sound_sonar.tscn" id="13_ofqp8"]
 [ext_resource type="Script" path="res://godot_resources/virtual_player.gd" id="14_b1vap"]
-[ext_resource type="PackedScene" uid="uid://dhwt4ytwhp60l" path="res://scenes/Podlodka.tscn" id="16_dqd53"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_whm7e"]
 viewport_path = NodePath("CanvasLayer/SubViewport")
@@ -49,11 +47,7 @@ viewport_path = NodePath("Screen")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_jlxmh")
 
-[sub_resource type="BoxMesh" id="BoxMesh_1s05s"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_mioe7"]
-
-[sub_resource type="Resource" id="Resource_13dtu"]
+[sub_resource type="Resource" id="Resource_k80gp"]
 resource_local_to_scene = true
 script = ExtResource("14_b1vap")
 hp = 2
@@ -77,30 +71,8 @@ ai_type = 0
 start_ping_pong_direction = 0
 matrix_movement = -1
 
-[sub_resource type="Environment" id="Environment_de44m"]
-background_mode = 2
-background_energy_multiplier = 0.0
-ssr_enabled = true
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.27927, 0.305425, 0.346539, 1)
-fog_density = 1.0
-volumetric_fog_density = 0.01
-volumetric_fog_emission_energy = 0.85
-
 [node name="Game" type="Node3D"]
 script = ExtResource("1_e38ak")
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.601327, 0, 0.799003, 0, 1, 0, -0.799003, 0, 0.601327, -8.60897, 2.204, -4.04962)
-texture = SubResource("ViewportTexture_whm7e")
-
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(0.565413, 0, -0.824808, 0, 1, 0, 0.824808, 0, 0.565413, 12.4885, 2.204, -1.11922)
-texture = SubResource("ViewportTexture_d35x4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -119,6 +91,14 @@ size = Vector2i(1075, 610)
 size_2d_override_stretch = true
 
 [node name="PlayerInfo" parent="CanvasLayer/SubViewport2" instance=ExtResource("3_rv7mh")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.601327, 0, 0.799003, 0, 1, 0, -0.799003, 0, 0.601327, -6.47981, 2.204, -4.04962)
+texture = SubResource("ViewportTexture_whm7e")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.565413, 0, -0.824808, 0, 1, 0, 0.824808, 0, 0.565413, 8.0645, 2.50785, -1.11922)
+texture = SubResource("ViewportTexture_d35x4")
 
 [node name="TurnLeft" type="Node3D" parent="."]
 transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, -1.824, 1, -1.139)
@@ -139,7 +119,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("CylinderShape3D_8e76n")
 
 [node name="TurnRight" type="Node3D" parent="."]
-transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, 2.876, 1, -1.139)
+transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, 1.4587, 1, -1.139)
 script = ExtResource("3_aohqf")
 
 [node name="TurnRightMesh" type="MeshInstance3D" parent="TurnRight"]
@@ -157,7 +137,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("CylinderShape3D_yjlv0")
 
 [node name="MoveForward" type="Node3D" parent="."]
-transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, 0.168, 1, 0.484)
+transform = Transform3D(0.913787, 0, -0.406194, 0, 1, 0, 0.406194, 0, 0.913787, -0.219101, 1, -1.14876)
 script = ExtResource("4_mgvgy")
 
 [node name="MoveForwardMesh" type="MeshInstance3D" parent="MoveForward"]
@@ -175,49 +155,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("CylinderShape3D_5l1jm")
 
 [node name="Screen2" parent="." instance=ExtResource("5_ed5kx")]
-transform = Transform3D(5.89253, 0, 0, 0, 5.22716, 0, 0, 0, 1, -2.92983, 5.5239, -6.00753)
+transform = Transform3D(5.89253, 0, 0, 0, 5.22716, 0, 0, 0, 1, 2.65541, 2.95154, -3.44881)
 surface_material_override/0 = SubResource("StandardMaterial3D_2lhiy")
 
 [node name="Screen" parent="." instance=ExtResource("5_ed5kx")]
-transform = Transform3D(5.37812, 0, 0, 0, 5.80996, 0, 0, 0, 1, 5.1006, 5.41886, -5.6408)
+transform = Transform3D(5.37812, 0, 0, 0, 5.80996, 0, 0, 0, 1, -1.39425, 2.95154, -3.44881)
 surface_material_override/0 = SubResource("StandardMaterial3D_f5dhr")
 _is_geometry = true
 
-[node name="Basic FPS Player" parent="." instance=ExtResource("6_g1jr6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55672, 1.33433, 1.73117)
-
-[node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(12.1202, 0, 0, 0, 1, 0, 0, 0, 7.44176, 1.49449, -0.356247, 1.57504)
-mesh = SubResource("BoxMesh_1s05s")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-collision_layer = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("BoxShape3D_mioe7")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.616563, -0.329153, 0.715198, -0.0215926, 0.901001, 0.433279, -0.787009, -0.282587, 0.548417, 0, 0, 0)
-
 [node name="FinishSoundSonar" parent="." instance=ExtResource("13_ofqp8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.86995, 0.589229, -1.04049)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.13786, 0.589229, -1.28702)
 
 [node name="VirtualMap" parent="." instance=ExtResource("7_hm35q")]
 vmap = ExtResource("11_uaqnr")
-_player = SubResource("Resource_13dtu")
+_player = SubResource("Resource_k80gp")
 _virtual_enemies = Array[ExtResource("13_605ts")]([SubResource("Resource_pbrj0"), SubResource("Resource_wjhcs")])
-
-[node name="game_ready" parent="." instance=ExtResource("16_dqd53")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.27469, -19.9817, -133.048)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="game_ready"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 7.28677, 18.9778)
-light_energy = 6.39
-light_volumetric_fog_energy = 1.086
-omni_range = 4096.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_de44m")
 
 [connection signal="focused" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_focused"]
 [connection signal="interacted" from="TurnLeft/Interactable" to="TurnLeft" method="_on_interactable_interacted"]
