@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://_utests_and_debug_instruments/test_scenes/test_game_day2/move_forward.gd" id="4_wr6ve"]
 [ext_resource type="PackedScene" uid="uid://duqo6j0k20vgv" path="res://scenes/screens_periscope/screen.tscn" id="5_6s4tx"]
 [ext_resource type="PackedScene" uid="uid://b7s7bwsjlfef2" path="res://_utests_and_debug_instruments/test_scenes/test_game_day3/air_bar.tscn" id="6_3obr3"]
-[ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player.tscn" id="6_eba6o"]
+[ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player/player.tscn" id="6_eba6o"]
 [ext_resource type="PackedScene" uid="uid://dp30jmwnmok6n" path="res://scenes/virtual/virtual_environment.tscn" id="7_rjfei"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_t2yg0"]

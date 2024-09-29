@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/fps/addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_q7ga8"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/fps/addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_hphuk"]
-[ext_resource type="PackedScene" uid="uid://c38ddo3aijdng" path="res://scenes/player_interactor.tscn" id="3_5ry73"]
+[ext_resource type="PackedScene" uid="uid://c38ddo3aijdng" path="res://scenes/player/player_interactor.tscn" id="3_5ry73"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ux4fr"]
 size = Vector3(0.061, 0.067, 2.354)
