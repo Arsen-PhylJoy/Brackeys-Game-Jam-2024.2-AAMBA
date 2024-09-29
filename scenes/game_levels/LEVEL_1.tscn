@@ -710,7 +710,7 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_v38ud"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="Resource" id="Resource_r0jqn"]
+[sub_resource type="Resource" id="Resource_dr347"]
 resource_local_to_scene = true
 script = ExtResource("38_s7etw")
 hp = 2
@@ -1099,6 +1099,11 @@ libraries = {
 
 [node name="Light" type="Node" parent="Submarine2"]
 
+[node name="OmniLight3D4" type="OmniLight3D" parent="Submarine2/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, -9.09487)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
+light_energy = 0.5
+
 [node name="OmniLight3D" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, 8.79808)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
@@ -1107,67 +1112,74 @@ light_energy = 0.5
 [node name="OmniLight3D2" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, -1.1802)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, -5.03694)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="Submarine2/Light"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, -9.09487)
-light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 4.08178, -10.1185)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 4.08178, 1.67053)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43856, 4.08178, 7.96696)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 10.8103)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 19.7874)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 26.5765)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D11" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 0.983164)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, -6.45891)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, -13.9296)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D14" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 2.51383, 19.2392)
 light_color = Color(0.999999, 0.229538, 0.174188, 1)
-light_energy = 0.5
+light_energy = 1.428
+omni_attenuation = 1.579
 
 [node name="OmniLight3D15" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.184712, 7.03181, 31.487)
@@ -1375,7 +1387,7 @@ texture = SubResource("ViewportTexture_v38ud")
 
 [node name="VirtualMap" parent="." groups=["the_most_important_node"] instance=ExtResource("36_xg7dh")]
 vmap = ExtResource("37_llgk7")
-_player = SubResource("Resource_r0jqn")
+_player = SubResource("Resource_dr347")
 
 [node name="BackgroundSoundsAndMusic" parent="." instance=ExtResource("39_oi8ct")]
 

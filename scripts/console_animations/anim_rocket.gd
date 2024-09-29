@@ -6,7 +6,7 @@ signal for_system_emitted()
 @onready var animation_rocket: AnimationPlayer = %AnimationRocket
 @onready var torpedo_player_button: AudioStreamPlayer3D = %torpedo_player_button
 @onready var torpedo_player_launch: AudioStreamPlayer3D = %torpedo_player_launch
-var launch_sound: AudioStreamMP3 = preload("res://assets/sfx/Ne music/Пуск торпеды.mp3") 
+var launch_sound: AudioStreamMP3 = preload("res://assets/sound/ne_music/Пуск торпеды.mp3") 
 
 var _is_button_down: bool = false
 
