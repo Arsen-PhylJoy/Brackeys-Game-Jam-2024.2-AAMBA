@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1bgxcqkoq2jp"
+path="res://.godot/imported/Amb 5 .mp3-826df5e9172c0eac812b8bb74c69b26c.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/ne_music/Amb 5 .mp3"
+dest_files=["res://.godot/imported/Amb 5 .mp3-826df5e9172c0eac812b8bb74c69b26c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

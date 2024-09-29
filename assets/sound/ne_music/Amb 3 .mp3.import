@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bk33gnjdjtv"
+path="res://.godot/imported/Amb 3 .mp3-0b297ecf97aff007c4d09cd847f564c6.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/ne_music/Amb 3 .mp3"
+dest_files=["res://.godot/imported/Amb 3 .mp3-0b297ecf97aff007c4d09cd847f564c6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

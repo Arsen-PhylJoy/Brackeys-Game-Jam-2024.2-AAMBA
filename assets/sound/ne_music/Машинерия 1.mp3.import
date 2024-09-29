@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3t7us201j8t3"
+path="res://.godot/imported/Машинерия 1.mp3-d2322d427036d2d322be26ab24f590ce.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/ne_music/Машинерия 1.mp3"
+dest_files=["res://.godot/imported/Машинерия 1.mp3-d2322d427036d2d322be26ab24f590ce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

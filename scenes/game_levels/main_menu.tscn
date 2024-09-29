@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/game_levels/main_menu.gd" id="1_d01wm"]
 [ext_resource type="Shader" path="res://godot_resources/shaders/vhs.gdshader" id="2_ej7p1"]
 [ext_resource type="PackedScene" uid="uid://dvisit7uer40p" path="res://scenes/ui/exit.tscn" id="2_qfkcs"]
-[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/Fonts/whitrabt.ttf" id="3_eqfsx"]
-[ext_resource type="AudioStream" uid="uid://i4xr5tsjyr0q" path="res://assets/sfx/Music/mainmenu.mp3" id="4_7lfr6"]
+[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/fonts/whitrabt.ttf" id="3_eqfsx"]
+[ext_resource type="AudioStream" uid="uid://i4xr5tsjyr0q" path="res://assets/sound/music/mainmenu.mp3" id="4_7lfr6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayt2q"]
 bg_color = Color(0.847059, 0, 0, 1)

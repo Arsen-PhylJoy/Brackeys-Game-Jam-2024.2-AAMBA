@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/ui/pause_hud.gd" id="1_t60hw"]
 [ext_resource type="Shader" path="res://godot_resources/shaders/blur.gdshader" id="2_0hpwj"]
 [ext_resource type="PackedScene" uid="uid://tkqe18ptm7mv" path="res://scenes/ui/soung_settings.tscn" id="2_o014p"]
-[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/Fonts/whitrabt.ttf" id="4_c4mgl"]
+[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/fonts/whitrabt.ttf" id="4_c4mgl"]
 
 [sub_resource type="Gradient" id="Gradient_egtlk"]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://482e1dnks1vf"
+path="res://.godot/imported/Кнопка 1.mp3-1d0846e9e224d323a7af10485fcd02c8.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/ne_music/Кнопка 1.mp3"
+dest_files=["res://.godot/imported/Кнопка 1.mp3-1d0846e9e224d323a7af10485fcd02c8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

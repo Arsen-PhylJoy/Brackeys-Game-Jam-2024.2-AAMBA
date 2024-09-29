@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://d36fu4506k5r0"]
 
 [ext_resource type="Script" path="res://scenes/ui/3d_ui/showing_tip_event.gd" id="1_bn0wq"]
-[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/Fonts/whitrabt.ttf" id="2_r74ki"]
-[ext_resource type="AudioStream" uid="uid://d373x8tjx1lv0" path="res://assets/sfx/Music/Event.mp3" id="3_phfll"]
+[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/fonts/whitrabt.ttf" id="2_r74ki"]
+[ext_resource type="AudioStream" uid="uid://d373x8tjx1lv0" path="res://assets/sound/music/Event.mp3" id="3_phfll"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6qdw8"]
 viewport_path = NodePath("SubViewport")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=4 uid="uid://dcns0p3t0cc4o"]
+[gd_scene load_steps=126 format=4 uid="uid://dcns0p3t0cc4o"]
 
 [ext_resource type="Script" path="res://scenes/game_levels/game.gd" id="1_44jar"]
 [ext_resource type="PackedScene" uid="uid://du6vm3dxivlih" path="res://scenes/player/player.tscn" id="2_jd2vp"]
@@ -17,14 +17,14 @@
 [ext_resource type="Script" path="res://scripts/console_animations/anim_rocket.gd" id="16_lp100"]
 [ext_resource type="Script" path="res://scenes/interactive/interactable.gd" id="17_w2xh4"]
 [ext_resource type="Shader" path="res://godot_resources/shaders/outline.gdshader" id="18_q40n3"]
-[ext_resource type="AudioStream" uid="uid://byopojek5ht5p" path="res://assets/sfx/Ne music/Кнопка-рычаг.mp3" id="19_l47bb"]
-[ext_resource type="AudioStream" uid="uid://bj46j57rwturg" path="res://assets/sfx/Ne music/Пуск торпеды.mp3" id="20_8msjc"]
+[ext_resource type="AudioStream" uid="uid://byopojek5ht5p" path="res://assets/sound/ne_music/Кнопка-рычаг.mp3" id="19_l47bb"]
+[ext_resource type="AudioStream" uid="uid://bj46j57rwturg" path="res://assets/sound/ne_music/Пуск торпеды.mp3" id="20_8msjc"]
 [ext_resource type="Script" path="res://scripts/console_animations/anim_turbo.gd" id="21_rsgmj"]
-[ext_resource type="AudioStream" uid="uid://482e1dnks1vf" path="res://assets/sfx/Ne music/Кнопка 1.mp3" id="22_v47nb"]
+[ext_resource type="AudioStream" uid="uid://482e1dnks1vf" path="res://assets/sound/ne_music/Кнопка 1.mp3" id="22_v47nb"]
 [ext_resource type="Script" path="res://scripts/console_animations/anim_move.gd" id="23_nppgd"]
-[ext_resource type="AudioStream" uid="uid://t1ajwxcap0yp" path="res://assets/sfx/Ne music/Кнопка 2.mp3" id="24_jid7t"]
+[ext_resource type="AudioStream" uid="uid://t1ajwxcap0yp" path="res://assets/sound/ne_music/Кнопка 2.mp3" id="24_jid7t"]
 [ext_resource type="Script" path="res://scripts/console_animations/anim_left.gd" id="25_2u7to"]
-[ext_resource type="AudioStream" uid="uid://k3qgtcii7mp" path="res://assets/sfx/Ne music/Кнопка 3.mp3" id="26_45con"]
+[ext_resource type="AudioStream" uid="uid://k3qgtcii7mp" path="res://assets/sound/ne_music/Кнопка 3.mp3" id="26_45con"]
 [ext_resource type="Script" path="res://scripts/console_animations/anim_right.gd" id="27_8jqlv"]
 [ext_resource type="PackedScene" uid="uid://cod6roj0bv5r6" path="res://assets/blenderMeshes/submarine/game_ready.glb" id="28_adka6"]
 [ext_resource type="Script" path="res://scenes/events/first_event.gd" id="29_3bkdf"]
@@ -38,8 +38,8 @@
 [ext_resource type="Resource" uid="uid://cf2uiwonnnva8" path="res://godot_resources/vmap_levels/LEVEL_1.tres" id="37_llgk7"]
 [ext_resource type="Script" path="res://godot_resources/virtual_player.gd" id="38_s7etw"]
 [ext_resource type="PackedScene" uid="uid://cl057cmiyo2w1" path="res://scenes/background_sounds_and music.tscn" id="39_oi8ct"]
-[ext_resource type="AudioStream" uid="uid://3t7us201j8t3" path="res://assets/sfx/Ne music/Машинерия 1.mp3" id="40_4opje"]
-[ext_resource type="AudioStream" uid="uid://do7ub6lyeyr3m" path="res://assets/sfx/Ne music/Engine.mp3" id="41_mgmuj"]
+[ext_resource type="AudioStream" uid="uid://3t7us201j8t3" path="res://assets/sound/ne_music/Машинерия 1.mp3" id="40_4opje"]
+[ext_resource type="AudioStream" uid="uid://do7ub6lyeyr3m" path="res://assets/sound/ne_music/Engine.mp3" id="41_mgmuj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7bqe"]
 
@@ -710,7 +710,7 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_v38ud"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="Resource" id="Resource_ot8wf"]
+[sub_resource type="Resource" id="Resource_r0jqn"]
 resource_local_to_scene = true
 script = ExtResource("38_s7etw")
 hp = 2
@@ -721,6 +721,37 @@ damage_from_rocks = 1
 damage_from_destructables = 1
 damage_from_enemies = 2
 after_burner = 2
+
+[sub_resource type="Environment" id="Environment_eqemc"]
+background_mode = 1
+tonemap_mode = 3
+tonemap_exposure = 1.95
+ssao_radius = 2.67
+ssao_intensity = 6.42
+ssao_power = 0.60919
+ssil_enabled = true
+ssil_radius = 3.09
+ssil_intensity = 0.32
+ssil_sharpness = 1.0
+ssil_normal_rejection = 0.61
+sdfgi_use_occlusion = true
+sdfgi_energy = 7.31
+glow_strength = 0.0
+glow_mix = 0.0
+glow_bloom = 1.0
+glow_blend_mode = 4
+glow_hdr_threshold = 4.0
+glow_hdr_scale = 3.1
+glow_hdr_luminance_cap = 32.25
+volumetric_fog_density = 0.1001
+volumetric_fog_albedo = Color(0.999904, 0.377871, 0.312205, 1)
+volumetric_fog_anisotropy = -0.52
+volumetric_fog_length = 362.03
+volumetric_fog_detail_spread = 1.07177
+adjustment_enabled = true
+adjustment_brightness = 1.48
+adjustment_contrast = 1.24
+adjustment_saturation = 1.3
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_44jar")
@@ -1070,77 +1101,81 @@ libraries = {
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, 8.79808)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, -1.1802)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, -5.03694)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 1.44221, -9.09487)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 4.08178, -10.1185)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696674, 4.08178, 1.67053)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43856, 4.08178, 7.96696)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 10.8103)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 19.7874)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 26.5765)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D11" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, 0.983164)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, -6.45891)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 6.58822, -13.9296)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D14" type="OmniLight3D" parent="Submarine2/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28258, 2.51383, 19.2392)
-light_color = Color(1, 0.346577, 0.280009, 1)
+light_color = Color(0.999999, 0.229538, 0.174188, 1)
 light_energy = 0.5
 
 [node name="OmniLight3D15" type="OmniLight3D" parent="Submarine2/Light"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.184712, 6.56562, 33.8429)
-light_energy = 2.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.184712, 7.03181, 31.487)
+light_energy = 0.5
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="Submarine2/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.184712, 3.88079, 27.222)
+light_energy = 0.5
 
 [node name="Submarine" parent="Submarine2" instance=ExtResource("28_adka6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.430676, 0, -0.443177)
@@ -1340,7 +1375,7 @@ texture = SubResource("ViewportTexture_v38ud")
 
 [node name="VirtualMap" parent="." groups=["the_most_important_node"] instance=ExtResource("36_xg7dh")]
 vmap = ExtResource("37_llgk7")
-_player = SubResource("Resource_ot8wf")
+_player = SubResource("Resource_r0jqn")
 
 [node name="BackgroundSoundsAndMusic" parent="." instance=ExtResource("39_oi8ct")]
 
@@ -1359,6 +1394,9 @@ autoplay = true
 max_distance = 5.0
 bus = &"SFX"
 parameters/looping = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eqemc")
 
 [connection signal="focused" from="Console/console_interactions/anim_rocket/Interactable" to="Console/console_interactions/anim_rocket" method="_on_interactable_focused"]
 [connection signal="interacted" from="Console/console_interactions/anim_rocket/Interactable" to="Console/console_interactions/anim_rocket" method="_on_interactable_interacted"]

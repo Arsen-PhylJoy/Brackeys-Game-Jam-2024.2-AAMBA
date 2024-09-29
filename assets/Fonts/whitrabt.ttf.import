@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://lac71ajg8sb3"
-path="res://.godot/imported/whitrabt.ttf-a60acfe5452056251d96c0ae57b5965d.fontdata"
+path="res://.godot/imported/whitrabt.ttf-653093d8222bbc8d8c9815770a08c092.fontdata"
 
 [deps]
 
-source_file="res://assets/Fonts/whitrabt.ttf"
-dest_files=["res://.godot/imported/whitrabt.ttf-a60acfe5452056251d96c0ae57b5965d.fontdata"]
+source_file="res://assets/fonts/whitrabt.ttf"
+dest_files=["res://.godot/imported/whitrabt.ttf-653093d8222bbc8d8c9815770a08c092.fontdata"]
 
 [params]
 

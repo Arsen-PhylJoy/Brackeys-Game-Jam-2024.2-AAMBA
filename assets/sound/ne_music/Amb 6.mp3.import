@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p6arwlsixakh"
+path="res://.godot/imported/Amb 6.mp3-0b72698e2716727d3ccd121470c657c5.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/ne_music/Amb 6.mp3"
+dest_files=["res://.godot/imported/Amb 6.mp3-0b72698e2716727d3ccd121470c657c5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

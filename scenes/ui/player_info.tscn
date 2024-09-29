@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/ui/player_info.gd" id="1_0se3y"]
 [ext_resource type="Shader" path="res://godot_resources/shaders/vhs.gdshader" id="2_cn4o4"]
-[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/Fonts/whitrabt.ttf" id="3_0ee80"]
+[ext_resource type="FontFile" uid="uid://lac71ajg8sb3" path="res://assets/fonts/whitrabt.ttf" id="3_0ee80"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tralq"]
 resource_local_to_scene = true
